@@ -1,0 +1,8 @@
+../X-CUBE-AI/App/app_x-cube-ai.c:108:13:ai_log_err	16	static
+../X-CUBE-AI/App/app_x-cube-ai.c:121:12:ai_boostrap	32	static
+../X-CUBE-AI/App/app_x-cube-ai.c:164:12:ai_run	16	static
+../X-CUBE-AI/App/app_x-cube-ai.c:177:17:simple_random	4	static
+../X-CUBE-AI/App/app_x-cube-ai.c:184:5:acquire_and_process_data	96	static
+../X-CUBE-AI/App/app_x-cube-ai.c:203:5:post_process	192	static
+../X-CUBE-AI/App/app_x-cube-ai.c:228:6:MX_X_CUBE_AI_Init	8	static
+../X-CUBE-AI/App/app_x-cube-ai.c:237:6:MX_X_CUBE_AI_Process	16	static

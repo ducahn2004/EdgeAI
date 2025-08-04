@@ -29,6 +29,7 @@ NeuralNetwork::NeuralNetwork()
     resolver->AddReshape();
     resolver->AddQuantize();
     resolver->AddDequantize();
+    resolver->AddTanh();
 
     tensor_arena = (uint8_t *)malloc(kArenaSize);
     if (!tensor_arena)
