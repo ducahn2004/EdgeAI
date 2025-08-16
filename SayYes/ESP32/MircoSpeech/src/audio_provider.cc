@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "audio_provider.h"
 #include "driver/i2s.h"
 #include "driver/gpio.h"
@@ -11,29 +12,21 @@ int16_t g_audio_output_buffer[kMaxAudioSampleSize];
 volatile int32_t g_latest_audio_timestamp = 0;
 }  // namespace
 
-#define I2S_WS   4
-#define I2S_SD   15
-#define I2S_SCK  2
-#define I2S_LR   16   // Chân L/R để chọn kênh
+#define I2S_SAMPLE_SHIFT   14
 
 static void InitI2SMic() {
-  // Cấu hình chân L/R ở mức cao
-  gpio_config_t io_conf = {};
-  io_conf.intr_type = GPIO_INTR_DISABLE;
-  io_conf.mode = GPIO_MODE_OUTPUT;
-  io_conf.pin_bit_mask = (1ULL << I2S_LR);
-  io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
-  io_conf.pull_up_en = GPIO_PULLUP_DISABLE;
-  gpio_config(&io_conf);
-  gpio_set_level((gpio_num_t)I2S_LR, 1); // Set mức cao
+  Serial.println("[I2S] Bắt đầu khởi tạo mic...");
+
+  // Gỡ driver cũ nếu có
+  i2s_driver_uninstall(I2S_PORT);
 
   // Cấu hình I2S
   i2s_config_t i2s_config = {
     .mode = (i2s_mode_t)(I2S_MODE_MASTER | I2S_MODE_RX),
-    .sample_rate = kAudioSampleFrequency,
+    .sample_rate = 16000,
     .bits_per_sample = I2S_BITS_PER_SAMPLE_32BIT,
     .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
-    .communication_format = I2S_COMM_FORMAT_I2S,
+    .communication_format = (i2s_comm_format_t)(I2S_COMM_FORMAT_STAND_I2S),
     .intr_alloc_flags = 0,
     .dma_buf_count = 8,
     .dma_buf_len = 64,
@@ -49,15 +42,27 @@ static void InitI2SMic() {
     .data_in_num = I2S_SD
   };
 
-  i2s_driver_install(I2S_NUM_0, &i2s_config, 0, NULL);
-  i2s_set_pin(I2S_NUM_0, &pin_config);
-  i2s_zero_dma_buffer(I2S_NUM_0);
+  if (i2s_driver_install(I2S_PORT, &i2s_config, 0, NULL) == ESP_OK) {
+    Serial.println("[I2S] Driver install OK");
+  } else {
+    Serial.println("[I2S] Driver install FAILED");
+  }
+
+  if (i2s_set_pin(I2S_PORT, &pin_config) == ESP_OK) {
+    Serial.println("[I2S] Pin config OK");
+  } else {
+    Serial.println("[I2S] Pin config FAILED");
+  }
+
+  i2s_zero_dma_buffer(I2S_PORT);
+  Serial.println("[I2S] Mic ready!");
 }
 
 TfLiteStatus InitAudioRecording(tflite::ErrorReporter* error_reporter) {
   InitI2SMic();
   g_latest_audio_timestamp = 0;
   g_is_audio_initialized = true;
+  Serial.println("[I2S] InitAudioRecording hoàn tất.");
   return kTfLiteOk;
 }
 
@@ -75,11 +80,11 @@ TfLiteStatus GetAudioSamples(tflite::ErrorReporter* error_reporter,
   const int samples_to_read = duration_ms * (kAudioSampleFrequency / 1000);
   int32_t temp32;
   for (int i = 0; i < samples_to_read; i++) {
-    i2s_read(I2S_NUM_0, &temp32, sizeof(temp32), &bytes_read, portMAX_DELAY);
-    g_audio_output_buffer[i] = (int16_t)(temp32 >> 14); // Giảm từ 32-bit về 16-bit
+    i2s_read(I2S_PORT, &temp32, sizeof(temp32), &bytes_read, portMAX_DELAY);
+    g_audio_output_buffer[i] = (int16_t)(temp32 >> I2S_SAMPLE_SHIFT);
   }
 
-  *audio_samples_size = kMaxAudioSampleSize;
+  *audio_samples_size = samples_to_read;
   *audio_samples = g_audio_output_buffer;
   g_latest_audio_timestamp += duration_ms;
 
@@ -89,4 +94,3 @@ TfLiteStatus GetAudioSamples(tflite::ErrorReporter* error_reporter,
 int32_t LatestAudioTimestamp() {
   return g_latest_audio_timestamp;
 }
-

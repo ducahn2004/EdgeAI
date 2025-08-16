@@ -20,10 +20,10 @@ limitations under the License.
 #include "tensorflow/lite/micro/micro_error_reporter.h"
 
 
-#define I2S_WS   4
-#define I2S_SD   15
-#define I2S_SCK  2
-#define I2S_LR   16
+#define I2S_WS    25   // LRCLK
+#define I2S_SD    34   // DOUT (input-only)
+#define I2S_SCK   26   // BCLK
+#define I2S_PORT  I2S_NUM_0
 
 // This is an abstraction around an audio source like a microphone, and is
 // expected to return 16-bit PCM sample data for a given point in time. The
