@@ -13,4 +13,4 @@ D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.c:
 D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.c:262:13:BSP_SD_AbortCallback	1
 D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.c:272:13:BSP_SD_WriteCpltCallback	1
 D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.c:282:13:BSP_SD_ReadCpltCallback	1
-D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.c:293:16:BSP_SD_IsDetected	1
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.c:293:16:BSP_SD_IsDetected	2

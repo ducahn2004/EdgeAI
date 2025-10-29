@@ -35,7 +35,8 @@ Application/User/FATFS/Target/bsp_driver_sd.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_delayblock.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sd_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
+ D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/fatfs_platform.h
 D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -72,3 +73,4 @@ D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sd_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/fatfs_platform.h:

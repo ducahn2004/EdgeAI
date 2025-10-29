@@ -1,10 +1,6 @@
-Application/User/FATFS/Target/sd_diskio.o: \
- D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/sd_diskio.c \
- ../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
- ../../Middlewares/Third_Party/FatFs/src/diskio.h \
- ../../Middlewares/Third_Party/FatFs/src/integer.h \
- ../../Middlewares/Third_Party/FatFs/src/ff.h ../../FATFS/Target/ffconf.h \
- ../../Core/Inc/main.h \
+Application/User/FATFS/Target/fatfs_platform.o: \
+ D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/fatfs_platform.c \
+ D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/fatfs_platform.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -39,16 +35,8 @@ Application/User/FATFS/Target/sd_diskio.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_delayblock.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sd_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
- ../../FATFS/Target/bsp_driver_sd.h ../../FATFS/Target/fatfs_platform.h \
- D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/sd_diskio.h \
- D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.h
-../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
-../../Middlewares/Third_Party/FatFs/src/diskio.h:
-../../Middlewares/Third_Party/FatFs/src/integer.h:
-../../Middlewares/Third_Party/FatFs/src/ff.h:
-../../FATFS/Target/ffconf.h:
-../../Core/Inc/main.h:
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/fatfs_platform.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
@@ -84,7 +72,3 @@ Application/User/FATFS/Target/sd_diskio.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sd_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
-../../FATFS/Target/bsp_driver_sd.h:
-../../FATFS/Target/fatfs_platform.h:
-D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/sd_diskio.h:
-D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/FATFS/Target/bsp_driver_sd.h:

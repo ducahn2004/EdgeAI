@@ -5,6 +5,7 @@
 "./Application/User/Core/sysmem.o"
 "./Application/User/FATFS/App/fatfs.o"
 "./Application/User/FATFS/Target/bsp_driver_sd.o"
+"./Application/User/FATFS/Target/fatfs_platform.o"
 "./Application/User/FATFS/Target/sd_diskio.o"
 "./Application/User/Startup/startup_stm32h743vitx.o"
 "./Drivers/CMSIS/system_stm32h7xx.o"

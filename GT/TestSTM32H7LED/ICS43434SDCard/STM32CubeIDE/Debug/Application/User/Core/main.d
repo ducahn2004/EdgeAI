@@ -39,6 +39,7 @@ Application/User/Core/main.o: \
  ../../FATFS/App/fatfs.h ../../Middlewares/Third_Party/FatFs/src/ff.h \
  ../../Middlewares/Third_Party/FatFs/src/integer.h \
  ../../FATFS/Target/ffconf.h ../../FATFS/Target/bsp_driver_sd.h \
+ ../../FATFS/Target/fatfs_platform.h \
  ../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
  ../../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../../Middlewares/Third_Party/FatFs/src/ff.h \
@@ -84,6 +85,7 @@ Application/User/Core/main.o: \
 ../../Middlewares/Third_Party/FatFs/src/integer.h:
 ../../FATFS/Target/ffconf.h:
 ../../FATFS/Target/bsp_driver_sd.h:
+../../FATFS/Target/fatfs_platform.h:
 ../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
 ../../Middlewares/Third_Party/FatFs/src/diskio.h:
 ../../Middlewares/Third_Party/FatFs/src/ff.h:

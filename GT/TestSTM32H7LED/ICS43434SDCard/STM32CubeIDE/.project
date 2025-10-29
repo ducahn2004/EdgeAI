@@ -217,6 +217,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/FATFS/Target/bsp_driver_sd.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/FATFS/Target/fatfs_platform.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/FATFS/Target/fatfs_platform.c</locationURI>
+		</link>
+		<link>
 			<name>Application/User/FATFS/Target/sd_diskio.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/FATFS/Target/sd_diskio.c</locationURI>
