@@ -21,8 +21,8 @@ limitations under the License.
 
 
 #define I2S_WS    25   // LRCLK
-#define I2S_SD    34   // DOUT (input-only)
-#define I2S_SCK   26   // BCLK
+#define I2S_SD    33   // DOUT (input-only)
+#define I2S_SCK   32   // BCLK
 #define I2S_PORT  I2S_NUM_0
 
 // This is an abstraction around an audio source like a microphone, and is

@@ -12,9 +12,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-
+#include <Arduino.h>
+#undef DEFAULT
 #include "main_functions.h"
-
 #include "audio_provider.h"
 #include "command_responder.h"
 #include "feature_provider.h"
@@ -28,37 +28,39 @@ limitations under the License.
 #include "tensorflow/lite/schema/schema_generated.h"
 #include "tensorflow/lite/version.h"
 
-
 // Globals, used for compatibility with Arduino-style sketches.
-namespace {
-tflite::ErrorReporter* error_reporter = nullptr;
-const tflite::Model* model = nullptr;
-tflite::MicroInterpreter* interpreter = nullptr;
-TfLiteTensor* model_input = nullptr;
-FeatureProvider* feature_provider = nullptr;
-RecognizeCommands* recognizer = nullptr;
-int32_t previous_time = 0;
+namespace
+{
+  tflite::ErrorReporter *error_reporter = nullptr;
+  const tflite::Model *model = nullptr;
+  tflite::MicroInterpreter *interpreter = nullptr;
+  TfLiteTensor *model_input = nullptr;
+  FeatureProvider *feature_provider = nullptr;
+  RecognizeCommands *recognizer = nullptr;
+  int32_t previous_time = 0;
 
-// Create an area of memory to use for input, output, and intermediate arrays.
-// The size of this will depend on the model you're using, and may need to be
-// determined by experimentation.
-constexpr int kTensorArenaSize = 10 * 1024;
-alignas(16) uint8_t tensor_arena[kTensorArenaSize];
-}  // namespace
+  // Create an area of memory to use for input, output, and intermediate arrays.
+  // The size of this will depend on the model you're using, and may need to be
+  // determined by experimentation.
+  constexpr int kTensorArenaSize = 98 * 1024;
+  alignas(16) uint8_t tensor_arena[kTensorArenaSize];
+} // namespace
 
 // The name of this function is important for Arduino compatibility.
-void setup() {
-  
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("=== ESP32 Voice Recognition (TensorFlow Lite Micro) ===");
+  Serial.println("System initializing...");
   // Set up logging. Google style is to avoid globals or statics because of
   // lifetime uncertainty, but since this has a trivial destructor it's okay.
   // NOLINTNEXTLINE(runtime-global-variables)
-  static tflite::MicroErrorReporter micro_error_reporter;
-  error_reporter = &micro_error_reporter;
 
   // Map the model into a usable data structure. This doesn't involve any
   // copying or parsing, it's a very lightweight operation.
   model = tflite::GetModel(g_tiny_conv_micro_features_model_data);
-  if (model->version() != TFLITE_SCHEMA_VERSION) {
+  if (model->version() != TFLITE_SCHEMA_VERSION)
+  {
     error_reporter->Report(
         "Model provided is schema version %d not equal "
         "to supported version %d.",
@@ -86,18 +88,48 @@ void setup() {
   interpreter = &static_interpreter;
 
   // Allocate memory from the tensor_arena for the model's tensors.
+  Serial.printf("Heap after AllocateTensors: %u\n", esp_get_free_heap_size());
   TfLiteStatus allocate_status = interpreter->AllocateTensors();
-  if (allocate_status != kTfLiteOk) {
+  if (allocate_status != kTfLiteOk)
+  {
     error_reporter->Report("AllocateTensors() failed");
     return;
   }
-
+  Serial.printf("Heap after AllocateTensors: %u\n", esp_get_free_heap_size());
+  Serial.printf("Tensor arena addr=%p size=%d\n", (void*)tensor_arena, kTensorArenaSize);
   // Get information about the memory area to use for the model's input.
   model_input = interpreter->input(0);
+  if (model_input == nullptr || model_input->data.uint8 == nullptr)
+  {
+    error_reporter->Report("ERROR: model_input or model_input->data.uint8 is NULL");
+    Serial.println("ERROR: model_input is NULL!");
+    return;
+  }
+  Serial.printf("Input tensor has %d dimensions\n", model_input->dims->size);
+  for (int i = 0; i < model_input->dims->size; i++) {
+    Serial.printf("  dim[%d] = %d\n", i, model_input->dims->data[i]);
+  }
+  Serial.printf("Input tensor type = %d\n", model_input->type);
+  Serial.printf("Input tensor bytes = %d\n", model_input->bytes);
+  Serial.printf("Input tensor pointer = %p\n", (void*)model_input->data.raw);
+
+  // In ra giá trị kỳ vọng từ micro_model_settings.h
+  Serial.printf("Expected: dims=(1,%d,%d,1) type=%d\n",
+                kFeatureSliceCount, kFeatureSliceSize, kTfLiteUInt8);
+  if (model_input->data.uint8 == nullptr) {
+    error_reporter->Report("ERROR: model_input->data.uint8 is NULL!");
+    Serial.println("ERROR: model_input->data.uint8 is NULL!");
+    return;
+  }
+  Serial.printf("model_input pointer=%p dims=%d %d %d type=%d\n",
+                (void*)model_input->data.uint8,
+                model_input->dims->data[0], model_input->dims->data[1],
+                model_input->dims->data[2], model_input->type);
   if ((model_input->dims->size != 4) || (model_input->dims->data[0] != 1) ||
       (model_input->dims->data[1] != kFeatureSliceCount) ||
       (model_input->dims->data[2] != kFeatureSliceSize) ||
-      (model_input->type != kTfLiteUInt8)) {
+      (model_input->type != kTfLiteUInt8))
+  {
     error_reporter->Report("Bad input tensor parameters in model");
     return;
   }
@@ -116,39 +148,44 @@ void setup() {
 }
 
 // The name of this function is important for Arduino compatibility.
-void loop() {
+void loop()
+{
   // Fetch the spectrogram for the current time.
   const int32_t current_time = LatestAudioTimestamp();
   int how_many_new_slices = 0;
   TfLiteStatus feature_status = feature_provider->PopulateFeatureData(
       error_reporter, previous_time, current_time, &how_many_new_slices);
-  if (feature_status != kTfLiteOk) {
+  if (feature_status != kTfLiteOk)
+  {
     error_reporter->Report("Feature generation failed");
     return;
   }
   previous_time = current_time;
   // If no new audio samples have been received since last time, don't bother
   // running the network model.
-  if (how_many_new_slices == 0) {
+  if (how_many_new_slices == 0)
+  {
     return;
   }
 
   // Run the model on the spectrogram input and make sure it succeeds.
   TfLiteStatus invoke_status = interpreter->Invoke();
-  if (invoke_status != kTfLiteOk) {
+  if (invoke_status != kTfLiteOk)
+  {
     error_reporter->Report("Invoke failed");
     return;
   }
 
   // Obtain a pointer to the output tensor
-  TfLiteTensor* output = interpreter->output(0);
+  TfLiteTensor *output = interpreter->output(0);
   // Determine whether a command was recognized based on the output of inference
-  const char* found_command = nullptr;
+  const char *found_command = nullptr;
   uint8_t score = 0;
   bool is_new_command = false;
   TfLiteStatus process_status = recognizer->ProcessLatestResults(
       output, current_time, &found_command, &score, &is_new_command);
-  if (process_status != kTfLiteOk) {
+  if (process_status != kTfLiteOk)
+  {
     error_reporter->Report("RecognizeCommands::ProcessLatestResults() failed");
     return;
   }

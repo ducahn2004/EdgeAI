@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "ESP32/MircoSpeech"
+		},
+		{
+			"name": "TestINMP441",
+			"path": "TestINMP441/TestINMP441"
+		}
+	],
+	"settings": {}
+}

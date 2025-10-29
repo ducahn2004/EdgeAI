@@ -1,0 +1,8 @@
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/Core/Src/stm32h7xx_hal_msp.c:66:6:HAL_MspInit	1
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/Core/Src/stm32h7xx_hal_msp.c:88:6:HAL_I2S_MspInit	4
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/Core/Src/stm32h7xx_hal_msp.c:157:6:HAL_I2S_MspDeInit	2
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/Core/Src/stm32h7xx_hal_msp.c:190:6:HAL_SD_MspInit	3
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/Core/Src/stm32h7xx_hal_msp.c:251:6:HAL_SD_MspDeInit	2
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/Core/Src/stm32h7xx_hal_msp.c:287:6:HAL_TIM_PWM_MspInit	2
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/Core/Src/stm32h7xx_hal_msp.c:304:6:HAL_TIM_MspPostInit	2
+D:/Code/AI/EdgeAI/GT/TestSTM32H7LED/ICS43434SDCard/Core/Src/stm32h7xx_hal_msp.c:338:6:HAL_TIM_PWM_MspDeInit	2
