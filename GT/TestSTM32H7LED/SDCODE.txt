@@ -1,0 +1,46 @@
+FATFS_LinkDriver(&SD_Driver, SDPath);
+
+  HAL_Delay(200);
+
+  while (HAL_SD_GetCardState(&hsd1) != HAL_SD_CARD_TRANSFER)
+  {
+      HAL_Delay(50);
+  }
+
+  if (f_mount(&SDFatFS, SDPath, 0) != FR_OK)
+    {
+
+        Error_Handler();
+    }
+    else
+    {
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, RESET);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, SET);
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, RESET);
+
+        if (f_open(&SDFile, "STM32.TXT", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
+        {
+            Error_Handler();
+        }
+        else
+        {
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, RESET);
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, RESET);
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, SET);
+
+            res = f_write(&SDFile, wtext, strlen((char *)wtext), (void *)&byteswritten);
+            if ((byteswritten == 0) || (res != FR_OK))
+            {
+                Error_Handler();
+            }
+            else
+            {
+                HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, SET);
+                HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, SET);
+                HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, SET);
+                f_close(&SDFile);
+            }
+        }
+    }
+
+    f_mount(NULL, SDPath, 0);
