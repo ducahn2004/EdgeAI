@@ -26,6 +26,8 @@
 #include "math_helper.h"
 #include "feature_extraction.h"
 #include "app_x-cube-ai.h"
+#include "network.h"
+#include "network_data.h"
 #include "mfccextract.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

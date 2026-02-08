@@ -89,9 +89,9 @@ C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.external
 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fwalk.o)
                               C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o) (_fwalk_sglue)
 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-printf.o)
-                              ./X-CUBE-AI/App/app_x-cube-ai.o (printf)
+                              ./Core/Src/audio_sd.o (printf)
 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-puts.o)
-                              ./X-CUBE-AI/App/app_x-cube-ai.o (puts)
+                              ./Core/Src/audio_sd.o (puts)
 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-sprintf.o)
                               C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-nano-vfscanf_float.o) (sprintf)
 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-stdio.o)
@@ -343,6 +343,209 @@ Discarded input sections
  .ARM.exidx     0x00000000       0x10 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/crt0.o
  .ARM.attributes
                 0x00000000       0x1e C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/crt0.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/audio_sd.o
+ .text          0x00000000        0x0 ./Core/Src/audio_sd.o
+ .data          0x00000000        0x0 ./Core/Src/audio_sd.o
+ .bss           0x00000000        0x0 ./Core/Src/audio_sd.o
+ .data.wav_file_header
+                0x00000000       0x2c ./Core/Src/audio_sd.o
+ .bss.sd_result
+                0x00000000        0x1 ./Core/Src/audio_sd.o
+ .bss.sdCard    0x00000000      0x230 ./Core/Src/audio_sd.o
+ .bss.wavFile   0x00000000      0x230 ./Core/Src/audio_sd.o
+ .bss.wav_file_size
+                0x00000000        0x4 ./Core/Src/audio_sd.o
+ .bss.first_time
+                0x00000000        0x1 ./Core/Src/audio_sd.o
+ .rodata        0x00000000       0xfd ./Core/Src/audio_sd.o
+ .text.sd_card_init
+                0x00000000       0x4c ./Core/Src/audio_sd.o
+ .text.start_recording
+                0x00000000      0x160 ./Core/Src/audio_sd.o
+ .text.write2wave_file
+                0x00000000       0x8c ./Core/Src/audio_sd.o
+ .text.stop_recording
+                0x00000000       0xe0 ./Core/Src/audio_sd.o
+ .data.file_counter.1
+                0x00000000        0x1 ./Core/Src/audio_sd.o
+ .data.file_name.0
+                0x00000000        0xa ./Core/Src/audio_sd.o
+ .debug_info    0x00000000      0x615 ./Core/Src/audio_sd.o
+ .debug_abbrev  0x00000000      0x1b5 ./Core/Src/audio_sd.o
+ .debug_aranges
+                0x00000000       0x38 ./Core/Src/audio_sd.o
+ .debug_rnglists
+                0x00000000       0x28 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x427 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0xade ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x51 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x103 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x6a ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x1df ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0xfb ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x61 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x29 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x43 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x34 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x189 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x43 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x34 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x58 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x177 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x369 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x35 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x20 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x19b ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x201 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0xc8 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x146 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x238 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x2e ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x3b ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000     0x1305 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x11f ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x27 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000    0x25b9b ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x6d ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000     0x3d79 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x5d ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000     0x2382 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000     0x102c ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x154 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x114 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x3b6 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0xac ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x72d ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x228 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x66 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x3bb ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x3e4 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x275 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x3ca ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x408 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x51 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x4a ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x22c ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x67 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0xa5 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x25d ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x1c4 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x25e ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x35 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0xa0c ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x1ce ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000      0x5ac ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x46 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0xe5 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x29 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x12 ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0xdb ./Core/Src/audio_sd.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/audio_sd.o
+ .debug_line    0x00000000      0xc96 ./Core/Src/audio_sd.o
+ .debug_str     0x00000000   0x155022 ./Core/Src/audio_sd.o
+ .comment       0x00000000       0x44 ./Core/Src/audio_sd.o
+ .debug_frame   0x00000000       0x98 ./Core/Src/audio_sd.o
+ .ARM.attributes
+                0x00000000       0x32 ./Core/Src/audio_sd.o
+ .group         0x00000000        0xc ./Core/Src/main.o
+ .group         0x00000000        0xc ./Core/Src/main.o
+ .group         0x00000000        0xc ./Core/Src/main.o
+ .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/main.o
@@ -432,6 +635,85 @@ Discarded input sections
  .text          0x00000000        0x0 ./Core/Src/main.o
  .data          0x00000000        0x0 ./Core/Src/main.o
  .bss           0x00000000        0x0 ./Core/Src/main.o
+ .debug_macro   0x00000000      0xade ./Core/Src/main.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/main.o
+ .debug_macro   0x00000000       0x51 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x103 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x6a ./Core/Src/main.o
+ .debug_macro   0x00000000      0x1df ./Core/Src/main.o
+ .debug_macro   0x00000000       0xfb ./Core/Src/main.o
+ .debug_macro   0x00000000       0x61 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x29 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x43 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x34 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x189 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x43 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x34 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x58 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/main.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/main.o
+ .debug_macro   0x00000000      0x177 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x369 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x35 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x20 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x19b ./Core/Src/main.o
+ .debug_macro   0x00000000      0x201 ./Core/Src/main.o
+ .debug_macro   0x00000000       0xc8 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x238 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x2e ./Core/Src/main.o
+ .debug_macro   0x00000000       0x3b ./Core/Src/main.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/main.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/main.o
+ .debug_macro   0x00000000     0x1305 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x11f ./Core/Src/main.o
+ .debug_macro   0x00000000       0x27 ./Core/Src/main.o
+ .debug_macro   0x00000000    0x25b9b ./Core/Src/main.o
+ .debug_macro   0x00000000       0x6d ./Core/Src/main.o
+ .debug_macro   0x00000000     0x3d79 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x5d ./Core/Src/main.o
+ .debug_macro   0x00000000     0x2382 ./Core/Src/main.o
+ .debug_macro   0x00000000     0x102c ./Core/Src/main.o
+ .debug_macro   0x00000000      0x154 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x114 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x3b6 ./Core/Src/main.o
+ .debug_macro   0x00000000       0xac ./Core/Src/main.o
+ .debug_macro   0x00000000      0x72d ./Core/Src/main.o
+ .debug_macro   0x00000000      0x228 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x66 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x3bb ./Core/Src/main.o
+ .debug_macro   0x00000000      0x3e4 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x275 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x3ca ./Core/Src/main.o
+ .debug_macro   0x00000000      0x408 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x51 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x4a ./Core/Src/main.o
+ .debug_macro   0x00000000      0x22c ./Core/Src/main.o
+ .debug_macro   0x00000000       0x67 ./Core/Src/main.o
+ .debug_macro   0x00000000       0xa5 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x25d ./Core/Src/main.o
+ .debug_macro   0x00000000      0x1c4 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x25e ./Core/Src/main.o
+ .debug_macro   0x00000000       0x35 ./Core/Src/main.o
+ .debug_macro   0x00000000      0xa0c ./Core/Src/main.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x1ce ./Core/Src/main.o
+ .debug_macro   0x00000000      0x5ac ./Core/Src/main.o
+ .debug_macro   0x00000000       0x46 ./Core/Src/main.o
+ .debug_macro   0x00000000       0xe5 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x29 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x12 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/main.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/main.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/main.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/main.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/main.o
+ .debug_macro   0x00000000      0x146 ./Core/Src/main.o
  .group         0x00000000        0xc ./Core/Src/math_helper.o
  .group         0x00000000        0xc ./Core/Src/math_helper.o
  .group         0x00000000        0xc ./Core/Src/math_helper.o
@@ -7214,6 +7496,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 ./X-CUBE-AI/App/app_x-cube-ai.o
  .debug_macro   0x00000000      0x1ce ./X-CUBE-AI/App/app_x-cube-ai.o
  .debug_macro   0x00000000      0x5ac ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_macro   0x00000000       0x7c ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_macro   0x00000000       0x8e ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_macro   0x00000000       0x4c ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_macro   0x00000000       0x10 ./X-CUBE-AI/App/app_x-cube-ai.o
  .group         0x00000000        0xc ./X-CUBE-AI/App/network.o
  .group         0x00000000        0xc ./X-CUBE-AI/App/network.o
  .group         0x00000000        0xc ./X-CUBE-AI/App/network.o
@@ -9708,6 +9994,7 @@ Linker script and memory map
 LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard/crti.o
 LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard/crtbegin.o
 LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/crt0.o
+LOAD ./Core/Src/audio_sd.o
 LOAD ./Core/Src/main.o
 LOAD ./Core/Src/math_helper.o
 LOAD ./Core/Src/mfccextract.o
@@ -11949,219 +12236,140 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x00000aa1       0x25 ./X-CUBE-AI/App/network_data.o
 
-.debug_macro    0x00000000    0x3abab
- .debug_macro   0x00000000      0x476 ./Core/Src/main.o
- .debug_macro   0x00000476      0xade ./Core/Src/main.o
- .debug_macro   0x00000f54       0x22 ./Core/Src/main.o
- .debug_macro   0x00000f76       0x8e ./Core/Src/main.o
- .debug_macro   0x00001004       0x51 ./Core/Src/main.o
- .debug_macro   0x00001055      0x103 ./Core/Src/main.o
- .debug_macro   0x00001158       0x6a ./Core/Src/main.o
- .debug_macro   0x000011c2      0x1df ./Core/Src/main.o
- .debug_macro   0x000013a1       0xfb ./Core/Src/main.o
- .debug_macro   0x0000149c       0x61 ./Core/Src/main.o
- .debug_macro   0x000014fd       0x29 ./Core/Src/main.o
- .debug_macro   0x00001526       0x43 ./Core/Src/main.o
- .debug_macro   0x00001569       0x34 ./Core/Src/main.o
- .debug_macro   0x0000159d      0x189 ./Core/Src/main.o
- .debug_macro   0x00001726       0x16 ./Core/Src/main.o
- .debug_macro   0x0000173c       0x43 ./Core/Src/main.o
- .debug_macro   0x0000177f       0x34 ./Core/Src/main.o
- .debug_macro   0x000017b3       0x10 ./Core/Src/main.o
- .debug_macro   0x000017c3       0x58 ./Core/Src/main.o
- .debug_macro   0x0000181b       0x8e ./Core/Src/main.o
- .debug_macro   0x000018a9       0x1c ./Core/Src/main.o
- .debug_macro   0x000018c5      0x177 ./Core/Src/main.o
- .debug_macro   0x00001a3c      0x369 ./Core/Src/main.o
- .debug_macro   0x00001da5       0x10 ./Core/Src/main.o
- .debug_macro   0x00001db5       0x35 ./Core/Src/main.o
- .debug_macro   0x00001dea       0x20 ./Core/Src/main.o
- .debug_macro   0x00001e0a      0x19b ./Core/Src/main.o
- .debug_macro   0x00001fa5      0x201 ./Core/Src/main.o
- .debug_macro   0x000021a6       0xc8 ./Core/Src/main.o
- .debug_macro   0x0000226e      0x238 ./Core/Src/main.o
- .debug_macro   0x000024a6       0x2e ./Core/Src/main.o
- .debug_macro   0x000024d4       0x3b ./Core/Src/main.o
- .debug_macro   0x0000250f       0x1c ./Core/Src/main.o
- .debug_macro   0x0000252b       0x22 ./Core/Src/main.o
- .debug_macro   0x0000254d     0x1305 ./Core/Src/main.o
- .debug_macro   0x00003852      0x11f ./Core/Src/main.o
- .debug_macro   0x00003971       0x27 ./Core/Src/main.o
- .debug_macro   0x00003998    0x25b9b ./Core/Src/main.o
- .debug_macro   0x00029533       0x6d ./Core/Src/main.o
- .debug_macro   0x000295a0     0x3d79 ./Core/Src/main.o
- .debug_macro   0x0002d319       0x5d ./Core/Src/main.o
- .debug_macro   0x0002d376     0x2382 ./Core/Src/main.o
- .debug_macro   0x0002f6f8     0x102c ./Core/Src/main.o
- .debug_macro   0x00030724      0x154 ./Core/Src/main.o
- .debug_macro   0x00030878      0x114 ./Core/Src/main.o
- .debug_macro   0x0003098c      0x3b6 ./Core/Src/main.o
- .debug_macro   0x00030d42       0xac ./Core/Src/main.o
- .debug_macro   0x00030dee      0x72d ./Core/Src/main.o
- .debug_macro   0x0003151b      0x228 ./Core/Src/main.o
- .debug_macro   0x00031743       0x66 ./Core/Src/main.o
- .debug_macro   0x000317a9      0x3bb ./Core/Src/main.o
- .debug_macro   0x00031b64      0x3e4 ./Core/Src/main.o
- .debug_macro   0x00031f48      0x275 ./Core/Src/main.o
- .debug_macro   0x000321bd      0x3ca ./Core/Src/main.o
- .debug_macro   0x00032587      0x408 ./Core/Src/main.o
- .debug_macro   0x0003298f       0x51 ./Core/Src/main.o
- .debug_macro   0x000329e0       0x4a ./Core/Src/main.o
- .debug_macro   0x00032a2a      0x22c ./Core/Src/main.o
- .debug_macro   0x00032c56       0x67 ./Core/Src/main.o
- .debug_macro   0x00032cbd       0xa5 ./Core/Src/main.o
- .debug_macro   0x00032d62      0x25d ./Core/Src/main.o
- .debug_macro   0x00032fbf      0x1c4 ./Core/Src/main.o
- .debug_macro   0x00033183      0x25e ./Core/Src/main.o
- .debug_macro   0x000333e1       0x35 ./Core/Src/main.o
- .debug_macro   0x00033416      0xa0c ./Core/Src/main.o
- .debug_macro   0x00033e22       0x16 ./Core/Src/main.o
- .debug_macro   0x00033e38      0x1ce ./Core/Src/main.o
- .debug_macro   0x00034006      0x5ac ./Core/Src/main.o
- .debug_macro   0x000345b2       0x46 ./Core/Src/main.o
- .debug_macro   0x000345f8       0xe5 ./Core/Src/main.o
- .debug_macro   0x000346dd       0x16 ./Core/Src/main.o
- .debug_macro   0x000346f3       0x16 ./Core/Src/main.o
- .debug_macro   0x00034709       0x29 ./Core/Src/main.o
- .debug_macro   0x00034732       0x12 ./Core/Src/main.o
- .debug_macro   0x00034744       0xe2 ./Core/Src/main.o
- .debug_macro   0x00034826       0x8e ./Core/Src/main.o
- .debug_macro   0x000348b4       0x1c ./Core/Src/main.o
- .debug_macro   0x000348d0       0x10 ./Core/Src/main.o
- .debug_macro   0x000348e0       0x1c ./Core/Src/main.o
- .debug_macro   0x000348fc       0x16 ./Core/Src/main.o
- .debug_macro   0x00034912      0x146 ./Core/Src/main.o
- .debug_macro   0x00034a58       0x10 ./Core/Src/main.o
- .debug_macro   0x00034a68      0x460 ./Core/Src/main.o
- .debug_macro   0x00034ec8       0x46 ./Core/Src/main.o
- .debug_macro   0x00034f0e       0x22 ./Core/Src/main.o
- .debug_macro   0x00034f30      0x342 ./Core/Src/main.o
- .debug_macro   0x00035272       0x2e ./Core/Src/main.o
- .debug_macro   0x000352a0      0x34d ./Core/Src/stm32h7xx_hal_msp.o
- .debug_macro   0x000355ed      0x357 ./Core/Src/stm32h7xx_it.o
- .debug_macro   0x00035944      0x1c1 ./Core/Src/sysmem.o
- .debug_macro   0x00035b05       0x10 ./Core/Src/sysmem.o
- .debug_macro   0x00035b15      0x242 ./Core/Src/sysmem.o
- .debug_macro   0x00035d57      0x343 ./Core/Src/system_stm32h7xx.o
- .debug_macro   0x0003609a      0x36d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
- .debug_macro   0x00036407      0x343 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
- .debug_macro   0x0003674a      0x34a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
- .debug_macro   0x00036a94      0x34b ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
- .debug_macro   0x00036ddf      0x37c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
- .debug_macro   0x0003715b      0x367 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
- .debug_macro   0x000374c2      0x361 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
- .debug_macro   0x00037823      0x360 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
- .debug_macro   0x00037b83      0x344 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
- .debug_macro   0x00037ec7      0x3e3 ./FATFS/App/fatfs.o
- .debug_macro   0x000382aa      0x352 ./FATFS/Target/bsp_driver_sd.o
- .debug_macro   0x000385fc       0x40 ./FATFS/Target/bsp_driver_sd.o
- .debug_macro   0x0003863c      0x3e6 ./FATFS/Target/sd_diskio.o
- .debug_macro   0x00038a22       0x16 ./FATFS/Target/sd_diskio.o
- .debug_macro   0x00038a38       0x7c ./FATFS/Target/sd_diskio.o
- .debug_macro   0x00038ab4      0x3d0 ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
- .debug_macro   0x00038e84      0x443 ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_macro   0x000392c7       0x4c ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_macro   0x00039313       0x10 ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_macro   0x00039323       0xc0 ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_macro   0x000393e3       0x7c ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_macro   0x0003945f       0x8e ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_macro   0x000394ed       0x4c ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_macro   0x00039539       0x10 ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_macro   0x00039549      0x515 ./X-CUBE-AI/App/network.o
- .debug_macro   0x00039a5e       0x22 ./X-CUBE-AI/App/network.o
- .debug_macro   0x00039a80       0x16 ./X-CUBE-AI/App/network.o
- .debug_macro   0x00039a96       0x22 ./X-CUBE-AI/App/network.o
- .debug_macro   0x00039ab8      0x229 ./X-CUBE-AI/App/network.o
- .debug_macro   0x00039ce1       0x2e ./X-CUBE-AI/App/network.o
- .debug_macro   0x00039d0f       0xcf ./X-CUBE-AI/App/network.o
- .debug_macro   0x00039dde      0x1ed ./X-CUBE-AI/App/network.o
- .debug_macro   0x00039fcb       0x7c ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a047       0x17 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a05e      0x118 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a176      0x202 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a378       0x3a ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a3b2       0x2e ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a3e0       0xdc ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a4bc       0x16 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a4d2       0x4d ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a51f       0x25 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a544       0x6d ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a5b1       0x16 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a5c7       0x7c ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a643       0x22 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a665       0x10 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a675       0x11 ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a686       0x2e ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a6b4       0x2e ./X-CUBE-AI/App/network.o
- .debug_macro   0x0003a6e2      0x287 ./X-CUBE-AI/App/network_data.o
- .debug_macro   0x0003a969       0x46 ./X-CUBE-AI/App/network_data.o
- .debug_macro   0x0003a9af      0x1fc ./X-CUBE-AI/App/network_data_params.o
+.debug_macro    0x00000000     0x66db
+ .debug_macro   0x00000000      0x4a6 ./Core/Src/main.o
+ .debug_macro   0x000004a6       0xe2 ./Core/Src/main.o
+ .debug_macro   0x00000588       0x10 ./Core/Src/main.o
+ .debug_macro   0x00000598      0x460 ./Core/Src/main.o
+ .debug_macro   0x000009f8       0x46 ./Core/Src/main.o
+ .debug_macro   0x00000a3e       0x22 ./Core/Src/main.o
+ .debug_macro   0x00000a60      0x342 ./Core/Src/main.o
+ .debug_macro   0x00000da2       0x7c ./Core/Src/main.o
+ .debug_macro   0x00000e1e       0x8e ./Core/Src/main.o
+ .debug_macro   0x00000eac       0x4c ./Core/Src/main.o
+ .debug_macro   0x00000ef8       0x10 ./Core/Src/main.o
+ .debug_macro   0x00000f08       0x2e ./Core/Src/main.o
+ .debug_macro   0x00000f36      0x34d ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_macro   0x00001283      0x357 ./Core/Src/stm32h7xx_it.o
+ .debug_macro   0x000015da      0x1c1 ./Core/Src/sysmem.o
+ .debug_macro   0x0000179b       0x10 ./Core/Src/sysmem.o
+ .debug_macro   0x000017ab      0x242 ./Core/Src/sysmem.o
+ .debug_macro   0x000019ed      0x343 ./Core/Src/system_stm32h7xx.o
+ .debug_macro   0x00001d30      0x36d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_macro   0x0000209d      0x343 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_macro   0x000023e0      0x34a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_macro   0x0000272a      0x34b ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
+ .debug_macro   0x00002a75      0x37c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_macro   0x00002df1      0x367 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_macro   0x00003158      0x361 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_macro   0x000034b9      0x360 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
+ .debug_macro   0x00003819      0x344 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
+ .debug_macro   0x00003b5d      0x3e3 ./FATFS/App/fatfs.o
+ .debug_macro   0x00003f40      0x352 ./FATFS/Target/bsp_driver_sd.o
+ .debug_macro   0x00004292       0x40 ./FATFS/Target/bsp_driver_sd.o
+ .debug_macro   0x000042d2      0x3e6 ./FATFS/Target/sd_diskio.o
+ .debug_macro   0x000046b8       0x16 ./FATFS/Target/sd_diskio.o
+ .debug_macro   0x000046ce       0x7c ./FATFS/Target/sd_diskio.o
+ .debug_macro   0x0000474a      0x3d0 ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
+ .debug_macro   0x00004b1a      0x443 ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_macro   0x00004f5d       0x4c ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_macro   0x00004fa9       0x10 ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_macro   0x00004fb9       0xc0 ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_macro   0x00005079      0x515 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x0000558e       0x22 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x000055b0       0x16 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x000055c6       0x22 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x000055e8      0x229 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005811       0x2e ./X-CUBE-AI/App/network.o
+ .debug_macro   0x0000583f       0xcf ./X-CUBE-AI/App/network.o
+ .debug_macro   0x0000590e      0x1ed ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005afb       0x7c ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005b77       0x17 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005b8e      0x118 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005ca6      0x202 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005ea8       0x3a ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005ee2       0x2e ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005f10       0xdc ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00005fec       0x16 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00006002       0x4d ./X-CUBE-AI/App/network.o
+ .debug_macro   0x0000604f       0x25 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00006074       0x6d ./X-CUBE-AI/App/network.o
+ .debug_macro   0x000060e1       0x16 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x000060f7       0x7c ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00006173       0x22 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00006195       0x10 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x000061a5       0x11 ./X-CUBE-AI/App/network.o
+ .debug_macro   0x000061b6       0x2e ./X-CUBE-AI/App/network.o
+ .debug_macro   0x000061e4       0x2e ./X-CUBE-AI/App/network.o
+ .debug_macro   0x00006212      0x287 ./X-CUBE-AI/App/network_data.o
+ .debug_macro   0x00006499       0x46 ./X-CUBE-AI/App/network_data.o
+ .debug_macro   0x000064df      0x1fc ./X-CUBE-AI/App/network_data_params.o
 
-.debug_line     0x00000000    0x15c73
- .debug_line    0x00000000      0xdef ./Core/Src/main.o
- .debug_line    0x00000def      0xb20 ./Core/Src/stm32h7xx_hal_msp.o
- .debug_line    0x0000190f      0xb13 ./Core/Src/stm32h7xx_it.o
- .debug_line    0x00002422      0x711 ./Core/Src/sysmem.o
- .debug_line    0x00002b33      0xc35 ./Core/Src/system_stm32h7xx.o
- .debug_line    0x00003768       0x7b ./Core/Startup/startup_stm32h743vitx.o
- .debug_line    0x000037e3      0xfe9 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
- .debug_line    0x000047cc     0x1018 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
- .debug_line    0x000057e4      0xec1 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
- .debug_line    0x000066a5     0x1a96 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
- .debug_line    0x0000813b     0x110c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
- .debug_line    0x00009247     0x15b9 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
- .debug_line    0x0000a800     0x1f55 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
- .debug_line    0x0000c755     0x23a9 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
- .debug_line    0x0000eafe     0x14a5 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
- .debug_line    0x0000ffa3      0xb09 ./FATFS/App/fatfs.o
- .debug_line    0x00010aac      0xbf6 ./FATFS/Target/bsp_driver_sd.o
- .debug_line    0x000116a2      0xce8 ./FATFS/Target/sd_diskio.o
- .debug_line    0x0001238a      0xb98 ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
- .debug_line    0x00012f22      0xc9c ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_line    0x00013bbe     0x1116 ./X-CUBE-AI/App/network.o
- .debug_line    0x00014cd4      0x873 ./X-CUBE-AI/App/network_data.o
- .debug_line    0x00015547      0x72c ./X-CUBE-AI/App/network_data_params.o
+.debug_line     0x00000000    0x15cbf
+ .debug_line    0x00000000      0xe3b ./Core/Src/main.o
+ .debug_line    0x00000e3b      0xb20 ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_line    0x0000195b      0xb13 ./Core/Src/stm32h7xx_it.o
+ .debug_line    0x0000246e      0x711 ./Core/Src/sysmem.o
+ .debug_line    0x00002b7f      0xc35 ./Core/Src/system_stm32h7xx.o
+ .debug_line    0x000037b4       0x7b ./Core/Startup/startup_stm32h743vitx.o
+ .debug_line    0x0000382f      0xfe9 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_line    0x00004818     0x1018 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_line    0x00005830      0xec1 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_line    0x000066f1     0x1a96 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
+ .debug_line    0x00008187     0x110c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_line    0x00009293     0x15b9 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_line    0x0000a84c     0x1f55 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_line    0x0000c7a1     0x23a9 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
+ .debug_line    0x0000eb4a     0x14a5 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
+ .debug_line    0x0000ffef      0xb09 ./FATFS/App/fatfs.o
+ .debug_line    0x00010af8      0xbf6 ./FATFS/Target/bsp_driver_sd.o
+ .debug_line    0x000116ee      0xce8 ./FATFS/Target/sd_diskio.o
+ .debug_line    0x000123d6      0xb98 ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
+ .debug_line    0x00012f6e      0xc9c ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_line    0x00013c0a     0x1116 ./X-CUBE-AI/App/network.o
+ .debug_line    0x00014d20      0x873 ./X-CUBE-AI/App/network_data.o
+ .debug_line    0x00015593      0x72c ./X-CUBE-AI/App/network_data_params.o
 
 .debug_str      0x00000000   0x167798
- .debug_str     0x00000000   0x1589c1 ./Core/Src/main.o
-                             0x159074 (size before relaxing)
- .debug_str     0x001589c1      0xc06 ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_str     0x00000000   0x159196 ./Core/Src/main.o
+                             0x159849 (size before relaxing)
+ .debug_str     0x00159196      0xc06 ./Core/Src/stm32h7xx_hal_msp.o
                              0x1554c5 (size before relaxing)
- .debug_str     0x001595c7       0xed ./Core/Src/stm32h7xx_it.o
+ .debug_str     0x00159d9c       0xed ./Core/Src/stm32h7xx_it.o
                              0x1541de (size before relaxing)
- .debug_str     0x001596b4      0x4dc ./Core/Src/sysmem.o
+ .debug_str     0x00159e89      0x4dc ./Core/Src/sysmem.o
                                0x93e8 (size before relaxing)
- .debug_str     0x00159b90      0x244 ./Core/Src/system_stm32h7xx.o
+ .debug_str     0x0015a365      0x244 ./Core/Src/system_stm32h7xx.o
                              0x1543df (size before relaxing)
- .debug_str     0x00159dd4       0x44 ./Core/Startup/startup_stm32h743vitx.o
+ .debug_str     0x0015a5a9       0x44 ./Core/Startup/startup_stm32h743vitx.o
                                  0x76 (size before relaxing)
- .debug_str     0x00159e18      0x7f4 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_str     0x0015a5ed      0x7f4 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
                              0x1552b6 (size before relaxing)
- .debug_str     0x0015a60c      0x29e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_str     0x0015ade1      0x29e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
                              0x154cf1 (size before relaxing)
- .debug_str     0x0015a8aa      0x12d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_str     0x0015b07f      0x12d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
                              0x154357 (size before relaxing)
- .debug_str     0x0015a9d7      0x455 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
+ .debug_str     0x0015b1ac      0x455 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
                              0x154853 (size before relaxing)
- .debug_str     0x0015ae2c      0x642 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_str     0x0015b601      0x642 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
                              0x154818 (size before relaxing)
- .debug_str     0x0015b46e      0x22e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_str     0x0015bc43      0x22e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
                              0x15473b (size before relaxing)
- .debug_str     0x0015b69c      0x63a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_str     0x0015be71      0x63a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
                              0x154c1c (size before relaxing)
- .debug_str     0x0015bcd6      0xa05 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
+ .debug_str     0x0015c4ab      0xa05 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
                              0x154d36 (size before relaxing)
- .debug_str     0x0015c6db      0x324 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
+ .debug_str     0x0015ceb0      0x324 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
                              0x1545bc (size before relaxing)
- .debug_str     0x0015c9ff      0x1bc ./FATFS/App/fatfs.o
+ .debug_str     0x0015d1d4      0x1bc ./FATFS/App/fatfs.o
                              0x154872 (size before relaxing)
- .debug_str     0x0015cbbb      0x154 ./FATFS/Target/bsp_driver_sd.o
+ .debug_str     0x0015d390      0x154 ./FATFS/Target/bsp_driver_sd.o
                              0x154505 (size before relaxing)
- .debug_str     0x0015cd0f       0xd7 ./FATFS/Target/sd_diskio.o
+ .debug_str     0x0015d4e4       0xd7 ./FATFS/Target/sd_diskio.o
                              0x15492c (size before relaxing)
- .debug_str     0x0015cde6       0xba ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
+ .debug_str     0x0015d5bb       0xba ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
                              0x1547de (size before relaxing)
- .debug_str     0x0015cea0     0x11f9 ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_str     0x0015d675      0xa24 ./X-CUBE-AI/App/app_x-cube-ai.o
                              0x158bf3 (size before relaxing)
  .debug_str     0x0015e099     0x95a1 ./X-CUBE-AI/App/network.o
                               0x16b9c (size before relaxing)
