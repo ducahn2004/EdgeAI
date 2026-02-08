@@ -16,18 +16,6 @@ RM := rm -rf
 -include FATFS/App/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/Src/subdir.mk
 -include Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/subdir.mk
--include Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Examples/subdir.mk
--include Drivers/CMSIS/DSP/Source/TransformFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/SupportFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/StatisticsFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/MatrixFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/FilteringFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/FastMathFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/ControllerFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/ComplexMathFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/CommonTables/subdir.mk
--include Drivers/CMSIS/DSP/Source/BasicMathFunctions/subdir.mk
--include Drivers/CMSIS/DSP/Source/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -70,6 +58,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 [Ver1]GraduationThesis.list \
 
+OBJCOPY_BIN += \
+[Ver1]GraduationThesis.bin \
+
 
 # All Target
 all: main-build
@@ -78,8 +69,8 @@ all: main-build
 main-build: [Ver1]GraduationThesis.elf secondary-outputs
 
 # Tool invocations
-[Ver1]GraduationThesis.elf [Ver1]GraduationThesis.map: $(OBJS) $(USER_OBJS) D:\Code\AI\EdgeAI\GT\TestSTM32H7LED\[Ver1]GraduationThesis\STM32H743VITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "[Ver1]GraduationThesis.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Code\AI\EdgeAI\GT\TestSTM32H7LED\[Ver1]GraduationThesis\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="[Ver1]GraduationThesis.map" -Wl,--gc-sections -static -L../Middlewares/ST/AI/Lib -L"D:\Code\AI\EdgeAI\GT\TestSTM32H7LED\[Ver1]GraduationThesis\Drivers\CMSIS\STM32_AI_AudioPreprocessing_Library\Inc" -L"D:\Code\AI\EdgeAI\GT\TestSTM32H7LED\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Include" -L"D:\Code\AI\EdgeAI\GT\TestSTM32H7LED\[Ver1]GraduationThesis\Drivers\CMSIS\Lib\GCC" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+[Ver1]GraduationThesis.elf [Ver1]GraduationThesis.map: $(OBJS) $(USER_OBJS) D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\STM32H743VITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "[Ver1]GraduationThesis.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="[Ver1]GraduationThesis.map" -Wl,--gc-sections -static -L../Middlewares/ST/AI/Lib --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -93,12 +84,17 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+[Ver1]GraduationThesis.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "[Ver1]GraduationThesis.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) [Ver1]GraduationThesis.elf [Ver1]GraduationThesis.list [Ver1]GraduationThesis.map default.size.stdout
+	-$(RM) [Ver1]GraduationThesis.bin [Ver1]GraduationThesis.elf [Ver1]GraduationThesis.list [Ver1]GraduationThesis.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

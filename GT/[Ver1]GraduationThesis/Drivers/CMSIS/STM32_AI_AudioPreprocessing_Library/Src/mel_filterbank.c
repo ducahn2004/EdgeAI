@@ -16,7 +16,7 @@
  *
  ******************************************************************************
  */
-#include "mel_filterbank.h"
+#include "../Inc/mel_filterbank.h"
 
 /**
  * @defgroup groupMelFilterbank Mel-Frequencies Filterbank

@@ -17,7 +17,7 @@
  *
  ******************************************************************************
  */
-#include "common_tables.h"
+#include "../Inc/common_tables.h"
 
 /**
  * @brief Hann Window

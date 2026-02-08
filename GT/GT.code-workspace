@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../STM32CubeFunctionPack_SENSING1_V4.0.3"
+		}
+	],
+	"settings": {}
+}

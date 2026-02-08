@@ -19,22 +19,12 @@ MAP_FILES :=
 S_DEPS := 
 S_UPPER_DEPS := 
 C_DEPS := 
+OBJCOPY_BIN := 
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Core/Src \
 Core/Startup \
-Drivers/CMSIS/DSP/Source/BasicMathFunctions \
-Drivers/CMSIS/DSP/Source/CommonTables \
-Drivers/CMSIS/DSP/Source/ComplexMathFunctions \
-Drivers/CMSIS/DSP/Source/ControllerFunctions \
-Drivers/CMSIS/DSP/Source/FastMathFunctions \
-Drivers/CMSIS/DSP/Source/FilteringFunctions \
-Drivers/CMSIS/DSP/Source/MatrixFunctions \
-Drivers/CMSIS/DSP/Source/StatisticsFunctions \
-Drivers/CMSIS/DSP/Source/SupportFunctions \
-Drivers/CMSIS/DSP/Source/TransformFunctions \
-Drivers/CMSIS/DSP/Source \
 Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src \
 Drivers/STM32H7xx_HAL_Driver/Src \
 FATFS/App \
@@ -42,5 +32,4 @@ FATFS/Target \
 Middlewares/Third_Party/FatFs/src \
 Middlewares/Third_Party/FatFs/src/option \
 X-CUBE-AI/App \
-Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Examples \
 

@@ -1,0 +1,2 @@
+../Core/Src/mfccextract.c:31:6:Preprocessing_Init	8	static
+../Core/Src/mfccextract.c:97:6:AudioPreprocessing_Run	40	static
