@@ -1,0 +1,51 @@
+/*
+ * audio_capture.c
+ *
+ *  Created on: Feb 8, 2026
+ *      Author: edoph
+ */
+
+#include "stm32h7xx_hal.h"
+#include "audio_preprocess.h"
+#include "audio_sd.h"
+#include "audio_capture.h"
+extern I2S_HandleTypeDef hi2s1;
+
+#define AUDIO_BUFFER_SIZE 10010  // ~5s @ 2000Hz
+int16_t audio_buffer[AUDIO_BUFFER_SIZE];
+volatile uint8_t audio_ready = 0;
+
+void StartAudioCapture(void) {
+    HAL_I2S_Receive_DMA(&hi2s1, (uint16_t*)audio_buffer, AUDIO_BUFFER_SIZE);
+}
+
+void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
+    audio_ready = 1;  // Buffer đầy, sẵn sàng process
+}
+
+void ProcessAudioIfReady(void) {
+    if (audio_ready) {
+        audio_ready = 0;
+
+        // Optional: Lưu .wav
+        start_recording(2000);
+        write2wave_file((uint8_t*)audio_buffer, sizeof(audio_buffer));
+        stop_recording();
+
+        // Preprocess và Inference
+        float32_t mfcc_input[39 * 333];
+        PreprocessAudio(audio_buffer, mfcc_input);
+
+        // AI Inference (từ Cube.AI)
+        ai_float input_data[AI_NETWORK_IN_1_SIZE] = {0};  // 1x39x333
+        memcpy(input_data, mfcc_input, sizeof(mfcc_input));
+        ai_float output[AI_NETWORK_OUT_1_SIZE];  // 1x2
+        ai_run(input_data, output);  // Hàm từ Cube.AI
+
+        // Classify
+        uint8_t class = (output[0] > output[1]) ? 0 : 1;  // 0: normal, 1: abnormal
+        printf("Classification: %s\n", class ? "Abnormal" : "Normal");
+
+        // Restart capture nếu circular
+    }
+}

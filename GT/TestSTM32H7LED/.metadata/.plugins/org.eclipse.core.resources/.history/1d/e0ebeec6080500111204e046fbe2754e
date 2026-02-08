@@ -1,0 +1,59 @@
+/**
+ ******************************************************************************
+ * @file    mfcc_example.c
+ * @author  MCD Application Team
+ * @brief   MFCC computation example
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under Software License Agreement
+ * SLA0055, the "License"; You may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at:
+ *        www.st.com/resource/en/license_agreement/dm00251784.pdf
+ *
+ ******************************************************************************
+ */
+#include "feature_extraction.h"
+
+/*
+ * y = librosa.load('bus.wav', sr=None, duration=1)[0] # Keep native 16kHz sampling rate
+ * librosa.feature.mfcc(y, sr=16000, n_mfcc=20, dct_type=2, norm='ortho', lifter=0, center=False)
+ */
+
+//#define SAMPLE_RATE  2000U /* Input signal sampling rate */
+//#define FFT_LEN       2048U /* Number of FFT points. Must be greater or equal to FRAME_LEN */
+//#define FRAME_LEN   FFT_LEN /* Window length and then padded with zeros to match FFT_LEN */
+//#define HOP_LEN        512U /* Number of overlapping samples between successive frames */
+//#define NUM_MELS       128U /* Number of mel bands */
+//#define NUM_MEL_COEFS 2020U /* Number of mel filter weights. Returned by MelFilterbank_Init */
+//#define NUM_MFCC        20U /* Number of MFCCs to return */
+
+
+
+/* =====================================================================
+ * Thông số phù hợp với PhysioNet 2016 + model input 1×39×333
+ * ===================================================================== */
+#define SAMPLE_RATE         2000U          // Hz
+
+#define FRAME_LEN_MS        25             // ms
+#define HOP_LEN_MS          15             // ms
+
+#define FRAME_LEN           ((SAMPLE_RATE * FRAME_LEN_MS) / 1000)   // 50
+#define HOP_LEN             ((SAMPLE_RATE * HOP_LEN_MS)  / 1000)    // 30
+
+#define FFT_LEN             128U           // nhỏ hơn, đủ cho 25ms @ 2kHz
+#define NUM_MFCC            13U            // MFCC cơ bản
+#define NUM_MFCC_TOTAL      (NUM_MFCC * 3) // 13 + Δ + ΔΔ = 39
+
+#define NUM_MELS            40U            // giảm xuống để tiết kiệm tính toán
+#define NUM_MEL_COEFS       0              // sẽ được cập nhật sau khi init
+
+// Kích thước output mong muốn của model
+#define MFCC_TIME_FRAMES    333U
+#define MFCC_FEATURES       NUM_MFCC_TOTAL // 39
+
+void Preprocessing_Init(void);
+void AudioPreprocessing_Run(int16_t *pInSignal, float32_t *pOutMfcc, uint32_t signal_len);

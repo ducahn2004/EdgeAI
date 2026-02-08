@@ -47,7 +47,7 @@ X-CUBE-AI/App/app_x-cube-ai.o: ../X-CUBE-AI/App/app_x-cube-ai.c \
  ../Middlewares/ST/AI/Inc/ai_platform.h \
  ../Middlewares/ST/AI/Inc/core_assert.h ../X-CUBE-AI/App/network.h \
  ../X-CUBE-AI/App/network_config.h ../X-CUBE-AI/App/network_data.h \
- ../X-CUBE-AI/App/network_data_params.h
+ ../X-CUBE-AI/App/network_data_params.h ../Core/Inc/audio_preprocess.h
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/feature_extraction.h:
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/DSP/Include/arm_math.h:
 ../Drivers/CMSIS/Include/cmsis_compiler.h:
@@ -101,3 +101,4 @@ D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/DSP/Include/arm_math.h
 ../X-CUBE-AI/App/network_config.h:
 ../X-CUBE-AI/App/network_data.h:
 ../X-CUBE-AI/App/network_data_params.h:
+../Core/Inc/audio_preprocess.h:

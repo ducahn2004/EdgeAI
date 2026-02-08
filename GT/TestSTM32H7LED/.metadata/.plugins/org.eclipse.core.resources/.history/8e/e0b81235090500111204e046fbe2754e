@@ -1,0 +1,200 @@
+/*
+ * mfccextract.c
+ *
+ *  Created on: Feb 7, 2026
+ *      Author: edoph
+ */
+
+#include "mfccextract.h"
+
+#define SAMPLE_RATE         2000U          // Hz
+
+#define FRAME_LEN_MS        25             // ms
+#define HOP_LEN_MS          15             // ms
+
+#define FRAME_LEN           ((SAMPLE_RATE * FRAME_LEN_MS) / 1000)   // 50
+#define HOP_LEN             ((SAMPLE_RATE * HOP_LEN_MS)  / 1000)    // 30
+
+#define FFT_LEN             128U           // nhỏ hơn, đủ cho 25ms @ 2kHz
+#define NUM_MFCC            13U            // MFCC cơ bản
+#define NUM_MFCC_TOTAL      (NUM_MFCC * 3) // 13 + Δ + ΔΔ = 39
+
+#define NUM_MELS            40U            // giảm xuống để tiết kiệm tính toán
+#define NUM_MEL_COEFS       0              // sẽ được cập nhật sau khi init
+
+// Kích thước output mong muốn của model
+#define MFCC_TIME_FRAMES    333U
+#define MFCC_FEATURES       NUM_MFCC_TOTAL // 39
+
+arm_rfft_fast_instance_f32 S_Rfft;
+MelFilterTypeDef           S_MelFilter;
+DCT_InstanceTypeDef        S_DCT;
+SpectrogramTypeDef         S_Spectr;
+MelSpectrogramTypeDef      S_MelSpectr;
+LogMelSpectrogramTypeDef   S_LogMelSpectr;
+MfccTypeDef                S_Mfcc;
+
+float32_t pInFrame[FRAME_LEN];
+float32_t pOutColBuffer[NUM_MFCC];
+float32_t pWindowFuncBuffer[FRAME_LEN];
+float32_t pSpectrScratchBuffer[FFT_LEN];
+float32_t pDCTCoefsBuffer[NUM_MELS * NUM_MFCC];
+float32_t pMfccScratchBuffer[NUM_MELS];
+float32_t pMelFilterCoefs[NUM_MEL_COEFS];
+uint32_t pMelFilterStartIndices[NUM_MELS];
+uint32_t pMelFilterStopIndices[NUM_MELS];
+float32_t pDeltaBuffer[NUM_MFCC];
+float32_t pDeltaDeltaBuffer[NUM_MFCC];
+
+float32_t mfcc_final_features[MFCC_FEATURES * MFCC_TIME_FRAMES];
+
+void Preprocessing_Init(void)
+{
+  /* Init window function */
+	if (Window_Init(pWindowFuncBuffer, FRAME_LEN, WINDOW_HAMMING) != 0)
+	{
+		Error_Handler();   // thay vì while(1)
+	}
+
+  /* Init RFFT */
+  arm_rfft_fast_init_f32(&S_Rfft, FFT_LEN);
+
+  /* Init mel filterbank */
+  S_MelFilter.pStartIndices     = pMelFilterStartIndices;
+  S_MelFilter.pStopIndices      = pMelFilterStopIndices;
+  S_MelFilter.pCoefficients     = pMelFilterCoefs;
+  S_MelFilter.NumMels           = NUM_MELS;
+  S_MelFilter.FFTLen            = FFT_LEN;
+  S_MelFilter.SampRate          = SAMPLE_RATE;
+  S_MelFilter.FMin              = 0.0f;
+  S_MelFilter.FMax              = SAMPLE_RATE / 2.0f;
+  S_MelFilter.Formula           = MEL_SLANEY;
+  S_MelFilter.Normalize         = 1;
+  S_MelFilter.Mel2F             = 1;
+  MelFilterbank_Init(&S_MelFilter);
+  if (S_MelFilter.CoefficientsLength > sizeof(pMelFilterCoefs)/sizeof(float32_t))
+  {
+	  Error_Handler();  // cần tăng kích thước mảng pMelFilterCoefs[]
+  }
+
+  NUM_MEL_COEFS = S_MelFilter.CoefficientsLength;
+
+  if (NUM_MEL_COEFS > (sizeof(pMelFilterCoefs)/sizeof(float32_t))) {
+      Error_Handler();  // hoặc while(1);
+  }
+
+  /* Init DCT operation */
+  S_DCT.NumFilters    = NUM_MFCC;
+  S_DCT.NumInputs     = NUM_MELS;
+  S_DCT.Type          = DCT_TYPE_II_ORTHO;
+  S_DCT.RemoveDCTZero = 0;
+  S_DCT.pDCTCoefs     = pDCTCoefsBuffer;
+  if (DCT_Init(&S_DCT) != 0)
+  {
+	  Error_Handler();
+  }
+
+  /* Init Spectrogram */
+  S_Spectr.pRfft    = &S_Rfft;
+  S_Spectr.Type     = SPECTRUM_TYPE_POWER;
+  S_Spectr.pWindow  = pWindowFuncBuffer;
+  S_Spectr.SampRate = SAMPLE_RATE;
+  S_Spectr.FrameLen = FRAME_LEN;
+  S_Spectr.FFTLen   = FFT_LEN;
+  S_Spectr.pScratch = pSpectrScratchBuffer;
+
+  /* Init MelSpectrogram */
+  S_MelSpectr.SpectrogramConf = &S_Spectr;
+  S_MelSpectr.MelFilter       = &S_MelFilter;
+
+  /* Init LogMelSpectrogram */
+  S_LogMelSpectr.MelSpectrogramConf = &S_MelSpectr;
+  S_LogMelSpectr.LogFormula         = LOGMELSPECTROGRAM_SCALE_DB;
+  S_LogMelSpectr.Ref                = 1.0;
+  S_LogMelSpectr.TopdB              = HUGE_VALF;
+
+  /* Init MFCC */
+  S_Mfcc.LogMelConf   = &S_LogMelSpectr;
+  S_Mfcc.pDCT         = &S_DCT;
+  S_Mfcc.NumMfccCoefs = 20;
+  S_Mfcc.pScratch     = pMfccScratchBuffer;
+}
+
+/**
+ * @brief  Tính MFCC + Delta + Delta-Delta cho toàn bộ segment
+ * @param  pInSignal     : int16_t audio input (mono, 2000 Hz)
+ * @param  signal_len    : số mẫu (nên ≈ 10010 để có ~333 frames)
+ * @param  pOutMfcc      : output float32 [39 × 333]
+ */
+void AudioPreprocessing_Run(int16_t *pInSignal, float32_t *pOutMfcc, uint32_t signal_len)
+{
+    uint32_t num_frames = 1 + (signal_len - FRAME_LEN) / HOP_LEN;
+    if (num_frames > MFCC_TIME_FRAMES) num_frames = MFCC_TIME_FRAMES;
+
+    // Pass 1: Tính MFCC cơ bản (13 features) cho tất cả frames
+    for (uint32_t frame = 0; frame < num_frames; frame++)
+    {
+        buf_to_float_normed(&pInSignal[frame * HOP_LEN], pInFrame, FRAME_LEN);
+        MfccColumn(&S_Mfcc, pInFrame, pOutColBuffer);
+
+        // Lưu vào hàng 0-12 (MFCC base)
+        for (uint32_t i = 0; i < NUM_MFCC; i++)
+        {
+            pOutMfcc[i * MFCC_TIME_FRAMES + frame] = pOutColBuffer[i];
+        }
+    }
+
+    // Pass 2: Tính delta và delta-delta
+    for (uint32_t frame = 0; frame < num_frames; frame++)
+    {
+        // Delta
+        if (frame == 0 || frame == num_frames - 1)
+        {
+            // Edge: copy MFCC base
+            for (uint32_t i = 0; i < NUM_MFCC; i++)
+            {
+                pDeltaBuffer[i] = pOutMfcc[i * MFCC_TIME_FRAMES + frame];
+            }
+        }
+        else
+        {
+            for (uint32_t i = 0; i < NUM_MFCC; i++)
+            {
+                float32_t next = pOutMfcc[i * MFCC_TIME_FRAMES + (frame + 1)];
+                float32_t prev = pOutMfcc[i * MFCC_TIME_FRAMES + (frame - 1)];
+                pDeltaBuffer[i] = (next - prev) * 0.5f;
+            }
+        }
+
+        // Delta-delta
+        if (frame < 2 || frame >= num_frames - 2)
+        {
+            // Edge: copy delta
+            arm_copy_f32(pDeltaBuffer, pDeltaDeltaBuffer, NUM_MFCC);
+        }
+        else
+        {
+            for (uint32_t i = 0; i < NUM_MFCC; i++)
+            {
+                float32_t next_delta = pOutMfcc[(NUM_MFCC + i) * MFCC_TIME_FRAMES + (frame + 1)];
+                float32_t prev_delta = pOutMfcc[(NUM_MFCC + i) * MFCC_TIME_FRAMES + (frame - 1)];
+                pDeltaDeltaBuffer[i] = (next_delta - prev_delta) * 0.5f;
+            }
+        }
+
+        // Gộp vào output (hàng 13-25: delta, 26-38: delta-delta)
+        for (uint32_t i = 0; i < NUM_MFCC; i++)
+        {
+            pOutMfcc[(NUM_MFCC + i) * MFCC_TIME_FRAMES + frame]     = pDeltaBuffer[i];
+            pOutMfcc[(2 * NUM_MFCC + i) * MFCC_TIME_FRAMES + frame] = pDeltaDeltaBuffer[i];
+        }
+    }
+
+    // Zero-padding nếu thiếu frame
+    if (num_frames < MFCC_TIME_FRAMES)
+    {
+        arm_fill_f32(0.0f,
+                     &pOutMfcc[num_frames * MFCC_FEATURES],
+                     (MFCC_TIME_FRAMES - num_frames) * MFCC_FEATURES);
+    }
+}

@@ -1,0 +1,44 @@
+/*
+ * audio_capture.c
+ *
+ *  Created on: Feb 8, 2026
+ *      Author: edoph
+ */
+
+#include "stm32h7xx_hal.h"
+#include "audio_preprocess.h"
+#include "audio_sd.h"
+#include "audio_capture.h"
+#include "app_x-cube-ai.h"
+#include "mfccextract.h"
+extern I2S_HandleTypeDef hi2s1;
+
+#define AUDIO_BUFFER_SIZE 10010  // ~5s @ 2000Hz
+int16_t audio_buffer[AUDIO_BUFFER_SIZE];
+volatile uint8_t audio_ready = 0;
+float32_t mfcc_features[39 * 333];
+
+void StartAudioCapture(void) {
+    HAL_I2S_Receive_DMA(&hi2s1, (uint16_t*)audio_buffer, AUDIO_BUFFER_SIZE);
+}
+
+void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
+    audio_ready = 1;  // Buffer đầy, sẵn sàng process
+}
+
+void ProcessAudioIfReady(void)
+{
+    if (audio_ready)
+    {
+        audio_ready = 0;
+
+        // Tính MFCC + deltas
+        AudioPreprocessing_Run(audio_buffer, mfcc_features, AUDIO_BUFFER_SIZE);
+
+        // Chuyển tiếp cho AI
+        extern float32_t mfcc_final_features[39 * 333];
+        memcpy(mfcc_final_features, mfcc_features, sizeof(mfcc_features));
+
+        MX_X_CUBE_AI_Process();   // → inference & bật LED nếu abnormal
+    }
+}

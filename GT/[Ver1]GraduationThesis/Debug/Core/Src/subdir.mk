@@ -5,6 +5,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/audio_capture.c \
+../Core/Src/audio_preprocess.c \
 ../Core/Src/audio_sd.c \
 ../Core/Src/main.c \
 ../Core/Src/math_helper.c \
@@ -15,6 +17,8 @@ C_SRCS += \
 ../Core/Src/system_stm32h7xx.c 
 
 OBJS += \
+./Core/Src/audio_capture.o \
+./Core/Src/audio_preprocess.o \
 ./Core/Src/audio_sd.o \
 ./Core/Src/main.o \
 ./Core/Src/math_helper.o \
@@ -25,6 +29,8 @@ OBJS += \
 ./Core/Src/system_stm32h7xx.o 
 
 C_DEPS += \
+./Core/Src/audio_capture.d \
+./Core/Src/audio_preprocess.d \
 ./Core/Src/audio_sd.d \
 ./Core/Src/main.d \
 ./Core/Src/math_helper.d \
@@ -42,7 +48,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/audio_sd.cyclo ./Core/Src/audio_sd.d ./Core/Src/audio_sd.o ./Core/Src/audio_sd.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/math_helper.cyclo ./Core/Src/math_helper.d ./Core/Src/math_helper.o ./Core/Src/math_helper.su ./Core/Src/mfccextract.cyclo ./Core/Src/mfccextract.d ./Core/Src/mfccextract.o ./Core/Src/mfccextract.su ./Core/Src/stm32h7xx_hal_msp.cyclo ./Core/Src/stm32h7xx_hal_msp.d ./Core/Src/stm32h7xx_hal_msp.o ./Core/Src/stm32h7xx_hal_msp.su ./Core/Src/stm32h7xx_it.cyclo ./Core/Src/stm32h7xx_it.d ./Core/Src/stm32h7xx_it.o ./Core/Src/stm32h7xx_it.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32h7xx.cyclo ./Core/Src/system_stm32h7xx.d ./Core/Src/system_stm32h7xx.o ./Core/Src/system_stm32h7xx.su
+	-$(RM) ./Core/Src/audio_capture.cyclo ./Core/Src/audio_capture.d ./Core/Src/audio_capture.o ./Core/Src/audio_capture.su ./Core/Src/audio_preprocess.cyclo ./Core/Src/audio_preprocess.d ./Core/Src/audio_preprocess.o ./Core/Src/audio_preprocess.su ./Core/Src/audio_sd.cyclo ./Core/Src/audio_sd.d ./Core/Src/audio_sd.o ./Core/Src/audio_sd.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/math_helper.cyclo ./Core/Src/math_helper.d ./Core/Src/math_helper.o ./Core/Src/math_helper.su ./Core/Src/mfccextract.cyclo ./Core/Src/mfccextract.d ./Core/Src/mfccextract.o ./Core/Src/mfccextract.su ./Core/Src/stm32h7xx_hal_msp.cyclo ./Core/Src/stm32h7xx_hal_msp.d ./Core/Src/stm32h7xx_hal_msp.o ./Core/Src/stm32h7xx_hal_msp.su ./Core/Src/stm32h7xx_it.cyclo ./Core/Src/stm32h7xx_it.d ./Core/Src/stm32h7xx_it.o ./Core/Src/stm32h7xx_it.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32h7xx.cyclo ./Core/Src/system_stm32h7xx.d ./Core/Src/system_stm32h7xx.o ./Core/Src/system_stm32h7xx.su
 
 .PHONY: clean-Core-2f-Src
 

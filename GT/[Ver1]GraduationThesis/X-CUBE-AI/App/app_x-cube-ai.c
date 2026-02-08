@@ -56,7 +56,8 @@
 #include "ai_datatypes_defines.h"
 #include "network.h"
 #include "network_data.h"
-
+#include "audio_preprocess.h"
+#include "stm32h7xx_hal.h"
 /* USER CODE BEGIN includes */
 /* USER CODE END includes */
 
@@ -98,6 +99,14 @@ static ai_handle network = AI_HANDLE_NULL;
 static ai_buffer* ai_input;
 static ai_buffer* ai_output;
 
+
+/* USER CODE BEGIN 0 */
+// LED PA1 (GPIO_Output, PA1)
+#define ABNORMAL_LED_GPIO_Port GPIOA
+#define ABNORMAL_LED_Pin       GPIO_PIN_1
+
+volatile uint8_t classification_result = 0;  // 0 = Normal, 1 = Abnormal
+
 static void ai_log_err(const ai_error err, const char *fct)
 {
   /* USER CODE BEGIN log */
@@ -106,8 +115,6 @@ static void ai_log_err(const ai_error err, const char *fct)
         err.type, err.code);
   else
     printf("TEMPLATE - Error - type=0x%02x code=0x%02x\r\n", err.type, err.code);
-
-  do {} while (1);
   /* USER CODE END log */
 }
 
@@ -171,25 +178,50 @@ static int ai_run(void)
 /* USER CODE BEGIN 2 */
 int acquire_and_process_data(ai_i8* data[])
 {
-  /* fill the inputs of the c-model
-  for (int idx=0; idx < AI_NETWORK_IN_NUM; idx++ )
-  {
-      data[idx] = ....
-  }
+	// Giả sử bạn đã có buffer float32 mfcc_features[39*333] từ preprocessing
+	  extern float32_t mfcc_features[39 * 333];  // Từ audio_preprocess.c
 
-  */
-  return 0;
+	  // Copy float32 → ai_float (model dùng float32)
+	  ai_float* input_ptr = (ai_float*)data[0];  // Vì data_in_1 là ai_i8 nhưng model float32
+
+	  // Kiểm tra kích thước (phải khớp AI_NETWORK_IN_1_SIZE = 39*333*4 bytes)
+	  if (AI_NETWORK_IN_1_SIZE != (39 * 333)) {
+		printf("Input size mismatch!\r\n");
+		return -1;
+	  }
+
+	  memcpy(input_ptr, mfcc_features, 39 * 333 * sizeof(ai_float));
+
+	  return 0;
 }
 
+/**
+ * @brief  Post-process output và điều khiển LED PA1
+ * @param  data[]: buffer output của AI
+ * @retval 0
+ */
 int post_process(ai_i8* data[])
 {
-  /* process the predictions
-  for (int idx=0; idx < AI_NETWORK_OUT_NUM; idx++ )
-  {
-      data[idx] = ....
+  ai_float* output_ptr = (ai_float*)data[0];  // output là float32 [1×2]
+
+  // Lấy 2 giá trị logits
+  float score_normal   = output_ptr[0];
+  float score_abnormal = output_ptr[1];
+
+  // Quyết định class: argmax (hoặc softmax nếu cần probability)
+  classification_result = (score_abnormal > score_normal) ? 1 : 0;
+
+  // Điều khiển LED PA1
+  if (classification_result == 1) {
+    HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_SET);   // Bật LED abnormal
+    printf("Abnormal heart sound detected!\r\n");
+  } else {
+    HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_RESET); // Tắt LED
+    printf("Normal heart sound.\r\n");
   }
 
-  */
+  // Có thể gửi qua UART hoặc hiển thị LCD ở đây
+
   return 0;
 }
 /* USER CODE END 2 */
@@ -198,11 +230,12 @@ int post_process(ai_i8* data[])
 
 void MX_X_CUBE_AI_Init(void)
 {
-    /* USER CODE BEGIN 5 */
-  printf("\r\nTEMPLATE - initialization\r\n");
-
+  printf("\r\nX-CUBE-AI initialized for Heart Sound Classification\r\n");
   ai_boostrap(data_activations0);
-    /* USER CODE END 5 */
+
+  // Init LED PA1
+
+  HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_RESET); // Tắt ban đầu
 }
 
 void MX_X_CUBE_AI_Process(void)

@@ -20,7 +20,7 @@
 #include "main.h"
 #include "fatfs.h"
 #include "app_x-cube-ai.h"
-
+#include "audio_preprocess.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -114,6 +114,7 @@ int main(void)
   MX_FATFS_Init();
   MX_TIM2_Init();
   MX_X_CUBE_AI_Init();
+  StartAudioCapture();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -123,8 +124,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
-  MX_X_CUBE_AI_Process();
+	  ProcessAudioIfReady();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
