@@ -21,6 +21,7 @@
 #include "fatfs.h"
 #include "app_x-cube-ai.h"
 #include "audio_preprocess.h"
+#include "audio_capture.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 

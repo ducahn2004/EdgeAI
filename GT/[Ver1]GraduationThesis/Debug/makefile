@@ -70,7 +70,7 @@ main-build: [Ver1]GraduationThesis.elf secondary-outputs
 
 # Tool invocations
 [Ver1]GraduationThesis.elf [Ver1]GraduationThesis.map: $(OBJS) $(USER_OBJS) D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\STM32H743VITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "[Ver1]GraduationThesis.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="[Ver1]GraduationThesis.map" -Wl,--gc-sections -static -L../Middlewares/ST/AI/Lib --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "[Ver1]GraduationThesis.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\STM32H743VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="[Ver1]GraduationThesis.map" -Wl,--gc-sections -static -L../Middlewares/ST/AI/Lib -L"D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,0 +1,3 @@
+../Core/Src/audio_capture.c:21:6:StartAudioCapture	8	static
+../Core/Src/audio_capture.c:25:6:HAL_I2S_RxCpltCallback	16	static
+../Core/Src/audio_capture.c:29:6:ProcessAudioIfReady	8	static
