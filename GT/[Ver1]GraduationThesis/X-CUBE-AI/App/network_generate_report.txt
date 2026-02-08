@@ -1,30 +1,30 @@
 ST Edge AI Core v2.2.0-20266 2adc00962
-Created date          : 2026-02-04 21:59:02
-Parameters            : generate --target stm32h7 --name network -m D:/light_cnn_0203_153447_final.onnx --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace54441400644150015786119936586911853 --output C:/Users/edoph/.stm32cubemx/network_output
+Created date          : 2026-02-08 21:58:48
+Parameters            : generate --target stm32h7 --name network -m D:/light_cnn_0203_153447_final.onnx --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace8692151529000012192735788998844022 --output C:/Users/edoph/.stm32cubemx/network_output
 
 Exec/report summary (generate)
--------------------------------------------------------------------------------------------------------------
-model file         :   D:\light_cnn_0203_153447_final.onnx                                                   
-type               :   onnx                                                                                  
-c_name             :   network                                                                               
-compression        :   none                                                                                  
-options            :   allocate-inputs, allocate-outputs                                                     
-optimization       :   balanced                                                                              
-target/series      :   stm32h7                                                                               
-workspace dir      :   C:\Users\edoph\AppData\Local\Temp\mxAI_workspace54441400644150015786119936586911853   
-output dir         :   C:\Users\edoph\.stm32cubemx\network_output                                            
-model_fmt          :   float                                                                                 
-model_name         :   light_cnn_0203_153447_final                                                           
-model_hash         :   0x97fd31a39dee7175162a509e4352903c                                                    
-params #           :   12,402 items (48.45 KiB)                                                              
--------------------------------------------------------------------------------------------------------------
-input 1/1          :   'input', f32(1x39x333), 50.73 KBytes, activations                                     
-output 1/1         :   'output', f32(1x2), 8 Bytes, activations                                              
-macc               :   2,293,759                                                                             
-weights (ro)       :   50,056 B (48.88 KiB) (1 segment) / +448(+0.9%) vs float model                         
-activations (rw)   :   239,408 B (233.80 KiB) (1 segment) *                                                  
-ram (total)        :   239,408 B (233.80 KiB) = 239,408 + 0 + 0                                              
--------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
+model file         :   D:\light_cnn_0203_153447_final.onnx                                                  
+type               :   onnx                                                                                 
+c_name             :   network                                                                              
+compression        :   none                                                                                 
+options            :   allocate-inputs, allocate-outputs                                                    
+optimization       :   balanced                                                                             
+target/series      :   stm32h7                                                                              
+workspace dir      :   C:\Users\edoph\AppData\Local\Temp\mxAI_workspace8692151529000012192735788998844022   
+output dir         :   C:\Users\edoph\.stm32cubemx\network_output                                           
+model_fmt          :   float                                                                                
+model_name         :   light_cnn_0203_153447_final                                                          
+model_hash         :   0x97fd31a39dee7175162a509e4352903c                                                   
+params #           :   12,402 items (48.45 KiB)                                                             
+------------------------------------------------------------------------------------------------------------
+input 1/1          :   'input', f32(1x39x333), 50.73 KBytes, activations                                    
+output 1/1         :   'output', f32(1x2), 8 Bytes, activations                                             
+macc               :   2,293,759                                                                            
+weights (ro)       :   50,056 B (48.88 KiB) (1 segment) / +448(+0.9%) vs float model                        
+activations (rw)   :   239,408 B (233.80 KiB) (1 segment) *                                                 
+ram (total)        :   239,408 B (233.80 KiB) = 239,408 + 0 + 0                                             
+------------------------------------------------------------------------------------------------------------
 (*) 'input'/'output' buffers are allocated in the activations buffer
 
 Model name - light_cnn_0203_153447_final

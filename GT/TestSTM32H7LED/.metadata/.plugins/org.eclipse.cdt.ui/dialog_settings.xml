@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="arm_cortexM7lfsp_math"/>
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\IAR"/>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
