@@ -71,11 +71,11 @@ Archive member included to satisfy reference by file (symbol)
 ../Middlewares/ST/AI/Lib\NetworkRuntime1020_CM7_GCC.a(st_align_factor.o)
                               ../Middlewares/ST/AI/Lib\NetworkRuntime1020_CM7_GCC.a(ai_math_helpers.o) (align_factor)
 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_fill_f32.o)
-                              ./Core/Src/mfccextract.o (arm_fill_f32)
+                              ./Core/Src/mfcc_extract.o (arm_fill_f32)
 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_copy_f32.o)
-                              ./Core/Src/mfccextract.o (arm_copy_f32)
+                              ./Core/Src/mfcc_extract.o (arm_copy_f32)
 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_rfft_fast_init_f32.o)
-                              ./Core/Src/mfccextract.o (arm_rfft_fast_init_f32)
+                              ./Core/Src/mfcc_extract.o (arm_rfft_fast_init_f32)
 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_rfft_fast_f32.o)
                               ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.o (arm_rfft_fast_f32)
 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_f32.o)
@@ -991,174 +991,174 @@ Discarded input sections
  .debug_frame   0x00000000      0x270 ./Core/Src/math_helper.o
  .ARM.attributes
                 0x00000000       0x32 ./Core/Src/math_helper.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .group         0x00000000        0xc ./Core/Src/mfccextract.o
- .text          0x00000000        0x0 ./Core/Src/mfccextract.o
- .data          0x00000000        0x0 ./Core/Src/mfccextract.o
- .bss           0x00000000        0x0 ./Core/Src/mfccextract.o
- .bss.S_Rfft    0x00000000       0x18 ./Core/Src/mfccextract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .group         0x00000000        0xc ./Core/Src/mfcc_extract.o
+ .text          0x00000000        0x0 ./Core/Src/mfcc_extract.o
+ .data          0x00000000        0x0 ./Core/Src/mfcc_extract.o
+ .bss           0x00000000        0x0 ./Core/Src/mfcc_extract.o
+ .bss.S_Rfft    0x00000000       0x18 ./Core/Src/mfcc_extract.o
  .bss.S_MelFilter
-                0x00000000       0x30 ./Core/Src/mfccextract.o
- .bss.S_DCT     0x00000000       0x14 ./Core/Src/mfccextract.o
- .bss.S_Spectr  0x00000000       0x1c ./Core/Src/mfccextract.o
+                0x00000000       0x30 ./Core/Src/mfcc_extract.o
+ .bss.S_DCT     0x00000000       0x14 ./Core/Src/mfcc_extract.o
+ .bss.S_Spectr  0x00000000       0x1c ./Core/Src/mfcc_extract.o
  .bss.S_MelSpectr
-                0x00000000        0x8 ./Core/Src/mfccextract.o
+                0x00000000        0x8 ./Core/Src/mfcc_extract.o
  .bss.S_LogMelSpectr
-                0x00000000       0x10 ./Core/Src/mfccextract.o
+                0x00000000       0x10 ./Core/Src/mfcc_extract.o
  .bss.NUM_MEL_COEFS
-                0x00000000        0x4 ./Core/Src/mfccextract.o
+                0x00000000        0x4 ./Core/Src/mfcc_extract.o
  .bss.pWindowFuncBuffer
-                0x00000000       0xc8 ./Core/Src/mfccextract.o
+                0x00000000       0xc8 ./Core/Src/mfcc_extract.o
  .bss.pSpectrScratchBuffer
-                0x00000000      0x200 ./Core/Src/mfccextract.o
+                0x00000000      0x200 ./Core/Src/mfcc_extract.o
  .bss.pDCTCoefsBuffer
-                0x00000000      0x820 ./Core/Src/mfccextract.o
+                0x00000000      0x820 ./Core/Src/mfcc_extract.o
  .bss.pMfccScratchBuffer
-                0x00000000       0xa0 ./Core/Src/mfccextract.o
+                0x00000000       0xa0 ./Core/Src/mfcc_extract.o
  .bss.pMelFilterCoefs
-                0x00000000     0x4000 ./Core/Src/mfccextract.o
+                0x00000000     0x4000 ./Core/Src/mfcc_extract.o
  .bss.pMelFilterStartIndices
-                0x00000000       0xa0 ./Core/Src/mfccextract.o
+                0x00000000       0xa0 ./Core/Src/mfcc_extract.o
  .bss.pMelFilterStopIndices
-                0x00000000       0xa0 ./Core/Src/mfccextract.o
+                0x00000000       0xa0 ./Core/Src/mfcc_extract.o
  .text.Preprocessing_Init
-                0x00000000      0x170 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0xade ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x22 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x8e ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x51 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x103 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x6a ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x1df ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0xfb ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x61 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x29 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x43 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x34 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x189 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x16 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x43 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x34 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x10 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x58 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x8e ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x1c ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x177 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x369 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x10 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x35 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x20 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x19b ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x201 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0xc8 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x23e ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x2e ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x3b ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x1c ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x22 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000     0x1305 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x11f ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x27 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000    0x25b9b ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x6d ./Core/Src/mfccextract.o
- .debug_macro   0x00000000     0x3d79 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x5d ./Core/Src/mfccextract.o
- .debug_macro   0x00000000     0x2382 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000     0x102c ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x154 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x114 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x3b6 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0xac ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x72d ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x228 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x66 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x3bb ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x3e4 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x275 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x3ca ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x408 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x51 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x4a ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x22c ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x67 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0xa5 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x25d ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x1c4 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x25e ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x35 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0xa0c ./Core/Src/mfccextract.o
- .debug_macro   0x00000000       0x16 ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x1ce ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0xafa ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x29f ./Core/Src/mfccextract.o
- .debug_macro   0x00000000      0x5ac ./Core/Src/mfccextract.o
+                0x00000000      0x170 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0xade ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x51 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x103 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x6a ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x1df ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0xfb ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x61 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x29 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x43 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x34 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x189 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x43 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x34 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x58 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x8e ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x177 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x369 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x10 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x35 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x20 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x19b ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x201 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0xc8 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x23e ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x2e ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x3b ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x1c ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x22 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000     0x1305 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x11f ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x27 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000    0x25b9b ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x6d ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000     0x3d79 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x5d ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000     0x2382 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000     0x102c ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x154 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x114 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x3b6 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0xac ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x72d ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x228 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x66 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x3bb ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x3e4 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x275 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x3ca ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x408 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x51 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x4a ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x22c ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x67 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0xa5 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x25d ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x1c4 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x25e ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x35 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0xa0c ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000       0x16 ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x1ce ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0xafa ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x29f ./Core/Src/mfcc_extract.o
+ .debug_macro   0x00000000      0x5ac ./Core/Src/mfcc_extract.o
  .group         0x00000000        0xc ./Core/Src/stm32h7xx_hal_msp.o
  .group         0x00000000        0xc ./Core/Src/stm32h7xx_hal_msp.o
  .group         0x00000000        0xc ./Core/Src/stm32h7xx_hal_msp.o
@@ -11096,7 +11096,7 @@ LOAD ./Core/Src/audio_preprocess.o
 LOAD ./Core/Src/audio_sd.o
 LOAD ./Core/Src/main.o
 LOAD ./Core/Src/math_helper.o
-LOAD ./Core/Src/mfccextract.o
+LOAD ./Core/Src/mfcc_extract.o
 LOAD ./Core/Src/stm32h7xx_hal_msp.o
 LOAD ./Core/Src/stm32h7xx_it.o
 LOAD ./Core/Src/sysmem.o
@@ -11234,7 +11234,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x08000c90        0xc ./Core/Src/main.o
                 0x08000c90                Error_Handler
  .text.AudioPreprocessing_Run
-                0x08000c9c      0x290 ./Core/Src/mfccextract.o
+                0x08000c9c      0x290 ./Core/Src/mfcc_extract.o
                 0x08000c9c                AudioPreprocessing_Run
  .text.HAL_MspInit
                 0x08000f2c       0x34 ./Core/Src/stm32h7xx_hal_msp.o
@@ -13016,21 +13016,21 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x24012e14                hsd1
  .bss.htim2     0x24012e90       0x4c ./Core/Src/main.o
                 0x24012e90                htim2
- .bss.S_Mfcc    0x24012edc       0x10 ./Core/Src/mfccextract.o
+ .bss.S_Mfcc    0x24012edc       0x10 ./Core/Src/mfcc_extract.o
                 0x24012edc                S_Mfcc
- .bss.pInFrame  0x24012eec       0xc8 ./Core/Src/mfccextract.o
+ .bss.pInFrame  0x24012eec       0xc8 ./Core/Src/mfcc_extract.o
                 0x24012eec                pInFrame
  .bss.pOutColBuffer
-                0x24012fb4       0x34 ./Core/Src/mfccextract.o
+                0x24012fb4       0x34 ./Core/Src/mfcc_extract.o
                 0x24012fb4                pOutColBuffer
  .bss.pDeltaBuffer
-                0x24012fe8       0x34 ./Core/Src/mfccextract.o
+                0x24012fe8       0x34 ./Core/Src/mfcc_extract.o
                 0x24012fe8                pDeltaBuffer
  .bss.pDeltaDeltaBuffer
-                0x2401301c       0x34 ./Core/Src/mfccextract.o
+                0x2401301c       0x34 ./Core/Src/mfcc_extract.o
                 0x2401301c                pDeltaDeltaBuffer
  .bss.mfcc_final_features
-                0x24013050     0xcaec ./Core/Src/mfccextract.o
+                0x24013050     0xcaec ./Core/Src/mfcc_extract.o
                 0x24013050                mfcc_final_features
  .bss.__sbrk_heap_end
                 0x2401fb3c        0x4 ./Core/Src/sysmem.o
@@ -13171,7 +13171,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .ARM.attributes
                 0x00000084       0x32 ./Core/Src/main.o
  .ARM.attributes
-                0x000000b6       0x32 ./Core/Src/mfccextract.o
+                0x000000b6       0x32 ./Core/Src/mfcc_extract.o
  .ARM.attributes
                 0x000000e8       0x32 ./Core/Src/stm32h7xx_hal_msp.o
  .ARM.attributes
@@ -13427,7 +13427,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 .debug_info     0x00000000    0x23096
  .debug_info    0x00000000      0x86e ./Core/Src/audio_capture.o
  .debug_info    0x0000086e     0x2175 ./Core/Src/main.o
- .debug_info    0x000029e3      0x91b ./Core/Src/mfccextract.o
+ .debug_info    0x000029e3      0x91b ./Core/Src/mfcc_extract.o
  .debug_info    0x000032fe     0x1c6c ./Core/Src/stm32h7xx_hal_msp.o
  .debug_info    0x00004f6a      0x547 ./Core/Src/stm32h7xx_it.o
  .debug_info    0x000054b1      0x176 ./Core/Src/sysmem.o
@@ -13468,7 +13468,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 .debug_abbrev   0x00000000     0x525e
  .debug_abbrev  0x00000000      0x1ec ./Core/Src/audio_capture.o
  .debug_abbrev  0x000001ec      0x357 ./Core/Src/main.o
- .debug_abbrev  0x00000543      0x210 ./Core/Src/mfccextract.o
+ .debug_abbrev  0x00000543      0x210 ./Core/Src/mfcc_extract.o
  .debug_abbrev  0x00000753      0x292 ./Core/Src/stm32h7xx_hal_msp.o
  .debug_abbrev  0x000009e5      0x185 ./Core/Src/stm32h7xx_it.o
  .debug_abbrev  0x00000b6a       0xbc ./Core/Src/sysmem.o
@@ -13512,7 +13512,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_aranges
                 0x00000030       0x58 ./Core/Src/main.o
  .debug_aranges
-                0x00000088       0x28 ./Core/Src/mfccextract.o
+                0x00000088       0x28 ./Core/Src/mfcc_extract.o
  .debug_aranges
                 0x000000b0       0x58 ./Core/Src/stm32h7xx_hal_msp.o
  .debug_aranges
@@ -13593,7 +13593,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x0000001f       0x41 ./Core/Src/main.o
  .debug_rnglists
-                0x00000060       0x1b ./Core/Src/mfccextract.o
+                0x00000060       0x1b ./Core/Src/mfcc_extract.o
  .debug_rnglists
                 0x0000007b       0x3f ./Core/Src/stm32h7xx_hal_msp.o
  .debug_rnglists
@@ -13732,7 +13732,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0003595c      0x342 ./Core/Src/audio_capture.o
  .debug_macro   0x00035c9e      0x453 ./Core/Src/main.o
  .debug_macro   0x000360f1       0xe2 ./Core/Src/main.o
- .debug_macro   0x000361d3      0x3b1 ./Core/Src/mfccextract.o
+ .debug_macro   0x000361d3      0x3b1 ./Core/Src/mfcc_extract.o
  .debug_macro   0x00036584      0x361 ./Core/Src/stm32h7xx_hal_msp.o
  .debug_macro   0x000368e5      0x36b ./Core/Src/stm32h7xx_it.o
  .debug_macro   0x00036c50      0x1c1 ./Core/Src/sysmem.o
@@ -13799,132 +13799,132 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0003cd2a       0x46 ./X-CUBE-AI/App/network_data.o
  .debug_macro   0x0003cd70      0x1fc ./X-CUBE-AI/App/network_data_params.o
 
-.debug_line     0x00000000    0x255fb
- .debug_line    0x00000000      0xb66 ./Core/Src/audio_capture.o
- .debug_line    0x00000b66      0xe88 ./Core/Src/main.o
- .debug_line    0x000019ee      0xcc6 ./Core/Src/mfccextract.o
- .debug_line    0x000026b4      0xbb9 ./Core/Src/stm32h7xx_hal_msp.o
- .debug_line    0x0000326d      0xb44 ./Core/Src/stm32h7xx_it.o
- .debug_line    0x00003db1      0x711 ./Core/Src/sysmem.o
- .debug_line    0x000044c2      0xc66 ./Core/Src/system_stm32h7xx.o
- .debug_line    0x00005128       0x7b ./Core/Startup/startup_stm32h743vitx.o
- .debug_line    0x000051a3      0xca4 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/dct.o
- .debug_line    0x00005e47      0xa04 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.o
- .debug_line    0x0000684b      0x982 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/mel_filterbank.o
- .debug_line    0x000071cd     0x101a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
- .debug_line    0x000081e7     0x1049 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
- .debug_line    0x00009230     0x297d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
- .debug_line    0x0000bbad      0xef2 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
- .debug_line    0x0000ca9f     0x1ac7 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
- .debug_line    0x0000e566     0x113d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
- .debug_line    0x0000f6a3     0x15ea ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
- .debug_line    0x00010c8d     0x1f86 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
- .debug_line    0x00012c13     0x23da ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
- .debug_line    0x00014fed     0x41a8 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.o
- .debug_line    0x00019195     0x1fba ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.o
- .debug_line    0x0001b14f     0x14d6 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
- .debug_line    0x0001c625      0xb3a ./FATFS/App/fatfs.o
- .debug_line    0x0001d15f      0xc27 ./FATFS/Target/bsp_driver_sd.o
- .debug_line    0x0001dd86      0xd19 ./FATFS/Target/sd_diskio.o
- .debug_line    0x0001ea9f      0xbc9 ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
- .debug_line    0x0001f668      0xd06 ./X-CUBE-AI/App/app_x-cube-ai.o
- .debug_line    0x0002036e     0x1116 ./X-CUBE-AI/App/network.o
- .debug_line    0x00021484      0x873 ./X-CUBE-AI/App/network_data.o
- .debug_line    0x00021cf7      0x72c ./X-CUBE-AI/App/network_data_params.o
- .debug_line    0x00022423      0x2ba D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_fill_f32.o)
- .debug_line    0x000226dd      0x2d8 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_copy_f32.o)
- .debug_line    0x000229b5      0x4fb D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_rfft_fast_f32.o)
- .debug_line    0x00022eb0      0xf9f D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_f32.o)
- .debug_line    0x00023e4f      0x35c D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_bitreversal2.o)
- .debug_line    0x000241ab      0x38a D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cmplx_mag_squared_f32.o)
- .debug_line    0x00024535      0x2ea D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_mult_f32.o)
- .debug_line    0x0002481f      0xddc D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_radix8_f32.o)
+.debug_line     0x00000000    0x255fe
+ .debug_line    0x00000000      0xb67 ./Core/Src/audio_capture.o
+ .debug_line    0x00000b67      0xe88 ./Core/Src/main.o
+ .debug_line    0x000019ef      0xcc8 ./Core/Src/mfcc_extract.o
+ .debug_line    0x000026b7      0xbb9 ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_line    0x00003270      0xb44 ./Core/Src/stm32h7xx_it.o
+ .debug_line    0x00003db4      0x711 ./Core/Src/sysmem.o
+ .debug_line    0x000044c5      0xc66 ./Core/Src/system_stm32h7xx.o
+ .debug_line    0x0000512b       0x7b ./Core/Startup/startup_stm32h743vitx.o
+ .debug_line    0x000051a6      0xca4 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/dct.o
+ .debug_line    0x00005e4a      0xa04 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.o
+ .debug_line    0x0000684e      0x982 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/mel_filterbank.o
+ .debug_line    0x000071d0     0x101a ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_line    0x000081ea     0x1049 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_line    0x00009233     0x297d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
+ .debug_line    0x0000bbb0      0xef2 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_line    0x0000caa2     0x1ac7 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
+ .debug_line    0x0000e569     0x113d ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_line    0x0000f6a6     0x15ea ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_line    0x00010c90     0x1f86 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_line    0x00012c16     0x23da ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
+ .debug_line    0x00014ff0     0x41a8 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.o
+ .debug_line    0x00019198     0x1fba ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.o
+ .debug_line    0x0001b152     0x14d6 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
+ .debug_line    0x0001c628      0xb3a ./FATFS/App/fatfs.o
+ .debug_line    0x0001d162      0xc27 ./FATFS/Target/bsp_driver_sd.o
+ .debug_line    0x0001dd89      0xd19 ./FATFS/Target/sd_diskio.o
+ .debug_line    0x0001eaa2      0xbc9 ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
+ .debug_line    0x0001f66b      0xd06 ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_line    0x00020371     0x1116 ./X-CUBE-AI/App/network.o
+ .debug_line    0x00021487      0x873 ./X-CUBE-AI/App/network_data.o
+ .debug_line    0x00021cfa      0x72c ./X-CUBE-AI/App/network_data_params.o
+ .debug_line    0x00022426      0x2ba D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_fill_f32.o)
+ .debug_line    0x000226e0      0x2d8 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_copy_f32.o)
+ .debug_line    0x000229b8      0x4fb D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_rfft_fast_f32.o)
+ .debug_line    0x00022eb3      0xf9f D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_f32.o)
+ .debug_line    0x00023e52      0x35c D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_bitreversal2.o)
+ .debug_line    0x000241ae      0x38a D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cmplx_mag_squared_f32.o)
+ .debug_line    0x00024538      0x2ea D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_mult_f32.o)
+ .debug_line    0x00024822      0xddc D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_radix8_f32.o)
 
-.debug_str      0x00000000   0x175d16
+.debug_str      0x00000000   0x175d17
  .debug_str     0x00000000   0x162472 ./Core/Src/audio_capture.o
                              0x162a9f (size before relaxing)
  .debug_str     0x00162472     0x15da ./Core/Src/main.o
                              0x163a72 (size before relaxing)
- .debug_str     0x00163a4c      0x6d0 ./Core/Src/mfccextract.o
-                             0x15f0d8 (size before relaxing)
- .debug_str     0x0016411c      0xbce ./Core/Src/stm32h7xx_hal_msp.o
+ .debug_str     0x00163a4c      0x6d1 ./Core/Src/mfcc_extract.o
+                             0x15f0d9 (size before relaxing)
+ .debug_str     0x0016411d      0xbce ./Core/Src/stm32h7xx_hal_msp.o
                              0x160357 (size before relaxing)
- .debug_str     0x00164cea       0xed ./Core/Src/stm32h7xx_it.o
+ .debug_str     0x00164ceb       0xed ./Core/Src/stm32h7xx_it.o
                              0x15ecff (size before relaxing)
- .debug_str     0x00164dd7      0x4dc ./Core/Src/sysmem.o
+ .debug_str     0x00164dd8      0x4dc ./Core/Src/sysmem.o
                                0x9408 (size before relaxing)
- .debug_str     0x001652b3      0x244 ./Core/Src/system_stm32h7xx.o
+ .debug_str     0x001652b4      0x244 ./Core/Src/system_stm32h7xx.o
                              0x15ef00 (size before relaxing)
- .debug_str     0x001654f7       0x44 ./Core/Startup/startup_stm32h743vitx.o
+ .debug_str     0x001654f8       0x44 ./Core/Startup/startup_stm32h743vitx.o
                                  0x76 (size before relaxing)
- .debug_str     0x0016553b       0x80 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/dct.o
+ .debug_str     0x0016553c       0x80 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/dct.o
                                0x906f (size before relaxing)
- .debug_str     0x001655bb      0x144 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.o
+ .debug_str     0x001655bc      0x144 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.o
                                0x94bf (size before relaxing)
- .debug_str     0x001656ff      0x1e6 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/mel_filterbank.o
+ .debug_str     0x00165700      0x1e6 ./Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Src/mel_filterbank.o
                                0x922c (size before relaxing)
- .debug_str     0x001658e5      0x7d6 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+ .debug_str     0x001658e6      0x7d6 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
                              0x15fdd7 (size before relaxing)
- .debug_str     0x001660bb      0x29e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
+ .debug_str     0x001660bc      0x29e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.o
                              0x15f812 (size before relaxing)
- .debug_str     0x00166359      0x891 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
+ .debug_str     0x0016635a      0x891 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.o
                              0x15f5fb (size before relaxing)
- .debug_str     0x00166bea       0xf1 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
+ .debug_str     0x00166beb       0xf1 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.o
                              0x15ee78 (size before relaxing)
- .debug_str     0x00166cdb      0x406 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
+ .debug_str     0x00166cdc      0x406 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2s.o
                              0x15f374 (size before relaxing)
- .debug_str     0x001670e1      0x63b ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
+ .debug_str     0x001670e2      0x63b ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.o
                              0x15f339 (size before relaxing)
- .debug_str     0x0016771c      0x22e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
+ .debug_str     0x0016771d      0x22e ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.o
                              0x15f25c (size before relaxing)
- .debug_str     0x0016794a      0x630 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
+ .debug_str     0x0016794b      0x630 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.o
                              0x15f73d (size before relaxing)
- .debug_str     0x00167f7a      0x9ee ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
+ .debug_str     0x00167f7b      0x9ee ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd.o
                              0x15f857 (size before relaxing)
- .debug_str     0x00168968      0xe2c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.o
+ .debug_str     0x00168969      0xe2c ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.o
                              0x15fffb (size before relaxing)
- .debug_str     0x00169794      0x590 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.o
+ .debug_str     0x00169795      0x590 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.o
                              0x15f923 (size before relaxing)
- .debug_str     0x00169d24      0x324 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
+ .debug_str     0x00169d25      0x324 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_sdmmc.o
                              0x15f0dd (size before relaxing)
- .debug_str     0x0016a048      0x1b6 ./FATFS/App/fatfs.o
+ .debug_str     0x0016a049      0x1b6 ./FATFS/App/fatfs.o
                              0x15f393 (size before relaxing)
- .debug_str     0x0016a1fe      0x154 ./FATFS/Target/bsp_driver_sd.o
+ .debug_str     0x0016a1ff      0x154 ./FATFS/Target/bsp_driver_sd.o
                              0x15f026 (size before relaxing)
- .debug_str     0x0016a352       0xcf ./FATFS/Target/sd_diskio.o
+ .debug_str     0x0016a353       0xcf ./FATFS/Target/sd_diskio.o
                              0x15f44d (size before relaxing)
- .debug_str     0x0016a421       0xba ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
+ .debug_str     0x0016a422       0xba ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
                              0x15f2ff (size before relaxing)
- .debug_str     0x0016a4db     0x1280 ./X-CUBE-AI/App/app_x-cube-ai.o
+ .debug_str     0x0016a4dc     0x1280 ./X-CUBE-AI/App/app_x-cube-ai.o
                              0x163841 (size before relaxing)
- .debug_str     0x0016b75b     0x9593 ./X-CUBE-AI/App/network.o
+ .debug_str     0x0016b75c     0x9593 ./X-CUBE-AI/App/network.o
                               0x16bbc (size before relaxing)
- .debug_str     0x00174cee      0x11b ./X-CUBE-AI/App/network_data.o
+ .debug_str     0x00174cef      0x11b ./X-CUBE-AI/App/network_data.o
                               0x10be1 (size before relaxing)
- .debug_str     0x00174e09       0x43 ./X-CUBE-AI/App/network_data_params.o
+ .debug_str     0x00174e0a       0x43 ./X-CUBE-AI/App/network_data_params.o
                                0xc5dd (size before relaxing)
- .debug_str     0x00174e4c      0x52f D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_fill_f32.o)
+ .debug_str     0x00174e4d      0x52f D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_fill_f32.o)
                                 0x66b (size before relaxing)
- .debug_str     0x0017537b       0x32 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_copy_f32.o)
+ .debug_str     0x0017537c       0x32 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_copy_f32.o)
                                 0x66a (size before relaxing)
- .debug_str     0x001753ad       0x6f D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_rfft_fast_f32.o)
+ .debug_str     0x001753ae       0x6f D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_rfft_fast_f32.o)
                                 0x739 (size before relaxing)
- .debug_str     0x0017541c      0x7c4 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_f32.o)
+ .debug_str     0x0017541d      0x7c4 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_f32.o)
                                 0xe7e (size before relaxing)
- .debug_str     0x00175be0       0x5b D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_bitreversal2.o)
+ .debug_str     0x00175be1       0x5b D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_bitreversal2.o)
                                 0xd76 (size before relaxing)
- .debug_str     0x00175c3b       0x53 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cmplx_mag_squared_f32.o)
+ .debug_str     0x00175c3c       0x53 D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cmplx_mag_squared_f32.o)
                                 0x693 (size before relaxing)
- .debug_str     0x00175c8e       0x3b D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_mult_f32.o)
+ .debug_str     0x00175c8f       0x3b D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_mult_f32.o)
                                 0x673 (size before relaxing)
- .debug_str     0x00175cc9       0x4d D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_radix8_f32.o)
+ .debug_str     0x00175cca       0x4d D:\Code\AI\EdgeAI\GT\[Ver1]GraduationThesis\Drivers\CMSIS\DSP\Lib\GCC\libarm_cortexM7lfdp_math.a(arm_cfft_radix8_f32.o)
                                 0x69b (size before relaxing)
 
 .comment        0x00000000       0xb8
  .comment       0x00000000       0x43 ./Core/Src/audio_capture.o
                                  0x44 (size before relaxing)
  .comment       0x00000043       0x44 ./Core/Src/main.o
- .comment       0x00000043       0x44 ./Core/Src/mfccextract.o
+ .comment       0x00000043       0x44 ./Core/Src/mfcc_extract.o
  .comment       0x00000043       0x44 ./Core/Src/stm32h7xx_hal_msp.o
  .comment       0x00000043       0x44 ./Core/Src/stm32h7xx_it.o
  .comment       0x00000043       0x44 ./Core/Src/sysmem.o
@@ -13978,7 +13978,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 .debug_frame    0x00000000     0x70c4
  .debug_frame   0x00000000       0x70 ./Core/Src/audio_capture.o
  .debug_frame   0x00000070      0x114 ./Core/Src/main.o
- .debug_frame   0x00000184       0x54 ./Core/Src/mfccextract.o
+ .debug_frame   0x00000184       0x54 ./Core/Src/mfcc_extract.o
  .debug_frame   0x000001d8      0x144 ./Core/Src/stm32h7xx_hal_msp.o
  .debug_frame   0x0000031c      0x120 ./Core/Src/stm32h7xx_it.o
  .debug_frame   0x0000043c       0x34 ./Core/Src/sysmem.o

@@ -5,7 +5,7 @@
  *      Author: edoph
  */
 
-#include "mfccextract.h"
+#include "mfcce_xtract.h"
 #include "main.h"
 
 #define SAMPLE_RATE         2000U          // Hz

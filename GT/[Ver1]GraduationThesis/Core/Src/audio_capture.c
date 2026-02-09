@@ -10,7 +10,7 @@
 #include "audio_sd.h"
 #include "audio_capture.h"
 #include "app_x-cube-ai.h"
-#include "mfccextract.h"
+#include "mfcce_xtract.h"
 extern I2S_HandleTypeDef hi2s1;
 
 #define AUDIO_BUFFER_SIZE 10010  // ~5s @ 2000Hz

@@ -3,7 +3,7 @@
 "./Core/Src/audio_sd.o"
 "./Core/Src/main.o"
 "./Core/Src/math_helper.o"
-"./Core/Src/mfccextract.o"
+"./Core/Src/mfcc_extract.o"
 "./Core/Src/stm32h7xx_hal_msp.o"
 "./Core/Src/stm32h7xx_it.o"
 "./Core/Src/sysmem.o"

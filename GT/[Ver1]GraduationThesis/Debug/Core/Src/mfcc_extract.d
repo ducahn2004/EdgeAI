@@ -1,4 +1,4 @@
-Core/Src/mfccextract.o: ../Core/Src/mfccextract.c \
+Core/Src/mfcc_extract.o: ../Core/Src/mfcc_extract.c \
  D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/feature_extraction.h \
  D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/DSP/Include/arm_math.h \
  ../Drivers/CMSIS/Include/cmsis_compiler.h \
@@ -8,7 +8,7 @@ Core/Src/mfccextract.o: ../Core/Src/mfccextract.c \
  D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/mel_filterbank.h \
  D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/window.h \
  D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/DSP/Include/arm_math.h \
- ../Core/Inc/mfccextract.h \
+ ../Core/Inc/mfcce_xtract.h \
  D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/feature_extraction.h \
  ../Core/Inc/main.h ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
@@ -53,7 +53,7 @@ D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreproce
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/mel_filterbank.h:
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/window.h:
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/DSP/Include/arm_math.h:
-../Core/Inc/mfccextract.h:
+../Core/Inc/mfcce_xtract.h:
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/feature_extraction.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
