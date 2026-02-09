@@ -1070,44 +1070,44 @@
   ],
   "environment": {
     "generated_model": {
-      "generated_time": "2026-02-08T21:58:45+0700",
+      "generated_time": "2026-02-09T23:14:22+0700",
       "model_files": [
         {
           "name": "network_data_params.h",
-          "signature": "0x439b8eea153771a7e129356773010687"
+          "signature": "0x2e3b99af729145e54ed027af9a924019"
         },
         {
           "name": "network_data_params.c",
-          "signature": "0x4226a163cdcd5adc45c0fc6e772fa8ff"
+          "signature": "0x3ba222a8558994b70fea015a7704c2c7"
         },
         {
           "name": "network_data.h",
-          "signature": "0x55c6f1d8906f0db88ed8aff587c9ac6f"
+          "signature": "0xb72dd913fde9af03550bebf48c4a789f"
         },
         {
           "name": "network_data.c",
-          "signature": "0xe74163d0c0a56bb40022bfb06b9c79dd"
+          "signature": "0x0d735c1ad5e8111996bf3d228c9dd3e0"
         },
         {
           "name": "network_config.h",
-          "signature": "0x603bf27dbab286e29bd4567fd46a2f78"
+          "signature": "0x8d20be83f1187623a3e6b9e58fdac552"
         },
         {
           "name": "network.h",
-          "signature": "0x01719cb64e9246a1c0338fb6c1574131"
+          "signature": "0xb06fa45846d1146add502376a59320b3"
         },
         {
           "name": "network.c",
-          "signature": "0xa193776192cb0ed9c65ef6d7b1f89c68"
+          "signature": "0x28b6c1aed86e8c5b50a5c77ea38b1b78"
         }
       ],
       "name": "network"
     },
-    "network_signature": "0x9a4a2a84ab0c2766",
+    "network_signature": "0x15168b61de92a72f",
     "test_name": "",
     "tools": [
       {
-        "arguments": "generate --target stm32h7 --name network -m D:/light_cnn_0203_153447_final.onnx --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace8692151529000012192735788998844022 --output C:/Users/edoph/.stm32cubemx/network_output",
+        "arguments": "generate --target stm32h7 --name network -m D:/light_cnn_0203_153447_final.onnx --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace1778403355499006070871107633785106 --output C:/Users/edoph/.stm32cubemx/network_output",
         "environment": [
           "STATS_TYPE=X-CUBE-AI"
         ],

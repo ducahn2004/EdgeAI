@@ -56,9 +56,11 @@
 #include "ai_datatypes_defines.h"
 #include "network.h"
 #include "network_data.h"
-#include "audio_preprocess.h"
-#include "stm32h7xx_hal.h"
+#include "mfcce_xtract.h"
+
 /* USER CODE BEGIN includes */
+#define ABNORMAL_LED_GPIO_Port GPIOA
+#define ABNORMAL_LED_Pin GPIO_PIN_1
 /* USER CODE END includes */
 
 /* IO buffers ----------------------------------------------------------------*/
@@ -100,12 +102,8 @@ static ai_buffer* ai_input;
 static ai_buffer* ai_output;
 
 
-/* USER CODE BEGIN 0 */
-// LED PA1 (GPIO_Output, PA1)
-#define ABNORMAL_LED_GPIO_Port GPIOA
-#define ABNORMAL_LED_Pin       GPIO_PIN_1
-
-volatile uint8_t classification_result = 0;  // 0 = Normal, 1 = Abnormal
+int classification_result = 0;
+extern float32_t mfcc_features[MFCC_TOTAL_SIZE];
 
 static void ai_log_err(const ai_error err, const char *fct)
 {
@@ -178,9 +176,6 @@ static int ai_run(void)
 /* USER CODE BEGIN 2 */
 int acquire_and_process_data(ai_i8* data[])
 {
-	// Giả sử bạn đã có buffer float32 mfcc_features[39*333] từ preprocessing
-	  extern float32_t mfcc_features[39 * 333];  // Từ audio_preprocess.c
-
 	  // Copy float32 → ai_float (model dùng float32)
 	  ai_float* input_ptr = (ai_float*)data[0];  // Vì data_in_1 là ai_i8 nhưng model float32
 
@@ -230,12 +225,11 @@ int post_process(ai_i8* data[])
 
 void MX_X_CUBE_AI_Init(void)
 {
-  printf("\r\nX-CUBE-AI initialized for Heart Sound Classification\r\n");
+    /* USER CODE BEGIN 5 */
+  printf("\r\nTEMPLATE - initialization\r\n");
+
   ai_boostrap(data_activations0);
-
-  // Init LED PA1
-
-  HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_RESET); // Tắt ban đầu
+    /* USER CODE END 5 */
 }
 
 void MX_X_CUBE_AI_Process(void)

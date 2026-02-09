@@ -16,20 +16,20 @@
  *
  ******************************************************************************
  */
+
+#ifndef MFCCE_XTRACT_H
+#define MFCCE_XTRACT_H
+
+
 #include "feature_extraction.h"
+#include "arm_math.h"
 
-/*
- * y = librosa.load('bus.wav', sr=None, duration=1)[0] # Keep native 16kHz sampling rate
- * librosa.feature.mfcc(y, sr=16000, n_mfcc=20, dct_type=2, norm='ortho', lifter=0, center=False)
- */
+#define MFCC_FEATURES       39U
+#define MFCC_TIME_FRAMES    333U
+#define MFCC_TOTAL_SIZE     (MFCC_FEATURES * MFCC_TIME_FRAMES)
 
-//#define SAMPLE_RATE  2000U /* Input signal sampling rate */
-//#define FFT_LEN       2048U /* Number of FFT points. Must be greater or equal to FRAME_LEN */
-//#define FRAME_LEN   FFT_LEN /* Window length and then padded with zeros to match FFT_LEN */
-//#define HOP_LEN        512U /* Number of overlapping samples between successive frames */
-//#define NUM_MELS       128U /* Number of mel bands */
-//#define NUM_MEL_COEFS 2020U /* Number of mel filter weights. Returned by MelFilterbank_Init */
-//#define NUM_MFCC        20U /* Number of MFCCs to return */
+extern float32_t mfcc_features[MFCC_TOTAL_SIZE];
+
 
 
 
@@ -39,3 +39,6 @@
 
 void Preprocessing_Init(void);
 void AudioPreprocessing_Run(int16_t *pInSignal, float32_t *pOutMfcc, uint32_t signal_len);
+
+
+#endif /* MFCCE_XTRACT_H */

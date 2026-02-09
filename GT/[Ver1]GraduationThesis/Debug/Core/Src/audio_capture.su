@@ -1,3 +1,4 @@
-../Core/Src/audio_capture.c:21:6:StartAudioCapture	8	static
-../Core/Src/audio_capture.c:25:6:HAL_I2S_RxCpltCallback	16	static
-../Core/Src/audio_capture.c:29:6:ProcessAudioIfReady	8	static
+../Core/Src/audio_capture.c:25:6:StartAudioCapture	8	static
+../Core/Src/audio_capture.c:31:6:DisplayAudioIntensity	32	static
+../Core/Src/audio_capture.c:43:6:HAL_I2S_RxCpltCallback	16	static
+../Core/Src/audio_capture.c:56:6:ProcessAudioIfReady	16	static

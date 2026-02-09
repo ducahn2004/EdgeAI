@@ -20,8 +20,11 @@
 #include "main.h"
 #include "fatfs.h"
 #include "app_x-cube-ai.h"
-#include "audio_preprocess.h"
+/* USER CODE BEGIN Includes */
 #include "audio_capture.h"
+#include "audio_sd.h"
+#include "mfcce_xtract.h"
+/* USER CODE END Includes */
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -115,16 +118,24 @@ int main(void)
   MX_FATFS_Init();
   MX_TIM2_Init();
   MX_X_CUBE_AI_Init();
-  StartAudioCapture();
   /* USER CODE BEGIN 2 */
-
+  Preprocessing_Init();
   /* USER CODE END 2 */
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);  // PA0 - Đỏ (cường độ)
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);  // PA2 - Xanh lá (MFCC)
+  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);  // PA3 - Xanh dương (AI)
 
+  sd_card_init();
+
+
+  current_buffer = audio_bufferA;
+  HAL_I2S_Receive_DMA(&hi2s1, (uint16_t*)audio_bufferA, AUDIO_BUFFER_SIZE);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
+
 	  ProcessAudioIfReady();
     /* USER CODE BEGIN 3 */
   }

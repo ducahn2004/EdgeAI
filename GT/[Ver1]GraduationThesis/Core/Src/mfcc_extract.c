@@ -24,7 +24,6 @@
 
 // Kích thước output mong muốn của model
 #define MFCC_TIME_FRAMES    333U
-#define MFCC_FEATURES       NUM_MFCC_TOTAL // 39
 #define MAX_MEL_COEFS   	4096 // Giá trị an toàn lớn (có thể điều chỉnh sau khi test)
 
 
@@ -50,7 +49,9 @@ uint32_t pMelFilterStopIndices[NUM_MELS];
 float32_t pDeltaBuffer[NUM_MFCC];
 float32_t pDeltaDeltaBuffer[NUM_MFCC];
 
+
 float32_t mfcc_final_features[MFCC_FEATURES * MFCC_TIME_FRAMES];
+float32_t mfcc_features[MFCC_TOTAL_SIZE];
 
 void Preprocessing_Init(void)
 {

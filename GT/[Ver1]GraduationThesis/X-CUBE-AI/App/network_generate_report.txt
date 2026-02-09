@@ -1,6 +1,6 @@
 ST Edge AI Core v2.2.0-20266 2adc00962
-Created date          : 2026-02-08 21:58:48
-Parameters            : generate --target stm32h7 --name network -m D:/light_cnn_0203_153447_final.onnx --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace8692151529000012192735788998844022 --output C:/Users/edoph/.stm32cubemx/network_output
+Created date          : 2026-02-09 23:14:26
+Parameters            : generate --target stm32h7 --name network -m D:/light_cnn_0203_153447_final.onnx --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace1778403355499006070871107633785106 --output C:/Users/edoph/.stm32cubemx/network_output
 
 Exec/report summary (generate)
 ------------------------------------------------------------------------------------------------------------
@@ -11,7 +11,7 @@ compression        :   none
 options            :   allocate-inputs, allocate-outputs                                                    
 optimization       :   balanced                                                                             
 target/series      :   stm32h7                                                                              
-workspace dir      :   C:\Users\edoph\AppData\Local\Temp\mxAI_workspace8692151529000012192735788998844022   
+workspace dir      :   C:\Users\edoph\AppData\Local\Temp\mxAI_workspace1778403355499006070871107633785106   
 output dir         :   C:\Users\edoph\.stm32cubemx\network_output                                           
 model_fmt          :   float                                                                                
 model_name         :   light_cnn_0203_153447_final                                                          
