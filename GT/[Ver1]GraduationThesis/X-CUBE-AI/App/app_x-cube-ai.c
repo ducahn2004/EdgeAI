@@ -56,7 +56,7 @@
 #include "ai_datatypes_defines.h"
 #include "network.h"
 #include "network_data.h"
-#include "mfcce_xtract.h"
+#include "mfcc_extract.h"
 
 /* USER CODE BEGIN includes */
 #define ABNORMAL_LED_GPIO_Port GPIOA
@@ -103,7 +103,7 @@ static ai_buffer* ai_output;
 
 
 int classification_result = 0;
-extern float32_t mfcc_features[MFCC_TOTAL_SIZE];
+extern float32_t mfcc_final_features[MFCC_FEATURES][MFCC_TIME_FRAMES];
 
 static void ai_log_err(const ai_error err, const char *fct)
 {
@@ -180,12 +180,12 @@ int acquire_and_process_data(ai_i8* data[])
 	  ai_float* input_ptr = (ai_float*)data[0];  // Vì data_in_1 là ai_i8 nhưng model float32
 
 	  // Kiểm tra kích thước (phải khớp AI_NETWORK_IN_1_SIZE = 39*333*4 bytes)
-	  if (AI_NETWORK_IN_1_SIZE != (39 * 333)) {
+	  if (AI_NETWORK_IN_1_SIZE != (MFCC_FEATURES * MFCC_TIME_FRAMES)) {
 		printf("Input size mismatch!\r\n");
 		return -1;
 	  }
 
-	  memcpy(input_ptr, mfcc_features, 39 * 333 * sizeof(ai_float));
+	  memcpy(input_ptr, &mfcc_final_features[0][0], MFCC_TIME_FRAMES * MFCC_FEATURES * sizeof(ai_float));
 
 	  return 0;
 }

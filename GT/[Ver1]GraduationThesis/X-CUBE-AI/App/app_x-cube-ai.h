@@ -25,6 +25,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "ai_platform.h"
 
+
 void MX_X_CUBE_AI_Init(void);
 void MX_X_CUBE_AI_Process(void);
 /* USER CODE BEGIN includes */
