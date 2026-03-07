@@ -9,6 +9,8 @@
 #include "main.h"
 #include <string.h>     // cho memmove, memcpy
 #include <math.h>       // cho HUGE_VALF nếu cần
+#include "arm_math.h"
+
 
 // Cấu hình MFCC (đồng bộ với I2S nếu thay đổi sample rate)
 #define SAMPLE_RATE     2000U   // Hz → NÊN SỬA THÀNH 16000 hoặc 48000 cho âm thanh thực tế
@@ -22,6 +24,7 @@
 #define NUM_MFCC        13U
 #define NUM_MFCC_TOTAL  (NUM_MFCC * 3)  // 39
 #define NUM_MELS        40U
+#define NUM_STAGES 2 // Bậc 4 Butterworth = 2 tầng Biquad
 
 
 // Global buffers (khai báo extern trong .h nếu cần share)
@@ -33,8 +36,23 @@ MelSpectrogramTypeDef S_MelSpectr;
 LogMelSpectrogramTypeDef S_LogMelSpectr;
 MfccTypeDef S_Mfcc;
 
-uint32_t NUM_MEL_COEFS = 0;
 
+static arm_biquad_casd_df1_inst_f32 S_Filter;
+static float32_t filter_state[4 * NUM_STAGES];
+
+/* Coeffs are in CMSIS order: {b0,b1,b2, a1, a2} per stage.
+ Note: CMSIS expects feedback coefficients with sign such that
+ the processing uses the form with +a1*y[n-1], +a2*y[n-2]
+ (see CMSIS docs). The arrays below are already prepared.
+*/
+/* Heart bandpass ≈ 20 - 600 Hz (fs = 16 kHz) - 4th order (2 stages) */
+float32_t filter_coeffs[5 * NUM_STAGES] = {
+/* stage 0 */ 1.0f, 2.0f, 1.0f, 1.9889416051454945f, -0.9890070054442315f,
+/* stage 1 */ 1.0f, -2.0f, 1.0f, 1.6892470409865235f, -0.7338101667589392f
+};
+
+
+uint32_t NUM_MEL_COEFS = 0;
 // Scratch buffers
 float32_t pInFrame[FRAME_LEN];
 float32_t pOutColBuffer[NUM_MFCC];
@@ -139,7 +157,9 @@ void mfcc_append_frame(float *new_frame)
         mfcc_collected++;
     }
 }
-
+void Filter_Init(void) {
+    arm_biquad_cascade_df1_init_f32(&S_Filter, NUM_STAGES, filter_coeffs, filter_state);
+}
 /**
  * @brief Tính MFCC + Δ + ΔΔ cho **một frame** (dùng trong main loop streaming)
  * @param pInSignal: con trỏ đến frame int16_t (kích thước HOP_SAMPLES, nhưng chỉ dùng FRAME_LEN mẫu)
@@ -151,6 +171,9 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
 
     // Normalize int16_t -> float [-1.0 .. 1.0]
     buf_to_float_normed(pInSignal, pInFrame, FRAME_LEN);
+
+    // 2. ÁP DỤNG BỘ LỌC BANDPASS TẠI ĐÂY
+    arm_biquad_cascade_df1_f32(&S_Filter, pInFrame, pInFrame, FRAME_LEN);
 
     // Tính MFCC cơ bản
     MfccColumn(&S_Mfcc, pInFrame, pOutColBuffer);
