@@ -1,4 +1,0 @@
-../Core/Src/mfcc_extract.c:75:6:Preprocessing_Init	8	static
-../Core/Src/mfcc_extract.c:141:6:mfcc_append_frame	24	static
-../Core/Src/mfcc_extract.c:160:6:Filter_Init	8	static
-../Core/Src/mfcc_extract.c:168:6:compute_mfcc_one_frame	144	static

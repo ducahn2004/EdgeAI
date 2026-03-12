@@ -242,14 +242,9 @@ void MX_X_CUBE_AI_Process(void)
   if (network) {
 
     do {
-      /* 1 - acquire and pre-process input data */
       res = acquire_and_process_data(data_ins);
-      /* 2 - process the data - call inference engine */
-      if (res == 0)
-        res = ai_run();
-      /* 3- post-process the predictions */
-      if (res == 0)
-        res = post_process(data_outs);
+      if (res == 0) res = ai_run();
+      if (res == 0) res = post_process(data_outs);
     } while (res==0);
   }
 

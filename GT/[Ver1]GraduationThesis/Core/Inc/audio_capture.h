@@ -17,13 +17,15 @@
 #include "stm32h7xx_hal.h"
 #include <arm_math.h>
 
-#define AUDIO_BUFFER_SIZE       1024    // ví dụ - phải chia hết cho 2 (DMA half/full)
-#define RING_BUFFER_SIZE        (16000 * 4)     // 4 giây @ 16kHz
-#define HOP_SAMPLES             480     // thường 10–20 ms → 160–640 mẫu @16kHz
+#define DOWNSAMPLE_RATIO  24        // 48000 / 2000
+#define FRAME_LEN         50        // 25ms @ 2kHz  ← giờ accessible ở main.c
+#define HOP_SAMPLES       30        // 15ms @ 2kHz  ← thay vì 480
+#define AUDIO_BUFFER_SIZE 1440      // 720*2 raw samples @48kHz
+#define RING_BUFFER_SIZE  10000     // ~5 giây @2kHz
 
 // Double buffers (extern để dùng ở nhiều file)
 extern int16_t audio_bufferA[AUDIO_BUFFER_SIZE];
-extern int16_t audio_bufferB[AUDIO_BUFFER_SIZE];
+
 extern volatile int16_t* current_buffer;
 extern volatile uint8_t  audio_ready;
 

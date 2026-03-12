@@ -27,7 +27,7 @@
 /* USER CODE END Includes */
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define HOP_SAMPLES 480
+#define HOP_SAMPLES 30
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -132,7 +132,7 @@ int main(void) {
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);  // PA2 - Xanh lá (MFCC)
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);  // PA3 - Xanh dương (AI)
 
-	sd_card_init();
+	//sd_card_init();
 
 	current_buffer = audio_bufferA;
 	HAL_I2S_Receive_DMA(&hi2s1, (uint16_t*) audio_bufferA, AUDIO_BUFFER_SIZE);
@@ -144,32 +144,34 @@ int main(void) {
 				% RING_BUFFER_SIZE;
 		__enable_irq();
 
+		// Buffer tích lũy frame đủ FRAME_LEN=50 samples
+		static int16_t frame_accum[FRAME_LEN];  // FRAME_LEN = 50
+
 		while (available >= HOP_SAMPLES)
 		{
-		    int16_t frame[HOP_SAMPLES];
-		    // copy frame từ ring_buffer như cũ...
+			// Shift frame_accum trái HOP_SAMPLES, điền HOP_SAMPLES mới vào cuối
+			memmove(frame_accum, frame_accum + HOP_SAMPLES,
+					(FRAME_LEN - HOP_SAMPLES) * sizeof(int16_t));
 
-		    float mfcc_frame[39];
-		    compute_mfcc_one_frame(frame, mfcc_frame);   // → gọi hàm mới
+			for (uint32_t i = 0; i < HOP_SAMPLES; i++)
+			{
+				frame_accum[FRAME_LEN - HOP_SAMPLES + i] = ring_buffer[rb_read];
+				rb_read = (rb_read + 1) % RING_BUFFER_SIZE;
+			}
 
-		    mfcc_append_frame(mfcc_frame);               // append vào mfcc_final_features
+			float mfcc_frame[39];
+			compute_mfcc_one_frame(frame_accum, mfcc_frame);
+			mfcc_append_frame(mfcc_frame);
 
-		    available -= HOP_SAMPLES;
+			available -= HOP_SAMPLES;
 
-		    if (mfcc_collected >= MFCC_TIME_FRAMES)
-		    {
-		        // Bật LED AI
-		        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 800);
-
-		        // Chạy inference
-		        MX_X_CUBE_AI_Process();
-		        // Post-process (đọc output, set LED PA1 nếu abnormal)
-
-		        // Tắt LED AI
-		        __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
-
-		        // mfcc_collected = 0;   // reset nếu muốn batch mới, hoặc giữ sliding window
-		    }
+			if (mfcc_collected >= MFCC_TIME_FRAMES)
+			{
+				__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 800);
+				MX_X_CUBE_AI_Process();
+				__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, 0);
+				// Giữ sliding window: KHÔNG reset mfcc_collected
+			}
 		}
 		/* USER CODE BEGIN 3 */
 	}
