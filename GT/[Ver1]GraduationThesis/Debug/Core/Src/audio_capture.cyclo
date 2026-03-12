@@ -1,5 +1,5 @@
-../Core/Src/audio_capture.c:28:6:StartAudioCapture	1
-../Core/Src/audio_capture.c:39:13:audio_push_to_ring	2
-../Core/Src/audio_capture.c:48:6:DisplayAudioIntensity	3
-../Core/Src/audio_capture.c:60:6:HAL_I2S_RxHalfCpltCallback	1
-../Core/Src/audio_capture.c:65:6:HAL_I2S_RxCpltCallback	1
+../Core/Src/audio_capture.c:24:6:StartAudioCapture	1
+../Core/Src/audio_capture.c:38:13:audio_push_to_ring	2
+../Core/Src/audio_capture.c:51:6:DisplayAudioIntensity	3
+../Core/Src/audio_capture.c:67:6:HAL_I2S_RxHalfCpltCallback	1
+../Core/Src/audio_capture.c:74:6:HAL_I2S_RxCpltCallback	1

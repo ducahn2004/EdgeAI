@@ -81,8 +81,8 @@ float32_t mfcc_final_features[MFCC_FEATURES][MFCC_TIME_FRAMES] = {0};
 uint32_t  mfcc_collected = 0;
 
 // Static state cho delta (per-frame)
-static float32_t prev_mfcc[NUM_MFCC]   = {0};
-static float32_t prev_delta[NUM_MFCC]  = {0};
+//static float32_t prev_mfcc[NUM_MFCC]   = {0};
+//static float32_t prev_delta[NUM_MFCC]  = {0};
 
 /* =========================================================================
  * Delta state — librosa.feature.delta width=9 (N=4)
