@@ -24,7 +24,7 @@
 #define NUM_MFCC        13U
 #define NUM_MFCC_TOTAL  (NUM_MFCC * 3)  // 39
 #define NUM_MELS        128U
-#define NUM_STAGES 4 // Bậc 4 Butterworth = 2 tầng Biquad
+#define NUM_STAGES 2 // Bậc 4 Butterworth = 2 tầng Biquad
 
 #define MAX_MEL_COEFS   8192U
 
@@ -39,7 +39,7 @@ MfccTypeDef S_Mfcc;
 
 
 static arm_biquad_casd_df1_inst_f32 S_Filter;
-static float32_t filter_state[4 * NUM_STAGES];
+static float32_t filter_state[2 * NUM_STAGES];
 
 /* Coeffs are in CMSIS order: {b0,b1,b2, a1, a2} per stage.
  Note: CMSIS expects feedback coefficients with sign such that
@@ -53,10 +53,8 @@ static float32_t filter_state[4 * NUM_STAGES];
 // };
 
 static float32_t filter_coeffs[5 * NUM_STAGES] = {
-    /* stage 0 */ 0.1500871251f,  0.3001929291f,  0.1501058052f, -0.2894753635f, -0.0625636330f,
-    /* stage 1 */ 1.0000000000f,  1.9998755459f,  0.9998755536f, -0.4493070471f, -0.4809961054f,
-    /* stage 2 */ 1.0000000000f, -2.0000000041f,  0.9999999980f,  1.8829072395f, -0.8869402293f,
-    /* stage 3 */ 1.0000000000f, -1.9999999959f,  1.0000000020f,  1.9506769967f, -0.9545821370f
+    /* stage 0 */ 1.0f, 2.0f, 1.0f, 1.9889416051454945f, -0.9890070054442315f,
+    /* stage 1 */ 1.0f, -2.0f, 1.0f, 1.6892470409865235f, -0.7338101667589392f
 };
 
 

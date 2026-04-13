@@ -15,37 +15,37 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   5 .fini_array   00000004  08033de4  08033de4  00034de4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  6 .data         000014bc  24000000  08033de8  00035000  2**2
+  6 .data         00001494  24000000  08033de8  00035000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .bss          00059c5c  240014c0  080352a4  000364c0  2**5
+  7 .bss          00059c3c  240014a0  0803527c  000364a0  2**5
                   ALLOC
   8 ._user_heap_stack 00001000  20000000  20000000  00037000  2**0
                   ALLOC
-  9 .ARM.attributes 0000002e  00000000  00000000  000364bc  2**0
+  9 .ARM.attributes 0000002e  00000000  00000000  00036494  2**0
                   CONTENTS, READONLY
- 10 .debug_info   000270ab  00000000  00000000  000364ea  2**0
+ 10 .debug_info   000270ab  00000000  00000000  000364c2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 11 .debug_abbrev 00005914  00000000  00000000  0005d595  2**0
+ 11 .debug_abbrev 00005914  00000000  00000000  0005d56d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 12 .debug_aranges 00001798  00000000  00000000  00062eb0  2**3
+ 12 .debug_aranges 00001798  00000000  00000000  00062e88  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_rnglists 000010ae  00000000  00000000  00064648  2**0
+ 13 .debug_rnglists 000010ae  00000000  00000000  00064620  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_macro  0003d184  00000000  00000000  000656f6  2**0
+ 14 .debug_macro  0003d184  00000000  00000000  000656ce  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line   0002686c  00000000  00000000  000a287a  2**0
+ 15 .debug_line   0002686c  00000000  00000000  000a2852  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_str    001761d9  00000000  00000000  000c90e6  2**0
+ 16 .debug_str    001761d9  00000000  00000000  000c90be  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .comment      000000b8  00000000  00000000  0023f2bf  2**0
+ 17 .comment      000000b8  00000000  00000000  0023f297  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  000074f4  00000000  00000000  0023f378  2**2
+ 18 .debug_frame  000074f4  00000000  00000000  0023f350  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line_str 0000005a  00000000  00000000  0024686c  2**0
+ 19 .debug_line_str 0000005a  00000000  00000000  00246844  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_loc    0000444f  00000000  00000000  002468c6  2**0
+ 20 .debug_loc    0000444f  00000000  00000000  0024689e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_ranges 000000f8  00000000  00000000  0024ad15  2**0
+ 21 .debug_ranges 000000f8  00000000  00000000  0024aced  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -62,7 +62,7 @@ Disassembly of section .text:
  80002b2:	2301      	movs	r3, #1
  80002b4:	7023      	strb	r3, [r4, #0]
  80002b6:	bd10      	pop	{r4, pc}
- 80002b8:	240014c0 	.word	0x240014c0
+ 80002b8:	240014a0 	.word	0x240014a0
  80002bc:	00000000 	.word	0x00000000
  80002c0:	08014004 	.word	0x08014004
 
@@ -75,7 +75,7 @@ Disassembly of section .text:
  80002ce:	f3af 8000 	nop.w
  80002d2:	bd08      	pop	{r3, pc}
  80002d4:	00000000 	.word	0x00000000
- 80002d8:	240014c4 	.word	0x240014c4
+ 80002d8:	240014a4 	.word	0x240014a4
  80002dc:	08014004 	.word	0x08014004
 
 080002e0 <memchr>:
@@ -534,8 +534,8 @@ static void audio_push_to_ring(int16_t *data, uint32_t len)
  80007c0:	f85d 7b04 	ldr.w	r7, [sp], #4
  80007c4:	4770      	bx	lr
  80007c6:	bf00      	nop
- 80007c8:	24006e3c 	.word	0x24006e3c
- 80007cc:	2400201c 	.word	0x2400201c
+ 80007c8:	24006e1c 	.word	0x24006e1c
+ 80007cc:	24001ffc 	.word	0x24001ffc
  80007d0:	d1b71759 	.word	0xd1b71759
 
 080007d4 <DisplayAudioIntensity>:
@@ -620,7 +620,7 @@ void DisplayAudioIntensity(int16_t* buffer, uint32_t size)
  800087e:	bf00      	nop
  8000880:	47000000 	.word	0x47000000
  8000884:	447a0000 	.word	0x447a0000
- 8000888:	24006f14 	.word	0x24006f14
+ 8000888:	24006ef4 	.word	0x24006ef4
 
 0800088c <HAL_I2S_RxHalfCpltCallback>:
 
@@ -644,7 +644,7 @@ void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s)
  80008aa:	3708      	adds	r7, #8
  80008ac:	46bd      	mov	sp, r7
  80008ae:	bd80      	pop	{r7, pc}
- 80008b0:	240014dc 	.word	0x240014dc
+ 80008b0:	240014bc 	.word	0x240014bc
 
 080008b4 <HAL_I2S_RxCpltCallback>:
 
@@ -667,7 +667,7 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s)
  80008d2:	3708      	adds	r7, #8
  80008d4:	46bd      	mov	sp, r7
  80008d6:	bd80      	pop	{r7, pc}
- 80008d8:	24001a7c 	.word	0x24001a7c
+ 80008d8:	24001a5c 	.word	0x24001a5c
 
 080008dc <main>:
 extern float32_t         mfcc_final_features[MFCC_FEATURES][MFCC_TIME_FRAMES];
@@ -1029,17 +1029,17 @@ __STATIC_FORCEINLINE void __DSB(void)
  8000afc:	e788      	b.n	8000a10 <main+0x134>
  8000afe:	bf00      	nop
  8000b00:	e000ed00 	.word	0xe000ed00
- 8000b04:	24006f14 	.word	0x24006f14
+ 8000b04:	24006ef4 	.word	0x24006ef4
  8000b08:	24000000 	.word	0x24000000
- 8000b0c:	240014dc 	.word	0x240014dc
- 8000b10:	24006e44 	.word	0x24006e44
- 8000b14:	24006e3c 	.word	0x24006e3c
- 8000b18:	24006e40 	.word	0x24006e40
+ 8000b0c:	240014bc 	.word	0x240014bc
+ 8000b10:	24006e24 	.word	0x24006e24
+ 8000b14:	24006e1c 	.word	0x24006e1c
+ 8000b18:	24006e20 	.word	0x24006e20
  8000b1c:	d1b71759 	.word	0xd1b71759
- 8000b20:	24006f9c 	.word	0x24006f9c
- 8000b24:	24006f60 	.word	0x24006f60
- 8000b28:	2400201c 	.word	0x2400201c
- 8000b2c:	24020554 	.word	0x24020554
+ 8000b20:	24006f7c 	.word	0x24006f7c
+ 8000b24:	24006f40 	.word	0x24006f40
+ 8000b28:	24001ffc 	.word	0x24001ffc
+ 8000b2c:	24020504 	.word	0x24020504
 
 08000b30 <SystemClock_Config>:
 }
@@ -1246,7 +1246,7 @@ static void MX_I2S1_Init(void)
 }
  8000c80:	bf00      	nop
  8000c82:	bd80      	pop	{r7, pc}
- 8000c84:	24006e44 	.word	0x24006e44
+ 8000c84:	24006e24 	.word	0x24006e24
  8000c88:	40013000 	.word	0x40013000
 
 08000c8c <MX_SDMMC1_SD_Init>:
@@ -1284,7 +1284,7 @@ static void MX_SDMMC1_SD_Init(void)
  8000cb8:	46bd      	mov	sp, r7
  8000cba:	f85d 7b04 	ldr.w	r7, [sp], #4
  8000cbe:	4770      	bx	lr
- 8000cc0:	24006e98 	.word	0x24006e98
+ 8000cc0:	24006e78 	.word	0x24006e78
  8000cc4:	52007000 	.word	0x52007000
 
 08000cc8 <MX_TIM2_Init>:
@@ -1410,7 +1410,7 @@ static void MX_TIM2_Init(void)
  8000d9e:	3728      	adds	r7, #40	@ 0x28
  8000da0:	46bd      	mov	sp, r7
  8000da2:	bd80      	pop	{r7, pc}
- 8000da4:	24006f14 	.word	0x24006f14
+ 8000da4:	24006ef4 	.word	0x24006ef4
 
 08000da8 <MX_GPIO_Init>:
 
@@ -1601,14 +1601,14 @@ void Preprocessing_Init(void)
  8000ede:	af00      	add	r7, sp, #0
     /* --- Bandpass filter --- */
     memset(filter_state, 0, sizeof(filter_state));
- 8000ee0:	2240      	movs	r2, #64	@ 0x40
+ 8000ee0:	2210      	movs	r2, #16
  8000ee2:	2100      	movs	r1, #0
  8000ee4:	4857      	ldr	r0, [pc, #348]	@ (8001044 <Preprocessing_Init+0x168>)
  8000ee6:	f00f fb5b 	bl	80105a0 <memset>
     arm_biquad_cascade_df1_init_f32(&S_Filter, NUM_STAGES, filter_coeffs, filter_state);
  8000eea:	4b56      	ldr	r3, [pc, #344]	@ (8001044 <Preprocessing_Init+0x168>)
  8000eec:	4a56      	ldr	r2, [pc, #344]	@ (8001048 <Preprocessing_Init+0x16c>)
- 8000eee:	2104      	movs	r1, #4
+ 8000eee:	2102      	movs	r1, #2
  8000ef0:	4856      	ldr	r0, [pc, #344]	@ (800104c <Preprocessing_Init+0x170>)
  8000ef2:	f00e f98b 	bl	800f20c <arm_biquad_cascade_df1_init_f32>
 
@@ -1834,29 +1834,29 @@ void Preprocessing_Init(void)
  800103e:	bf00      	nop
  8001040:	bd80      	pop	{r7, pc}
  8001042:	bf00      	nop
- 8001044:	24007070 	.word	0x24007070
+ 8001044:	24007050 	.word	0x24007050
  8001048:	24000004 	.word	0x24000004
- 800104c:	24007064 	.word	0x24007064
- 8001050:	24020558 	.word	0x24020558
- 8001054:	2402065c 	.word	0x2402065c
- 8001058:	24020760 	.word	0x24020760
- 800105c:	24020764 	.word	0x24020764
- 8001060:	240083a8 	.word	0x240083a8
- 8001064:	24006fc4 	.word	0x24006fc4
- 8001068:	24006fdc 	.word	0x24006fdc
- 800106c:	24013668 	.word	0x24013668
- 8001070:	24013868 	.word	0x24013868
- 8001074:	2400b668 	.word	0x2400b668
+ 800104c:	24007044 	.word	0x24007044
+ 8001050:	24020508 	.word	0x24020508
+ 8001054:	2402060c 	.word	0x2402060c
+ 8001058:	24020710 	.word	0x24020710
+ 800105c:	24020714 	.word	0x24020714
+ 8001060:	24008358 	.word	0x24008358
+ 8001064:	24006fa4 	.word	0x24006fa4
+ 8001068:	24006fbc 	.word	0x24006fbc
+ 800106c:	24013618 	.word	0x24013618
+ 8001070:	24013818 	.word	0x24013818
+ 8001074:	2400b618 	.word	0x2400b618
  8001078:	46bb8000 	.word	0x46bb8000
- 800107c:	240070b0 	.word	0x240070b0
- 8001080:	2400700c 	.word	0x2400700c
- 8001084:	24009a68 	.word	0x24009a68
- 8001088:	24007020 	.word	0x24007020
- 800108c:	24009668 	.word	0x24009668
- 8001090:	2400703c 	.word	0x2400703c
- 8001094:	24007044 	.word	0x24007044
- 8001098:	24007054 	.word	0x24007054
- 800109c:	2400b468 	.word	0x2400b468
+ 800107c:	24007060 	.word	0x24007060
+ 8001080:	24006fec 	.word	0x24006fec
+ 8001084:	24009a18 	.word	0x24009a18
+ 8001088:	24007000 	.word	0x24007000
+ 800108c:	24009618 	.word	0x24009618
+ 8001090:	2400701c 	.word	0x2400701c
+ 8001094:	24007024 	.word	0x24007024
+ 8001098:	24007034 	.word	0x24007034
+ 800109c:	2400b418 	.word	0x2400b418
 
 080010a0 <compute_delta_causal>:
     float32_t history[][NUM_MFCC],
@@ -2170,15 +2170,15 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
  800129e:	46bd      	mov	sp, r7
  80012a0:	bd80      	pop	{r7, pc}
  80012a2:	bf00      	nop
- 80012a4:	240070b4 	.word	0x240070b4
- 80012a8:	24007064 	.word	0x24007064
- 80012ac:	24008374 	.word	0x24008374
- 80012b0:	24007054 	.word	0x24007054
- 80012b4:	24020760 	.word	0x24020760
+ 80012a4:	24007064 	.word	0x24007064
+ 80012a8:	24007044 	.word	0x24007044
+ 80012ac:	24008324 	.word	0x24008324
+ 80012b0:	24007034 	.word	0x24007034
+ 80012b4:	24020710 	.word	0x24020710
  80012b8:	cccccccd 	.word	0xcccccccd
- 80012bc:	24020558 	.word	0x24020558
- 80012c0:	24020764 	.word	0x24020764
- 80012c4:	2402065c 	.word	0x2402065c
+ 80012bc:	24020508 	.word	0x24020508
+ 80012c0:	24020714 	.word	0x24020714
+ 80012c4:	2402060c 	.word	0x2402060c
 
 080012c8 <mfcc_append_frame>:
  * Append 1 frame mới vào ma trận mfcc_final_features[39][333].
@@ -2246,9 +2246,9 @@ void mfcc_append_frame(float *new_frame)
  8001322:	3710      	adds	r7, #16
  8001324:	46bd      	mov	sp, r7
  8001326:	bd80      	pop	{r7, pc}
- 8001328:	24013a6c 	.word	0x24013a6c
- 800132c:	24013a68 	.word	0x24013a68
- 8001330:	24020554 	.word	0x24020554
+ 8001328:	24013a1c 	.word	0x24013a1c
+ 800132c:	24013a18 	.word	0x24013a18
+ 8001330:	24020504 	.word	0x24020504
 
 08001334 <HAL_MspInit>:
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
@@ -2896,7 +2896,7 @@ void SDMMC1_IRQHandler(void)
  80016ae:	bf00      	nop
  80016b0:	bd80      	pop	{r7, pc}
  80016b2:	bf00      	nop
- 80016b4:	24006e98 	.word	0x24006e98
+ 80016b4:	24006e78 	.word	0x24006e78
 
 080016b8 <_sbrk>:
  *
@@ -2976,7 +2976,7 @@ void *_sbrk(ptrdiff_t incr)
  8001712:	bd80      	pop	{r7, pc}
  8001714:	24080000 	.word	0x24080000
  8001718:	00000800 	.word	0x00000800
- 800171c:	24020768 	.word	0x24020768
+ 800171c:	24020718 	.word	0x24020718
  8001720:	20000000 	.word	0x20000000
 
 08001724 <SystemInit>:
@@ -3347,13 +3347,13 @@ LoopFillZerobss:
   ldr r0, =_sdata
  80018d4:	24000000 	.word	0x24000000
   ldr r1, =_edata
- 80018d8:	240014bc 	.word	0x240014bc
+ 80018d8:	24001494 	.word	0x24001494
   ldr r2, =_sidata
  80018dc:	08033de8 	.word	0x08033de8
   ldr r2, =_sbss
- 80018e0:	240014c0 	.word	0x240014c0
+ 80018e0:	240014a0 	.word	0x240014a0
   ldr r4, =_ebss
- 80018e4:	2405b11c 	.word	0x2405b11c
+ 80018e4:	2405b0dc 	.word	0x2405b0dc
 
 080018e8 <ADC3_IRQHandler>:
  * @retval None
@@ -5828,8 +5828,8 @@ HAL_StatusTypeDef HAL_Init(void)
  8002b5e:	bd80      	pop	{r7, pc}
  8002b60:	58024400 	.word	0x58024400
  8002b64:	08014168 	.word	0x08014168
- 8002b68:	24000058 	.word	0x24000058
- 8002b6c:	24000054 	.word	0x24000054
+ 8002b68:	24000030 	.word	0x24000030
+ 8002b6c:	2400002c 	.word	0x2400002c
 
 08002b70 <HAL_InitTick>:
   *       implementation  in user file.
@@ -5905,9 +5905,9 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
  8002bca:	3708      	adds	r7, #8
  8002bcc:	46bd      	mov	sp, r7
  8002bce:	bd80      	pop	{r7, pc}
- 8002bd0:	24000060 	.word	0x24000060
- 8002bd4:	24000054 	.word	0x24000054
- 8002bd8:	2400005c 	.word	0x2400005c
+ 8002bd0:	24000038 	.word	0x24000038
+ 8002bd4:	2400002c 	.word	0x2400002c
+ 8002bd8:	24000034 	.word	0x24000034
 
 08002bdc <HAL_IncTick>:
  * @note This function is declared as __weak to be overwritten in case of other
@@ -5933,8 +5933,8 @@ __weak void HAL_IncTick(void)
  8002bf4:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002bf8:	4770      	bx	lr
  8002bfa:	bf00      	nop
- 8002bfc:	24000060 	.word	0x24000060
- 8002c00:	2402076c 	.word	0x2402076c
+ 8002bfc:	24000038 	.word	0x24000038
+ 8002c00:	2402071c 	.word	0x2402071c
 
 08002c04 <HAL_GetTick>:
   * @note This function is declared as __weak to be overwritten in case of other
@@ -5954,7 +5954,7 @@ __weak uint32_t HAL_GetTick(void)
  8002c10:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002c14:	4770      	bx	lr
  8002c16:	bf00      	nop
- 8002c18:	2402076c 	.word	0x2402076c
+ 8002c18:	2402071c 	.word	0x2402071c
 
 08002c1c <HAL_Delay>:
   *       implementations in user file.
@@ -6007,7 +6007,7 @@ __weak void HAL_Delay(uint32_t Delay)
  8002c5a:	46bd      	mov	sp, r7
  8002c5c:	bd80      	pop	{r7, pc}
  8002c5e:	bf00      	nop
- 8002c60:	24000060 	.word	0x24000060
+ 8002c60:	24000038 	.word	0x24000038
 
 08002c64 <HAL_GetREVID>:
 /**
@@ -11250,9 +11250,9 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(const RCC_ClkInitTypeDef  *RCC_ClkInitStru
  8004c3e:	bf00      	nop
  8004c40:	58024400 	.word	0x58024400
  8004c44:	08014168 	.word	0x08014168
- 8004c48:	24000058 	.word	0x24000058
- 8004c4c:	24000054 	.word	0x24000054
- 8004c50:	2400005c 	.word	0x2400005c
+ 8004c48:	24000030 	.word	0x24000030
+ 8004c4c:	2400002c 	.word	0x2400002c
+ 8004c50:	24000034 	.word	0x24000034
 
 08004c54 <HAL_RCC_GetSysClockFreq>:
   *
@@ -11652,8 +11652,8 @@ uint32_t HAL_RCC_GetHCLKFreq(void)
  8004f96:	bd80      	pop	{r7, pc}
  8004f98:	58024400 	.word	0x58024400
  8004f9c:	08014168 	.word	0x08014168
- 8004fa0:	24000058 	.word	0x24000058
- 8004fa4:	24000054 	.word	0x24000054
+ 8004fa0:	24000030 	.word	0x24000030
+ 8004fa4:	2400002c 	.word	0x2400002c
 
 08004fa8 <HAL_RCC_GetPCLK1Freq>:
   * @note   Each time PCLK1 changes, this function must be called to update the
@@ -26224,7 +26224,7 @@ uint32_t SDMMC_GetCmdResp1(SDMMC_TypeDef *SDMMCx, uint8_t SD_CMD, uint32_t Timeo
  800a85e:	46bd      	mov	sp, r7
  800a860:	bd80      	pop	{r7, pc}
  800a862:	bf00      	nop
- 800a864:	24000054 	.word	0x24000054
+ 800a864:	2400002c 	.word	0x2400002c
  800a868:	10624dd3 	.word	0x10624dd3
  800a86c:	00200045 	.word	0x00200045
  800a870:	002000c5 	.word	0x002000c5
@@ -26333,7 +26333,7 @@ uint32_t SDMMC_GetCmdResp2(SDMMC_TypeDef *SDMMCx)
  800a8f8:	46bd      	mov	sp, r7
  800a8fa:	f85d 7b04 	ldr.w	r7, [sp], #4
  800a8fe:	4770      	bx	lr
- 800a900:	24000054 	.word	0x24000054
+ 800a900:	2400002c 	.word	0x2400002c
  800a904:	10624dd3 	.word	0x10624dd3
  800a908:	002000c5 	.word	0x002000c5
 
@@ -26424,7 +26424,7 @@ uint32_t SDMMC_GetCmdResp3(SDMMC_TypeDef *SDMMCx)
  800a978:	f85d 7b04 	ldr.w	r7, [sp], #4
  800a97c:	4770      	bx	lr
  800a97e:	bf00      	nop
- 800a980:	24000054 	.word	0x24000054
+ 800a980:	2400002c 	.word	0x2400002c
  800a984:	10624dd3 	.word	0x10624dd3
  800a988:	002000c5 	.word	0x002000c5
 
@@ -26598,7 +26598,7 @@ uint32_t SDMMC_GetCmdResp6(SDMMC_TypeDef *SDMMCx, uint8_t SD_CMD, uint16_t *pRCA
  800aa6a:	46bd      	mov	sp, r7
  800aa6c:	bd80      	pop	{r7, pc}
  800aa6e:	bf00      	nop
- 800aa70:	24000054 	.word	0x24000054
+ 800aa70:	2400002c 	.word	0x2400002c
  800aa74:	10624dd3 	.word	0x10624dd3
  800aa78:	002000c5 	.word	0x002000c5
 
@@ -26717,7 +26717,7 @@ uint32_t SDMMC_GetCmdResp7(SDMMC_TypeDef *SDMMCx)
  800ab08:	46bd      	mov	sp, r7
  800ab0a:	f85d 7b04 	ldr.w	r7, [sp], #4
  800ab0e:	4770      	bx	lr
- 800ab10:	24000054 	.word	0x24000054
+ 800ab10:	2400002c 	.word	0x2400002c
  800ab14:	10624dd3 	.word	0x10624dd3
 
 0800ab18 <SDMMC_GetCmdError>:
@@ -26779,7 +26779,7 @@ static uint32_t SDMMC_GetCmdError(SDMMC_TypeDef *SDMMCx)
  800ab60:	f85d 7b04 	ldr.w	r7, [sp], #4
  800ab64:	4770      	bx	lr
  800ab66:	bf00      	nop
- 800ab68:	24000054 	.word	0x24000054
+ 800ab68:	2400002c 	.word	0x2400002c
  800ab6c:	10624dd3 	.word	0x10624dd3
  800ab70:	002000c5 	.word	0x002000c5
 
@@ -26808,9 +26808,9 @@ void MX_FATFS_Init(void)
 }
  800ab88:	bf00      	nop
  800ab8a:	bd80      	pop	{r7, pc}
- 800ab8c:	24020774 	.word	0x24020774
+ 800ab8c:	24020724 	.word	0x24020724
  800ab90:	08014178 	.word	0x08014178
- 800ab94:	24020770 	.word	0x24020770
+ 800ab94:	24020720 	.word	0x24020720
 
 0800ab98 <BSP_SD_Init>:
 /**
@@ -26871,7 +26871,7 @@ __weak uint8_t BSP_SD_Init(void)
  800abda:	46bd      	mov	sp, r7
  800abdc:	bd80      	pop	{r7, pc}
  800abde:	bf00      	nop
- 800abe0:	24006e98 	.word	0x24006e98
+ 800abe0:	24006e78 	.word	0x24006e78
 
 0800abe4 <BSP_SD_ReadBlocks_DMA>:
   * @param  ReadAddr: Address from where data is to be read
@@ -26913,7 +26913,7 @@ __weak uint8_t BSP_SD_ReadBlocks_DMA(uint32_t *pData, uint32_t ReadAddr, uint32_
  800ac0e:	3718      	adds	r7, #24
  800ac10:	46bd      	mov	sp, r7
  800ac12:	bd80      	pop	{r7, pc}
- 800ac14:	24006e98 	.word	0x24006e98
+ 800ac14:	24006e78 	.word	0x24006e78
 
 0800ac18 <BSP_SD_WriteBlocks_DMA>:
   * @param  WriteAddr: Address from where data is to be written
@@ -26955,7 +26955,7 @@ __weak uint8_t BSP_SD_WriteBlocks_DMA(uint32_t *pData, uint32_t WriteAddr, uint3
  800ac42:	3718      	adds	r7, #24
  800ac44:	46bd      	mov	sp, r7
  800ac46:	bd80      	pop	{r7, pc}
- 800ac48:	24006e98 	.word	0x24006e98
+ 800ac48:	24006e78 	.word	0x24006e78
 
 0800ac4c <BSP_SD_GetCardState>:
   *          This value can be one of the following values:
@@ -26979,7 +26979,7 @@ __weak uint8_t BSP_SD_GetCardState(void)
  800ac62:	4618      	mov	r0, r3
  800ac64:	bd80      	pop	{r7, pc}
  800ac66:	bf00      	nop
- 800ac68:	24006e98 	.word	0x24006e98
+ 800ac68:	24006e78 	.word	0x24006e78
 
 0800ac6c <BSP_SD_GetCardInfo>:
   * @brief  Get SD information about specific SD card.
@@ -27002,7 +27002,7 @@ __weak void BSP_SD_GetCardInfo(HAL_SD_CardInfoTypeDef *CardInfo)
  800ac7e:	3708      	adds	r7, #8
  800ac80:	46bd      	mov	sp, r7
  800ac82:	bd80      	pop	{r7, pc}
- 800ac84:	24006e98 	.word	0x24006e98
+ 800ac84:	24006e78 	.word	0x24006e78
 
 0800ac88 <HAL_SD_TxCpltCallback>:
   * @brief Tx Transfer completed callback
@@ -27155,7 +27155,7 @@ static DSTATUS SD_CheckStatus(BYTE lun)
  800ad36:	3708      	adds	r7, #8
  800ad38:	46bd      	mov	sp, r7
  800ad3a:	bd80      	pop	{r7, pc}
- 800ad3c:	24000061 	.word	0x24000061
+ 800ad3c:	24000039 	.word	0x24000039
 
 0800ad40 <SD_initialize>:
   * @brief  Initializes a Drive
@@ -27201,7 +27201,7 @@ DSTATUS SD_initialize(BYTE lun)
  800ad6e:	46bd      	mov	sp, r7
  800ad70:	bd80      	pop	{r7, pc}
  800ad72:	bf00      	nop
- 800ad74:	24000061 	.word	0x24000061
+ 800ad74:	24000039 	.word	0x24000039
 
 0800ad78 <SD_status>:
   * @brief  Gets Disk Status
@@ -27360,7 +27360,7 @@ DRESULT SD_read(BYTE lun, BYTE *buff, DWORD sector, UINT count)
  800ae36:	46bd      	mov	sp, r7
  800ae38:	bd80      	pop	{r7, pc}
  800ae3a:	bf00      	nop
- 800ae3c:	2402077c 	.word	0x2402077c
+ 800ae3c:	2402072c 	.word	0x2402072c
 
 0800ae40 <SD_write>:
   * @retval DRESULT: Operation result
@@ -27496,7 +27496,7 @@ DRESULT SD_write(BYTE lun, const BYTE *buff, DWORD sector, UINT count)
  800aee2:	46bd      	mov	sp, r7
  800aee4:	bd80      	pop	{r7, pc}
  800aee6:	bf00      	nop
- 800aee8:	24020778 	.word	0x24020778
+ 800aee8:	24020728 	.word	0x24020728
 
 0800aeec <SD_ioctl>:
   * @param  *buff: Buffer to send/receive control data
@@ -27611,7 +27611,7 @@ DRESULT SD_ioctl(BYTE lun, BYTE cmd, void *buff)
  800af92:	46bd      	mov	sp, r7
  800af94:	bd80      	pop	{r7, pc}
  800af96:	bf00      	nop
- 800af98:	24000061 	.word	0x24000061
+ 800af98:	24000039 	.word	0x24000039
 
 0800af9c <BSP_SD_WriteCpltCallback>:
   * @brief Tx Transfer completed callbacks
@@ -27632,7 +27632,7 @@ void BSP_SD_WriteCpltCallback(void)
  800afa8:	46bd      	mov	sp, r7
  800afaa:	f85d 7b04 	ldr.w	r7, [sp], #4
  800afae:	4770      	bx	lr
- 800afb0:	24020778 	.word	0x24020778
+ 800afb0:	24020728 	.word	0x24020728
 
 0800afb4 <BSP_SD_ReadCpltCallback>:
   * @brief Rx Transfer completed callbacks
@@ -27652,7 +27652,7 @@ void BSP_SD_ReadCpltCallback(void)
  800afc0:	46bd      	mov	sp, r7
  800afc2:	f85d 7b04 	ldr.w	r7, [sp], #4
  800afc6:	4770      	bx	lr
- 800afc8:	2402077c 	.word	0x2402077c
+ 800afc8:	2402072c 	.word	0x2402072c
 
 0800afcc <FATFS_LinkDriverEx>:
   * @param  lun : only used for USB Key Disk to add multi-lun management
@@ -27752,7 +27752,7 @@ uint8_t FATFS_LinkDriverEx(const Diskio_drvTypeDef *drv, char *path, uint8_t lun
  800b058:	f85d 7b04 	ldr.w	r7, [sp], #4
  800b05c:	4770      	bx	lr
  800b05e:	bf00      	nop
- 800b060:	24020780 	.word	0x24020780
+ 800b060:	24020730 	.word	0x24020730
 
 0800b064 <FATFS_LinkDriver>:
   * @param  drv: pointer to the disk IO Driver structure
@@ -27949,12 +27949,12 @@ static int ai_boostrap(ai_handle *act_addr)
  800b176:	3718      	adds	r7, #24
  800b178:	46bd      	mov	sp, r7
  800b17a:	bd80      	pop	{r7, pc}
- 800b17c:	2405aed0 	.word	0x2405aed0
+ 800b17c:	2405ae90 	.word	0x2405ae90
  800b180:	08014084 	.word	0x08014084
- 800b184:	2405aed4 	.word	0x2405aed4
- 800b188:	2405aed8 	.word	0x2405aed8
- 800b18c:	2402078c 	.word	0x2402078c
- 800b190:	24020790 	.word	0x24020790
+ 800b184:	2405ae94 	.word	0x2405ae94
+ 800b188:	2405ae98 	.word	0x2405ae98
+ 800b18c:	2402073c 	.word	0x2402073c
+ 800b190:	24020740 	.word	0x24020740
 
 0800b194 <ai_run>:
 
@@ -28001,9 +28001,9 @@ static int ai_run(void)
  800b1d2:	3708      	adds	r7, #8
  800b1d4:	46bd      	mov	sp, r7
  800b1d6:	bd80      	pop	{r7, pc}
- 800b1d8:	2405aed0 	.word	0x2405aed0
- 800b1dc:	2405aed4 	.word	0x2405aed4
- 800b1e0:	2405aed8 	.word	0x2405aed8
+ 800b1d8:	2405ae90 	.word	0x2405ae90
+ 800b1dc:	2405ae94 	.word	0x2405ae94
+ 800b1e0:	2405ae98 	.word	0x2405ae98
  800b1e4:	080140a0 	.word	0x080140a0
 
 0800b1e8 <acquire_and_process_data>:
@@ -28038,7 +28038,7 @@ int acquire_and_process_data(ai_i8* data[])
  800b206:	3710      	adds	r7, #16
  800b208:	46bd      	mov	sp, r7
  800b20a:	bd80      	pop	{r7, pc}
- 800b20c:	24013a68 	.word	0x24013a68
+ 800b20c:	24013a18 	.word	0x24013a18
 
 0800b210 <post_process>:
  * @brief  Post-process output và điều khiển LED PA1
@@ -28115,7 +28115,7 @@ int post_process(ai_i8* data[])
  800b276:	3718      	adds	r7, #24
  800b278:	46bd      	mov	sp, r7
  800b27a:	bd80      	pop	{r7, pc}
- 800b27c:	2405aedc 	.word	0x2405aedc
+ 800b27c:	2405ae9c 	.word	0x2405ae9c
  800b280:	58020000 	.word	0x58020000
  800b284:	080140b0 	.word	0x080140b0
  800b288:	080140d0 	.word	0x080140d0
@@ -28142,7 +28142,7 @@ void MX_X_CUBE_AI_Init(void)
  800b29c:	bf00      	nop
  800b29e:	bd80      	pop	{r7, pc}
  800b2a0:	080140e8 	.word	0x080140e8
- 800b2a4:	24000064 	.word	0x24000064
+ 800b2a4:	2400003c 	.word	0x2400003c
 
 0800b2a8 <MX_X_CUBE_AI_Process>:
 
@@ -28214,9 +28214,9 @@ void MX_X_CUBE_AI_Process(void)
  800b30c:	bd80      	pop	{r7, pc}
  800b30e:	bf00      	nop
  800b310:	08014108 	.word	0x08014108
- 800b314:	2405aed0 	.word	0x2405aed0
- 800b318:	2402078c 	.word	0x2402078c
- 800b31c:	24020790 	.word	0x24020790
+ 800b314:	2405ae90 	.word	0x2405ae90
+ 800b318:	2402073c 	.word	0x2402073c
+ 800b31c:	24020740 	.word	0x24020740
  800b320:	08014124 	.word	0x08014124
 
 0800b324 <network_configure_activations>:
@@ -28491,30 +28491,30 @@ ai_bool network_configure_activations(
  800b502:	3708      	adds	r7, #8
  800b504:	46bd      	mov	sp, r7
  800b506:	bd80      	pop	{r7, pc}
- 800b508:	2405aee0 	.word	0x2405aee0
+ 800b508:	2405aea0 	.word	0x2405aea0
  800b50c:	00021134 	.word	0x00021134
- 800b510:	24000068 	.word	0x24000068
+ 800b510:	24000040 	.word	0x24000040
  800b514:	0002dc20 	.word	0x0002dc20
- 800b518:	24000078 	.word	0x24000078
+ 800b518:	24000050 	.word	0x24000050
  800b51c:	0003a70c 	.word	0x0003a70c
- 800b520:	24000258 	.word	0x24000258
- 800b524:	24000088 	.word	0x24000088
- 800b528:	24000098 	.word	0x24000098
- 800b52c:	240000a8 	.word	0x240000a8
- 800b530:	24000268 	.word	0x24000268
- 800b534:	240000b8 	.word	0x240000b8
- 800b538:	240000c8 	.word	0x240000c8
- 800b53c:	240000d8 	.word	0x240000d8
- 800b540:	24000278 	.word	0x24000278
- 800b544:	240000e8 	.word	0x240000e8
+ 800b520:	24000230 	.word	0x24000230
+ 800b524:	24000060 	.word	0x24000060
+ 800b528:	24000070 	.word	0x24000070
+ 800b52c:	24000080 	.word	0x24000080
+ 800b530:	24000240 	.word	0x24000240
+ 800b534:	24000090 	.word	0x24000090
+ 800b538:	240000a0 	.word	0x240000a0
+ 800b53c:	240000b0 	.word	0x240000b0
+ 800b540:	24000250 	.word	0x24000250
+ 800b544:	240000c0 	.word	0x240000c0
  800b548:	00013b80 	.word	0x00013b80
- 800b54c:	240000f8 	.word	0x240000f8
- 800b550:	24000108 	.word	0x24000108
- 800b554:	24000288 	.word	0x24000288
- 800b558:	24000118 	.word	0x24000118
- 800b55c:	24000128 	.word	0x24000128
- 800b560:	24000138 	.word	0x24000138
- 800b564:	24000148 	.word	0x24000148
+ 800b54c:	240000d0 	.word	0x240000d0
+ 800b550:	240000e0 	.word	0x240000e0
+ 800b554:	24000260 	.word	0x24000260
+ 800b558:	240000f0 	.word	0x240000f0
+ 800b55c:	24000100 	.word	0x24000100
+ 800b560:	24000110 	.word	0x24000110
+ 800b564:	24000120 	.word	0x24000120
 
 0800b568 <network_configure_weights>:
 
@@ -28848,23 +28848,23 @@ ai_bool network_configure_weights(
  800b7da:	3708      	adds	r7, #8
  800b7dc:	46bd      	mov	sp, r7
  800b7de:	bd80      	pop	{r7, pc}
- 800b7e0:	2405aee4 	.word	0x2405aee4
- 800b7e4:	24000158 	.word	0x24000158
- 800b7e8:	24000168 	.word	0x24000168
- 800b7ec:	24000178 	.word	0x24000178
- 800b7f0:	24000188 	.word	0x24000188
- 800b7f4:	24000198 	.word	0x24000198
- 800b7f8:	240001a8 	.word	0x240001a8
- 800b7fc:	240001b8 	.word	0x240001b8
- 800b800:	240001c8 	.word	0x240001c8
- 800b804:	240001d8 	.word	0x240001d8
- 800b808:	240001e8 	.word	0x240001e8
- 800b80c:	240001f8 	.word	0x240001f8
- 800b810:	24000208 	.word	0x24000208
- 800b814:	24000218 	.word	0x24000218
- 800b818:	24000228 	.word	0x24000228
- 800b81c:	24000238 	.word	0x24000238
- 800b820:	24000248 	.word	0x24000248
+ 800b7e0:	2405aea4 	.word	0x2405aea4
+ 800b7e4:	24000130 	.word	0x24000130
+ 800b7e8:	24000140 	.word	0x24000140
+ 800b7ec:	24000150 	.word	0x24000150
+ 800b7f0:	24000160 	.word	0x24000160
+ 800b7f4:	24000170 	.word	0x24000170
+ 800b7f8:	24000180 	.word	0x24000180
+ 800b7fc:	24000190 	.word	0x24000190
+ 800b800:	240001a0 	.word	0x240001a0
+ 800b804:	240001b0 	.word	0x240001b0
+ 800b808:	240001c0 	.word	0x240001c0
+ 800b80c:	240001d0 	.word	0x240001d0
+ 800b810:	240001e0 	.word	0x240001e0
+ 800b814:	240001f0 	.word	0x240001f0
+ 800b818:	24000200 	.word	0x24000200
+ 800b81c:	24000210 	.word	0x24000210
+ 800b820:	24000220 	.word	0x24000220
 
 0800b824 <ai_network_get_error>:
 }
@@ -28918,7 +28918,7 @@ ai_error ai_network_create(
  800b85e:	3708      	adds	r7, #8
  800b860:	46bd      	mov	sp, r7
  800b862:	bd80      	pop	{r7, pc}
- 800b864:	24001250 	.word	0x24001250
+ 800b864:	24001228 	.word	0x24001228
 
 0800b868 <ai_network_create_and_init>:
 
@@ -29092,7 +29092,7 @@ ai_buffer* ai_network_inputs_get(ai_handle network, ai_u16 *n_buffer)
  800b98a:	3708      	adds	r7, #8
  800b98c:	46bd      	mov	sp, r7
  800b98e:	bd80      	pop	{r7, pc}
- 800b990:	24001250 	.word	0x24001250
+ 800b990:	24001228 	.word	0x24001228
  800b994:	a1c00100 	.word	0xa1c00100
 
 0800b998 <ai_network_outputs_get>:
@@ -29128,7 +29128,7 @@ ai_buffer* ai_network_outputs_get(ai_handle network, ai_u16 *n_buffer)
  800b9be:	3708      	adds	r7, #8
  800b9c0:	46bd      	mov	sp, r7
  800b9c2:	bd80      	pop	{r7, pc}
- 800b9c4:	24001250 	.word	0x24001250
+ 800b9c4:	24001228 	.word	0x24001228
  800b9c8:	a1c00100 	.word	0xa1c00100
 
 0800b9cc <ai_network_init>:
@@ -35116,7 +35116,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  800fb3c:	6818      	ldr	r0, [r3, #0]
  800fb3e:	f000 b825 	b.w	800fb8c <_malloc_r>
  800fb42:	bf00      	nop
- 800fb44:	24001300 	.word	0x24001300
+ 800fb44:	240012d8 	.word	0x240012d8
 
 0800fb48 <sbrk_aligned>:
  800fb48:	b570      	push	{r4, r5, r6, lr}
@@ -35146,7 +35146,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  800fb82:	d1f2      	bne.n	800fb6a <sbrk_aligned+0x22>
  800fb84:	e7ef      	b.n	800fb66 <sbrk_aligned+0x1e>
  800fb86:	bf00      	nop
- 800fb88:	2405afd0 	.word	0x2405afd0
+ 800fb88:	2405af90 	.word	0x2405af90
 
 0800fb8c <_malloc_r>:
  800fb8c:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -35256,19 +35256,19 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  800fc82:	6005      	str	r5, [r0, #0]
  800fc84:	e7d6      	b.n	800fc34 <_malloc_r+0xa8>
  800fc86:	bf00      	nop
- 800fc88:	2405afd4 	.word	0x2405afd4
+ 800fc88:	2405af94 	.word	0x2405af94
 
 0800fc8c <__malloc_lock>:
  800fc8c:	4801      	ldr	r0, [pc, #4]	@ (800fc94 <__malloc_lock+0x8>)
  800fc8e:	f000 bd10 	b.w	80106b2 <__retarget_lock_acquire_recursive>
  800fc92:	bf00      	nop
- 800fc94:	2405b118 	.word	0x2405b118
+ 800fc94:	2405b0d8 	.word	0x2405b0d8
 
 0800fc98 <__malloc_unlock>:
  800fc98:	4801      	ldr	r0, [pc, #4]	@ (800fca0 <__malloc_unlock+0x8>)
  800fc9a:	f000 bd0b 	b.w	80106b4 <__retarget_lock_release_recursive>
  800fc9e:	bf00      	nop
- 800fca0:	2405b118 	.word	0x2405b118
+ 800fca0:	2405b0d8 	.word	0x2405b0d8
 
 0800fca4 <_realloc_r>:
  800fca4:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
@@ -35739,7 +35739,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8010174:	080103df 	.word	0x080103df
  8010178:	08010417 	.word	0x08010417
  801017c:	0801043b 	.word	0x0801043b
- 8010180:	2405afd8 	.word	0x2405afd8
+ 8010180:	2405af98 	.word	0x2405af98
 
 08010184 <stdio_exit_handler>:
  8010184:	4a02      	ldr	r2, [pc, #8]	@ (8010190 <stdio_exit_handler+0xc>)
@@ -35747,9 +35747,9 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8010188:	4803      	ldr	r0, [pc, #12]	@ (8010198 <stdio_exit_handler+0x14>)
  801018a:	f000 b869 	b.w	8010260 <_fwalk_sglue>
  801018e:	bf00      	nop
- 8010190:	240012f4 	.word	0x240012f4
+ 8010190:	240012cc 	.word	0x240012cc
  8010194:	08011d41 	.word	0x08011d41
- 8010198:	24001304 	.word	0x24001304
+ 8010198:	240012dc 	.word	0x240012dc
 
 0801019c <cleanup_stdio>:
  801019c:	6841      	ldr	r1, [r0, #4]
@@ -35774,9 +35774,9 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  80101c8:	f001 bdba 	b.w	8011d40 <_fflush_r>
  80101cc:	bd10      	pop	{r4, pc}
  80101ce:	bf00      	nop
- 80101d0:	2405afd8 	.word	0x2405afd8
- 80101d4:	2405b040 	.word	0x2405b040
- 80101d8:	2405b0a8 	.word	0x2405b0a8
+ 80101d0:	2405af98 	.word	0x2405af98
+ 80101d4:	2405b000 	.word	0x2405b000
+ 80101d8:	2405b068 	.word	0x2405b068
 
 080101dc <global_stdio_init.part.0>:
  80101dc:	b510      	push	{r4, lr}
@@ -35797,21 +35797,21 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8010202:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
  8010206:	2112      	movs	r1, #18
  8010208:	f7ff bf86 	b.w	8010118 <std>
- 801020c:	2405b110 	.word	0x2405b110
- 8010210:	2405afd8 	.word	0x2405afd8
+ 801020c:	2405b0d0 	.word	0x2405b0d0
+ 8010210:	2405af98 	.word	0x2405af98
  8010214:	08010185 	.word	0x08010185
 
 08010218 <__sfp_lock_acquire>:
  8010218:	4801      	ldr	r0, [pc, #4]	@ (8010220 <__sfp_lock_acquire+0x8>)
  801021a:	f000 ba4a 	b.w	80106b2 <__retarget_lock_acquire_recursive>
  801021e:	bf00      	nop
- 8010220:	2405b119 	.word	0x2405b119
+ 8010220:	2405b0d9 	.word	0x2405b0d9
 
 08010224 <__sfp_lock_release>:
  8010224:	4801      	ldr	r0, [pc, #4]	@ (801022c <__sfp_lock_release+0x8>)
  8010226:	f000 ba45 	b.w	80106b4 <__retarget_lock_release_recursive>
  801022a:	bf00      	nop
- 801022c:	2405b119 	.word	0x2405b119
+ 801022c:	2405b0d9 	.word	0x2405b0d9
 
 08010230 <__sinit>:
  8010230:	b510      	push	{r4, lr}
@@ -35831,7 +35831,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8010254:	e7f2      	b.n	801023c <__sinit+0xc>
  8010256:	bf00      	nop
  8010258:	0801019d 	.word	0x0801019d
- 801025c:	2405b110 	.word	0x2405b110
+ 801025c:	2405b0d0 	.word	0x2405b0d0
 
 08010260 <_fwalk_sglue>:
  8010260:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -35874,7 +35874,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  80102b4:	f85d eb04 	ldr.w	lr, [sp], #4
  80102b8:	b004      	add	sp, #16
  80102ba:	4770      	bx	lr
- 80102bc:	24001300 	.word	0x24001300
+ 80102bc:	240012d8 	.word	0x240012d8
 
 080102c0 <_puts_r>:
  80102c0:	6a03      	ldr	r3, [r0, #32]
@@ -35962,7 +35962,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8010370:	6818      	ldr	r0, [r3, #0]
  8010372:	f7ff bfa5 	b.w	80102c0 <_puts_r>
  8010376:	bf00      	nop
- 8010378:	24001300 	.word	0x24001300
+ 8010378:	240012d8 	.word	0x240012d8
 
 0801037c <siprintf>:
  801037c:	b40e      	push	{r1, r2, r3}
@@ -35989,7 +35989,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  80103ac:	f85d eb04 	ldr.w	lr, [sp], #4
  80103b0:	b003      	add	sp, #12
  80103b2:	4770      	bx	lr
- 80103b4:	24001300 	.word	0x24001300
+ 80103b4:	240012d8 	.word	0x240012d8
  80103b8:	ffff0208 	.word	0xffff0208
 
 080103bc <__sread>:
@@ -36182,7 +36182,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8010562:	e7f4      	b.n	801054e <__swsetup_r+0x8e>
  8010564:	2000      	movs	r0, #0
  8010566:	e7f7      	b.n	8010558 <__swsetup_r+0x98>
- 8010568:	24001300 	.word	0x24001300
+ 8010568:	240012d8 	.word	0x240012d8
 
 0801056c <memmove>:
  801056c:	4288      	cmp	r0, r1
@@ -36230,7 +36230,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  80105c6:	b103      	cbz	r3, 80105ca <_close_r+0x1a>
  80105c8:	6023      	str	r3, [r4, #0]
  80105ca:	bd38      	pop	{r3, r4, r5, pc}
- 80105cc:	2405b114 	.word	0x2405b114
+ 80105cc:	2405b0d4 	.word	0x2405b0d4
 
 080105d0 <_lseek_r>:
  80105d0:	b538      	push	{r3, r4, r5, lr}
@@ -36248,7 +36248,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  80105ea:	b103      	cbz	r3, 80105ee <_lseek_r+0x1e>
  80105ec:	6023      	str	r3, [r4, #0]
  80105ee:	bd38      	pop	{r3, r4, r5, pc}
- 80105f0:	2405b114 	.word	0x2405b114
+ 80105f0:	2405b0d4 	.word	0x2405b0d4
 
 080105f4 <_read_r>:
  80105f4:	b538      	push	{r3, r4, r5, lr}
@@ -36266,7 +36266,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  801060e:	b103      	cbz	r3, 8010612 <_read_r+0x1e>
  8010610:	6023      	str	r3, [r4, #0]
  8010612:	bd38      	pop	{r3, r4, r5, pc}
- 8010614:	2405b114 	.word	0x2405b114
+ 8010614:	2405b0d4 	.word	0x2405b0d4
 
 08010618 <_sbrk_r>:
  8010618:	b538      	push	{r3, r4, r5, lr}
@@ -36282,7 +36282,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  801062e:	b103      	cbz	r3, 8010632 <_sbrk_r+0x1a>
  8010630:	6023      	str	r3, [r4, #0]
  8010632:	bd38      	pop	{r3, r4, r5, pc}
- 8010634:	2405b114 	.word	0x2405b114
+ 8010634:	2405b0d4 	.word	0x2405b0d4
 
 08010638 <_write_r>:
  8010638:	b538      	push	{r3, r4, r5, lr}
@@ -36300,14 +36300,14 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8010652:	b103      	cbz	r3, 8010656 <_write_r+0x1e>
  8010654:	6023      	str	r3, [r4, #0]
  8010656:	bd38      	pop	{r3, r4, r5, pc}
- 8010658:	2405b114 	.word	0x2405b114
+ 8010658:	2405b0d4 	.word	0x2405b0d4
 
 0801065c <__errno>:
  801065c:	4b01      	ldr	r3, [pc, #4]	@ (8010664 <__errno+0x8>)
  801065e:	6818      	ldr	r0, [r3, #0]
  8010660:	4770      	bx	lr
  8010662:	bf00      	nop
- 8010664:	24001300 	.word	0x24001300
+ 8010664:	240012d8 	.word	0x240012d8
 
 08010668 <__libc_init_array>:
  8010668:	b570      	push	{r4, r5, r6, lr}
@@ -36438,7 +36438,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  801076a:	e7ca      	b.n	8010702 <_free_r+0x22>
  801076c:	bd38      	pop	{r3, r4, r5, pc}
  801076e:	bf00      	nop
- 8010770:	2405afd4 	.word	0x2405afd4
+ 8010770:	2405af94 	.word	0x2405af94
 
 08010774 <_malloc_usable_size_r>:
  8010774:	f851 3c04 	ldr.w	r3, [r1, #-4]
@@ -37534,7 +37534,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  80112e4:	4b01      	ldr	r3, [pc, #4]	@ (80112ec <_strtod_r+0x8>)
  80112e6:	f7ff ba67 	b.w	80107b8 <_strtod_l>
  80112ea:	bf00      	nop
- 80112ec:	24001350 	.word	0x24001350
+ 80112ec:	24001328 	.word	0x24001328
 
 080112f0 <_strtol_l.constprop.0>:
  80112f0:	2b24      	cmp	r3, #36	@ 0x24
@@ -38797,7 +38797,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8011e92:	6023      	str	r3, [r4, #0]
  8011e94:	bd38      	pop	{r3, r4, r5, pc}
  8011e96:	bf00      	nop
- 8011e98:	2405b114 	.word	0x2405b114
+ 8011e98:	2405b0d4 	.word	0x2405b0d4
 
 08011e9c <_isatty_r>:
  8011e9c:	b538      	push	{r3, r4, r5, lr}
@@ -38813,7 +38813,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8011eb2:	b103      	cbz	r3, 8011eb6 <_isatty_r+0x1a>
  8011eb4:	6023      	str	r3, [r4, #0]
  8011eb6:	bd38      	pop	{r3, r4, r5, pc}
- 8011eb8:	2405b114 	.word	0x2405b114
+ 8011eb8:	2405b0d4 	.word	0x2405b0d4
  8011ebc:	00000000 	.word	0x00000000
 
 08011ec0 <nan>:
@@ -40489,7 +40489,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8012f06:	4b04      	ldr	r3, [pc, #16]	@ (8012f18 <__assert_func+0x38>)
  8012f08:	e7f4      	b.n	8012ef4 <__assert_func+0x14>
  8012f0a:	bf00      	nop
- 8012f0c:	24001300 	.word	0x24001300
+ 8012f0c:	240012d8 	.word	0x240012d8
  8012f10:	08033993 	.word	0x08033993
  8012f14:	08033965 	.word	0x08033965
  8012f18:	08033958 	.word	0x08033958
@@ -40527,7 +40527,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8012f5c:	f85d eb04 	ldr.w	lr, [sp], #4
  8012f60:	b003      	add	sp, #12
  8012f62:	4770      	bx	lr
- 8012f64:	24001300 	.word	0x24001300
+ 8012f64:	240012d8 	.word	0x240012d8
 
 08012f68 <abort>:
  8012f68:	b508      	push	{r3, lr}
@@ -40579,7 +40579,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8012fcc:	6818      	ldr	r0, [r3, #0]
  8012fce:	f7ff bfd2 	b.w	8012f76 <_raise_r>
  8012fd2:	bf00      	nop
- 8012fd4:	24001300 	.word	0x24001300
+ 8012fd4:	240012d8 	.word	0x240012d8
 
 08012fd8 <_kill_r>:
  8012fd8:	b538      	push	{r3, r4, r5, lr}
@@ -40597,7 +40597,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8012ff2:	6023      	str	r3, [r4, #0]
  8012ff4:	bd38      	pop	{r3, r4, r5, pc}
  8012ff6:	bf00      	nop
- 8012ff8:	2405b114 	.word	0x2405b114
+ 8012ff8:	2405b0d4 	.word	0x2405b0d4
 
 08012ffc <_getpid_r>:
  8012ffc:	f000 bfd0 	b.w	8013fa0 <_getpid>
@@ -41895,7 +41895,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8013f84:	601a      	str	r2, [r3, #0]
  8013f86:	f04f 30ff 	mov.w	r0, #4294967295
  8013f8a:	4770      	bx	lr
- 8013f8c:	2405b114 	.word	0x2405b114
+ 8013f8c:	2405b0d4 	.word	0x2405b0d4
 
 08013f90 <_fstat>:
  8013f90:	4b02      	ldr	r3, [pc, #8]	@ (8013f9c <_fstat+0xc>)
@@ -41903,7 +41903,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8013f94:	601a      	str	r2, [r3, #0]
  8013f96:	f04f 30ff 	mov.w	r0, #4294967295
  8013f9a:	4770      	bx	lr
- 8013f9c:	2405b114 	.word	0x2405b114
+ 8013f9c:	2405b0d4 	.word	0x2405b0d4
 
 08013fa0 <_getpid>:
  8013fa0:	4b02      	ldr	r3, [pc, #8]	@ (8013fac <_getpid+0xc>)
@@ -41911,7 +41911,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8013fa4:	601a      	str	r2, [r3, #0]
  8013fa6:	f04f 30ff 	mov.w	r0, #4294967295
  8013faa:	4770      	bx	lr
- 8013fac:	2405b114 	.word	0x2405b114
+ 8013fac:	2405b0d4 	.word	0x2405b0d4
 
 08013fb0 <_isatty>:
  8013fb0:	4b02      	ldr	r3, [pc, #8]	@ (8013fbc <_isatty+0xc>)
@@ -41920,7 +41920,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8013fb6:	2000      	movs	r0, #0
  8013fb8:	4770      	bx	lr
  8013fba:	bf00      	nop
- 8013fbc:	2405b114 	.word	0x2405b114
+ 8013fbc:	2405b0d4 	.word	0x2405b0d4
 
 08013fc0 <_kill>:
  8013fc0:	4b02      	ldr	r3, [pc, #8]	@ (8013fcc <_kill+0xc>)
@@ -41928,7 +41928,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8013fc4:	601a      	str	r2, [r3, #0]
  8013fc6:	f04f 30ff 	mov.w	r0, #4294967295
  8013fca:	4770      	bx	lr
- 8013fcc:	2405b114 	.word	0x2405b114
+ 8013fcc:	2405b0d4 	.word	0x2405b0d4
 
 08013fd0 <_lseek>:
  8013fd0:	4b02      	ldr	r3, [pc, #8]	@ (8013fdc <_lseek+0xc>)
@@ -41936,7 +41936,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8013fd4:	601a      	str	r2, [r3, #0]
  8013fd6:	f04f 30ff 	mov.w	r0, #4294967295
  8013fda:	4770      	bx	lr
- 8013fdc:	2405b114 	.word	0x2405b114
+ 8013fdc:	2405b0d4 	.word	0x2405b0d4
 
 08013fe0 <_read>:
  8013fe0:	4b02      	ldr	r3, [pc, #8]	@ (8013fec <_read+0xc>)
@@ -41944,7 +41944,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8013fe4:	601a      	str	r2, [r3, #0]
  8013fe6:	f04f 30ff 	mov.w	r0, #4294967295
  8013fea:	4770      	bx	lr
- 8013fec:	2405b114 	.word	0x2405b114
+ 8013fec:	2405b0d4 	.word	0x2405b0d4
 
 08013ff0 <_write>:
  8013ff0:	4b02      	ldr	r3, [pc, #8]	@ (8013ffc <_write+0xc>)
@@ -41952,7 +41952,7 @@ ai_bool ai_network_data_params_get(ai_network_params* params)
  8013ff4:	601a      	str	r2, [r3, #0]
  8013ff6:	f04f 30ff 	mov.w	r0, #4294967295
  8013ffa:	4770      	bx	lr
- 8013ffc:	2405b114 	.word	0x2405b114
+ 8013ffc:	2405b0d4 	.word	0x2405b0d4
 
 08014000 <_exit>:
  8014000:	e7fe      	b.n	8014000 <_exit>

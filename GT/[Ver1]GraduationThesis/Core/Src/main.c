@@ -75,7 +75,7 @@ int main(void)
 
     HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);   // PA0 - Đỏ (cường độ)
     HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);   // PA2 - Xanh lá (MFCC)
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);   // PA3 - Xanh dương (AI)
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);   // PA3 - Xanh dương (AI)        
 
     current_buffer = audio_bufferA;
     HAL_I2S_Receive_DMA(&hi2s1, (uint16_t*)audio_bufferA, AUDIO_BUFFER_SIZE);

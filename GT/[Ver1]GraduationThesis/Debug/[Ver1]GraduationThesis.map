@@ -12394,7 +12394,7 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 .rel.dyn        0x08033de8        0x0
  .rel.iplt      0x08033de8        0x0 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard/crtbegin.o
 
-.data           0x24000000     0x14bc load address 0x08033de8
+.data           0x24000000     0x1494 load address 0x08033de8
                 0x24000000                        . = ALIGN (0x4)
                 0x24000000                        _sdata = .
  *(.data)
@@ -12403,693 +12403,693 @@ LOAD C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x24000000        0x4 ./Core/Src/audio_capture.o
                 0x24000000                current_buffer
  .data.filter_coeffs
-                0x24000004       0x50 ./Core/Src/mfcc_extract.o
+                0x24000004       0x28 ./Core/Src/mfcc_extract.o
  .data.SystemCoreClock
-                0x24000054        0x4 ./Core/Src/system_stm32h7xx.o
-                0x24000054                SystemCoreClock
+                0x2400002c        0x4 ./Core/Src/system_stm32h7xx.o
+                0x2400002c                SystemCoreClock
  .data.SystemD2Clock
-                0x24000058        0x4 ./Core/Src/system_stm32h7xx.o
-                0x24000058                SystemD2Clock
+                0x24000030        0x4 ./Core/Src/system_stm32h7xx.o
+                0x24000030                SystemD2Clock
  .data.uwTickPrio
-                0x2400005c        0x4 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
-                0x2400005c                uwTickPrio
+                0x24000034        0x4 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+                0x24000034                uwTickPrio
  .data.uwTickFreq
-                0x24000060        0x1 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
-                0x24000060                uwTickFreq
- .data.Stat     0x24000061        0x1 ./FATFS/Target/sd_diskio.o
- *fill*         0x24000062        0x2 
+                0x24000038        0x1 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+                0x24000038                uwTickFreq
+ .data.Stat     0x24000039        0x1 ./FATFS/Target/sd_diskio.o
+ *fill*         0x2400003a        0x2 
  .data.data_activations0
-                0x24000064        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
-                0x24000064                data_activations0
+                0x2400003c        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
+                0x2400003c                data_activations0
  .data.input_output_array
-                0x24000068       0x10 ./X-CUBE-AI/App/network.o
+                0x24000040       0x10 ./X-CUBE-AI/App/network.o
  .data._Reshape_output_0_to_chfirst_output_array
-                0x24000078       0x10 ./X-CUBE-AI/App/network.o
+                0x24000050       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_output_array
-                0x24000088       0x10 ./X-CUBE-AI/App/network.o
+                0x24000060       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_2_Clip_output_0_output_array
-                0x24000098       0x10 ./X-CUBE-AI/App/network.o
+                0x24000070       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_depthwise_Conv_output_0_output_array
-                0x240000a8       0x10 ./X-CUBE-AI/App/network.o
+                0x24000080       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_output_array
-                0x240000b8       0x10 ./X-CUBE-AI/App/network.o
+                0x24000090       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_relu_Clip_output_0_output_array
-                0x240000c8       0x10 ./X-CUBE-AI/App/network.o
+                0x240000a0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_depthwise_Conv_output_0_output_array
-                0x240000d8       0x10 ./X-CUBE-AI/App/network.o
+                0x240000b0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_output_array
-                0x240000e8       0x10 ./X-CUBE-AI/App/network.o
+                0x240000c0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_relu_Clip_output_0_output_array
-                0x240000f8       0x10 ./X-CUBE-AI/App/network.o
+                0x240000d0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_depthwise_Conv_output_0_output_array
-                0x24000108       0x10 ./X-CUBE-AI/App/network.o
+                0x240000e0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_output_array
-                0x24000118       0x10 ./X-CUBE-AI/App/network.o
+                0x240000f0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_relu_Clip_output_0_output_array
-                0x24000128       0x10 ./X-CUBE-AI/App/network.o
+                0x24000100       0x10 ./X-CUBE-AI/App/network.o
  .data._pool_GlobalAveragePool_output_0_output_array
-                0x24000138       0x10 ./X-CUBE-AI/App/network.o
+                0x24000110       0x10 ./X-CUBE-AI/App/network.o
  .data.output_output_array
-                0x24000148       0x10 ./X-CUBE-AI/App/network.o
+                0x24000120       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_weights_array
-                0x24000158       0x10 ./X-CUBE-AI/App/network.o
+                0x24000130       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_bias_array
-                0x24000168       0x10 ./X-CUBE-AI/App/network.o
+                0x24000140       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_depthwise_Conv_output_0_weights_array
-                0x24000178       0x10 ./X-CUBE-AI/App/network.o
+                0x24000150       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_depthwise_Conv_output_0_bias_array
-                0x24000188       0x10 ./X-CUBE-AI/App/network.o
+                0x24000160       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_weights_array
-                0x24000198       0x10 ./X-CUBE-AI/App/network.o
+                0x24000170       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_bias_array
-                0x240001a8       0x10 ./X-CUBE-AI/App/network.o
+                0x24000180       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_depthwise_Conv_output_0_weights_array
-                0x240001b8       0x10 ./X-CUBE-AI/App/network.o
+                0x24000190       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_depthwise_Conv_output_0_bias_array
-                0x240001c8       0x10 ./X-CUBE-AI/App/network.o
+                0x240001a0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_weights_array
-                0x240001d8       0x10 ./X-CUBE-AI/App/network.o
+                0x240001b0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_bias_array
-                0x240001e8       0x10 ./X-CUBE-AI/App/network.o
+                0x240001c0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_depthwise_Conv_output_0_weights_array
-                0x240001f8       0x10 ./X-CUBE-AI/App/network.o
+                0x240001d0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_depthwise_Conv_output_0_bias_array
-                0x24000208       0x10 ./X-CUBE-AI/App/network.o
+                0x240001e0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_weights_array
-                0x24000218       0x10 ./X-CUBE-AI/App/network.o
+                0x240001f0       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_bias_array
-                0x24000228       0x10 ./X-CUBE-AI/App/network.o
+                0x24000200       0x10 ./X-CUBE-AI/App/network.o
  .data.output_weights_array
-                0x24000238       0x10 ./X-CUBE-AI/App/network.o
+                0x24000210       0x10 ./X-CUBE-AI/App/network.o
  .data.output_bias_array
-                0x24000248       0x10 ./X-CUBE-AI/App/network.o
+                0x24000220       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_scratch0_array
-                0x24000258       0x10 ./X-CUBE-AI/App/network.o
+                0x24000230       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_scratch0_array
-                0x24000268       0x10 ./X-CUBE-AI/App/network.o
+                0x24000240       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_scratch0_array
-                0x24000278       0x10 ./X-CUBE-AI/App/network.o
+                0x24000250       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_scratch0_array
-                0x24000288       0x10 ./X-CUBE-AI/App/network.o
+                0x24000260       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.0
-                0x24000298       0x10 ./X-CUBE-AI/App/network.o
+                0x24000270       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.1
-                0x240002a8       0x10 ./X-CUBE-AI/App/network.o
+                0x24000280       0x10 ./X-CUBE-AI/App/network.o
  .data._Reshape_output_0_to_chfirst_output
-                0x240002b8       0x1c ./X-CUBE-AI/App/network.o
+                0x24000290       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.2
-                0x240002d4       0x10 ./X-CUBE-AI/App/network.o
+                0x240002ac       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.3
-                0x240002e4       0x10 ./X-CUBE-AI/App/network.o
+                0x240002bc       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_depthwise_Conv_output_0_bias
-                0x240002f4       0x1c ./X-CUBE-AI/App/network.o
+                0x240002cc       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.4
-                0x24000310       0x10 ./X-CUBE-AI/App/network.o
+                0x240002e8       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.5
-                0x24000320       0x10 ./X-CUBE-AI/App/network.o
+                0x240002f8       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_depthwise_Conv_output_0_output
-                0x24000330       0x1c ./X-CUBE-AI/App/network.o
+                0x24000308       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.6
-                0x2400034c       0x10 ./X-CUBE-AI/App/network.o
+                0x24000324       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.7
-                0x2400035c       0x10 ./X-CUBE-AI/App/network.o
+                0x24000334       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_depthwise_Conv_output_0_weights
-                0x2400036c       0x1c ./X-CUBE-AI/App/network.o
+                0x24000344       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.8
-                0x24000388       0x10 ./X-CUBE-AI/App/network.o
+                0x24000360       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.9
-                0x24000398       0x10 ./X-CUBE-AI/App/network.o
+                0x24000370       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_bias
-                0x240003a8       0x1c ./X-CUBE-AI/App/network.o
+                0x24000380       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.10
-                0x240003c4       0x10 ./X-CUBE-AI/App/network.o
+                0x2400039c       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.11
-                0x240003d4       0x10 ./X-CUBE-AI/App/network.o
+                0x240003ac       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_output
-                0x240003e4       0x1c ./X-CUBE-AI/App/network.o
+                0x240003bc       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.12
-                0x24000400       0x10 ./X-CUBE-AI/App/network.o
+                0x240003d8       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.13
-                0x24000410       0x10 ./X-CUBE-AI/App/network.o
+                0x240003e8       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_scratch0
-                0x24000420       0x1c ./X-CUBE-AI/App/network.o
+                0x240003f8       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.14
-                0x2400043c       0x10 ./X-CUBE-AI/App/network.o
+                0x24000414       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.15
-                0x2400044c       0x10 ./X-CUBE-AI/App/network.o
+                0x24000424       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_weights
-                0x2400045c       0x1c ./X-CUBE-AI/App/network.o
+                0x24000434       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.16
-                0x24000478       0x10 ./X-CUBE-AI/App/network.o
+                0x24000450       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.17
-                0x24000488       0x10 ./X-CUBE-AI/App/network.o
+                0x24000460       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_relu_Clip_output_0_output
-                0x24000498       0x1c ./X-CUBE-AI/App/network.o
+                0x24000470       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.18
-                0x240004b4       0x10 ./X-CUBE-AI/App/network.o
+                0x2400048c       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.19
-                0x240004c4       0x10 ./X-CUBE-AI/App/network.o
+                0x2400049c       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_depthwise_Conv_output_0_bias
-                0x240004d4       0x1c ./X-CUBE-AI/App/network.o
+                0x240004ac       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.20
-                0x240004f0       0x10 ./X-CUBE-AI/App/network.o
+                0x240004c8       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.21
-                0x24000500       0x10 ./X-CUBE-AI/App/network.o
+                0x240004d8       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_depthwise_Conv_output_0_output
-                0x24000510       0x1c ./X-CUBE-AI/App/network.o
+                0x240004e8       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.22
-                0x2400052c       0x10 ./X-CUBE-AI/App/network.o
+                0x24000504       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.23
-                0x2400053c       0x10 ./X-CUBE-AI/App/network.o
+                0x24000514       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_depthwise_Conv_output_0_weights
-                0x2400054c       0x1c ./X-CUBE-AI/App/network.o
+                0x24000524       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.24
-                0x24000568       0x10 ./X-CUBE-AI/App/network.o
+                0x24000540       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.25
-                0x24000578       0x10 ./X-CUBE-AI/App/network.o
+                0x24000550       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_bias
-                0x24000588       0x1c ./X-CUBE-AI/App/network.o
+                0x24000560       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.26
-                0x240005a4       0x10 ./X-CUBE-AI/App/network.o
+                0x2400057c       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.27
-                0x240005b4       0x10 ./X-CUBE-AI/App/network.o
+                0x2400058c       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_output
-                0x240005c4       0x1c ./X-CUBE-AI/App/network.o
+                0x2400059c       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.28
-                0x240005e0       0x10 ./X-CUBE-AI/App/network.o
+                0x240005b8       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.29
-                0x240005f0       0x10 ./X-CUBE-AI/App/network.o
+                0x240005c8       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_scratch0
-                0x24000600       0x1c ./X-CUBE-AI/App/network.o
+                0x240005d8       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.30
-                0x2400061c       0x10 ./X-CUBE-AI/App/network.o
+                0x240005f4       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.31
-                0x2400062c       0x10 ./X-CUBE-AI/App/network.o
+                0x24000604       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_weights
-                0x2400063c       0x1c ./X-CUBE-AI/App/network.o
+                0x24000614       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.32
-                0x24000658       0x10 ./X-CUBE-AI/App/network.o
+                0x24000630       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.33
-                0x24000668       0x10 ./X-CUBE-AI/App/network.o
+                0x24000640       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_relu_Clip_output_0_output
-                0x24000678       0x1c ./X-CUBE-AI/App/network.o
+                0x24000650       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.34
-                0x24000694       0x10 ./X-CUBE-AI/App/network.o
+                0x2400066c       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.35
-                0x240006a4       0x10 ./X-CUBE-AI/App/network.o
+                0x2400067c       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_depthwise_Conv_output_0_bias
-                0x240006b4       0x1c ./X-CUBE-AI/App/network.o
+                0x2400068c       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.36
-                0x240006d0       0x10 ./X-CUBE-AI/App/network.o
+                0x240006a8       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.37
-                0x240006e0       0x10 ./X-CUBE-AI/App/network.o
+                0x240006b8       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_depthwise_Conv_output_0_output
-                0x240006f0       0x1c ./X-CUBE-AI/App/network.o
+                0x240006c8       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.38
-                0x2400070c       0x10 ./X-CUBE-AI/App/network.o
+                0x240006e4       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.39
-                0x2400071c       0x10 ./X-CUBE-AI/App/network.o
+                0x240006f4       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_depthwise_Conv_output_0_weights
-                0x2400072c       0x1c ./X-CUBE-AI/App/network.o
+                0x24000704       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.40
-                0x24000748       0x10 ./X-CUBE-AI/App/network.o
+                0x24000720       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.41
-                0x24000758       0x10 ./X-CUBE-AI/App/network.o
+                0x24000730       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_bias
-                0x24000768       0x1c ./X-CUBE-AI/App/network.o
+                0x24000740       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.42
-                0x24000784       0x10 ./X-CUBE-AI/App/network.o
+                0x2400075c       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.43
-                0x24000794       0x10 ./X-CUBE-AI/App/network.o
+                0x2400076c       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_output
-                0x240007a4       0x1c ./X-CUBE-AI/App/network.o
+                0x2400077c       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.44
-                0x240007c0       0x10 ./X-CUBE-AI/App/network.o
+                0x24000798       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.45
-                0x240007d0       0x10 ./X-CUBE-AI/App/network.o
+                0x240007a8       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_scratch0
-                0x240007e0       0x1c ./X-CUBE-AI/App/network.o
+                0x240007b8       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.46
-                0x240007fc       0x10 ./X-CUBE-AI/App/network.o
+                0x240007d4       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.47
-                0x2400080c       0x10 ./X-CUBE-AI/App/network.o
+                0x240007e4       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_weights
-                0x2400081c       0x1c ./X-CUBE-AI/App/network.o
+                0x240007f4       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.48
-                0x24000838       0x10 ./X-CUBE-AI/App/network.o
+                0x24000810       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.49
-                0x24000848       0x10 ./X-CUBE-AI/App/network.o
+                0x24000820       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_relu_Clip_output_0_output
-                0x24000858       0x1c ./X-CUBE-AI/App/network.o
+                0x24000830       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.50
-                0x24000874       0x10 ./X-CUBE-AI/App/network.o
+                0x2400084c       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.51
-                0x24000884       0x10 ./X-CUBE-AI/App/network.o
+                0x2400085c       0x10 ./X-CUBE-AI/App/network.o
  .data._pool_GlobalAveragePool_output_0_output
-                0x24000894       0x1c ./X-CUBE-AI/App/network.o
+                0x2400086c       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.52
-                0x240008b0       0x10 ./X-CUBE-AI/App/network.o
+                0x24000888       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.53
-                0x240008c0       0x10 ./X-CUBE-AI/App/network.o
+                0x24000898       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_bias
-                0x240008d0       0x1c ./X-CUBE-AI/App/network.o
+                0x240008a8       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.54
-                0x240008ec       0x10 ./X-CUBE-AI/App/network.o
+                0x240008c4       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.55
-                0x240008fc       0x10 ./X-CUBE-AI/App/network.o
+                0x240008d4       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_output
-                0x2400090c       0x1c ./X-CUBE-AI/App/network.o
+                0x240008e4       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.56
-                0x24000928       0x10 ./X-CUBE-AI/App/network.o
+                0x24000900       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.57
-                0x24000938       0x10 ./X-CUBE-AI/App/network.o
+                0x24000910       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_scratch0
-                0x24000948       0x1c ./X-CUBE-AI/App/network.o
+                0x24000920       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.58
-                0x24000964       0x10 ./X-CUBE-AI/App/network.o
+                0x2400093c       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.59
-                0x24000974       0x10 ./X-CUBE-AI/App/network.o
+                0x2400094c       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_weights
-                0x24000984       0x1c ./X-CUBE-AI/App/network.o
+                0x2400095c       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.60
-                0x240009a0       0x10 ./X-CUBE-AI/App/network.o
+                0x24000978       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.61
-                0x240009b0       0x10 ./X-CUBE-AI/App/network.o
+                0x24000988       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_2_Clip_output_0_output
-                0x240009c0       0x1c ./X-CUBE-AI/App/network.o
+                0x24000998       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.62
-                0x240009dc       0x10 ./X-CUBE-AI/App/network.o
+                0x240009b4       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.63
-                0x240009ec       0x10 ./X-CUBE-AI/App/network.o
+                0x240009c4       0x10 ./X-CUBE-AI/App/network.o
  .data.input_output
-                0x240009fc       0x1c ./X-CUBE-AI/App/network.o
+                0x240009d4       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.64
-                0x24000a18       0x10 ./X-CUBE-AI/App/network.o
+                0x240009f0       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.65
-                0x24000a28       0x10 ./X-CUBE-AI/App/network.o
+                0x24000a00       0x10 ./X-CUBE-AI/App/network.o
  .data.input_output0
-                0x24000a38       0x1c ./X-CUBE-AI/App/network.o
+                0x24000a10       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.66
-                0x24000a54       0x10 ./X-CUBE-AI/App/network.o
+                0x24000a2c       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.67
-                0x24000a64       0x10 ./X-CUBE-AI/App/network.o
+                0x24000a3c       0x10 ./X-CUBE-AI/App/network.o
  .data.output_bias
-                0x24000a74       0x1c ./X-CUBE-AI/App/network.o
+                0x24000a4c       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.68
-                0x24000a90       0x10 ./X-CUBE-AI/App/network.o
+                0x24000a68       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.69
-                0x24000aa0       0x10 ./X-CUBE-AI/App/network.o
+                0x24000a78       0x10 ./X-CUBE-AI/App/network.o
  .data.output_output
-                0x24000ab0       0x1c ./X-CUBE-AI/App/network.o
+                0x24000a88       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.70
-                0x24000acc       0x10 ./X-CUBE-AI/App/network.o
+                0x24000aa4       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.71
-                0x24000adc       0x10 ./X-CUBE-AI/App/network.o
+                0x24000ab4       0x10 ./X-CUBE-AI/App/network.o
  .data.output_weights
-                0x24000aec       0x1c ./X-CUBE-AI/App/network.o
+                0x24000ac4       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.72
-                0x24000b08        0x4 ./X-CUBE-AI/App/network.o
+                0x24000ae0        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.73
-                0x24000b0c        0x4 ./X-CUBE-AI/App/network.o
+                0x24000ae4        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.74
-                0x24000b10        0x8 ./X-CUBE-AI/App/network.o
+                0x24000ae8        0x8 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.76
-                0x24000b18       0x30 ./X-CUBE-AI/App/network.o
+                0x24000af0       0x30 ./X-CUBE-AI/App/network.o
  .data.output_layer
-                0x24000b48       0x1c ./X-CUBE-AI/App/network.o
+                0x24000b20       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.77
-                0x24000b64        0x4 ./X-CUBE-AI/App/network.o
+                0x24000b3c        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.78
-                0x24000b68        0x4 ./X-CUBE-AI/App/network.o
+                0x24000b40        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.81
-                0x24000b6c       0x30 ./X-CUBE-AI/App/network.o
+                0x24000b44       0x30 ./X-CUBE-AI/App/network.o
  .data._pool_GlobalAveragePool_output_0_layer
-                0x24000b9c       0x38 ./X-CUBE-AI/App/network.o
+                0x24000b74       0x38 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.83
-                0x24000bd4        0x4 ./X-CUBE-AI/App/network.o
+                0x24000bac        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.84
-                0x24000bd8        0x4 ./X-CUBE-AI/App/network.o
+                0x24000bb0        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.87
-                0x24000bdc       0x30 ./X-CUBE-AI/App/network.o
+                0x24000bb4       0x30 ./X-CUBE-AI/App/network.o
  .data._features_features_4_relu_Clip_output_0_layer
-                0x24000c0c       0x20 ./X-CUBE-AI/App/network.o
+                0x24000be4       0x20 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.88
-                0x24000c2c        0x4 ./X-CUBE-AI/App/network.o
+                0x24000c04        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.89
-                0x24000c30        0x4 ./X-CUBE-AI/App/network.o
+                0x24000c08        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.90
-                0x24000c34        0xc ./X-CUBE-AI/App/network.o
+                0x24000c0c        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.91
-                0x24000c40        0x8 ./X-CUBE-AI/App/network.o
+                0x24000c18        0x8 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.92
-                0x24000c48       0x30 ./X-CUBE-AI/App/network.o
+                0x24000c20       0x30 ./X-CUBE-AI/App/network.o
  .data._features_features_4_pointwise_Conv_output_0_layer
-                0x24000c78       0x44 ./X-CUBE-AI/App/network.o
+                0x24000c50       0x44 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.94
-                0x24000cbc        0x4 ./X-CUBE-AI/App/network.o
+                0x24000c94        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.95
-                0x24000cc0        0x4 ./X-CUBE-AI/App/network.o
+                0x24000c98        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.96
-                0x24000cc4        0xc ./X-CUBE-AI/App/network.o
+                0x24000c9c        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.98
-                0x24000cd0       0x30 ./X-CUBE-AI/App/network.o
+                0x24000ca8       0x30 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.99
-                0x24000d00       0x10 ./X-CUBE-AI/App/network.o
+                0x24000cd8       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_4_depthwise_Conv_output_0_layer
-                0x24000d10       0x44 ./X-CUBE-AI/App/network.o
+                0x24000ce8       0x44 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.100
-                0x24000d54        0x4 ./X-CUBE-AI/App/network.o
+                0x24000d2c        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.101
-                0x24000d58        0x4 ./X-CUBE-AI/App/network.o
+                0x24000d30        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.104
-                0x24000d5c       0x30 ./X-CUBE-AI/App/network.o
+                0x24000d34       0x30 ./X-CUBE-AI/App/network.o
  .data._features_features_2_relu_Clip_output_0_layer
-                0x24000d8c       0x20 ./X-CUBE-AI/App/network.o
+                0x24000d64       0x20 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.105
-                0x24000dac        0x4 ./X-CUBE-AI/App/network.o
+                0x24000d84        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.106
-                0x24000db0        0x4 ./X-CUBE-AI/App/network.o
+                0x24000d88        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.107
-                0x24000db4        0xc ./X-CUBE-AI/App/network.o
+                0x24000d8c        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.108
-                0x24000dc0        0x8 ./X-CUBE-AI/App/network.o
+                0x24000d98        0x8 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.109
-                0x24000dc8       0x30 ./X-CUBE-AI/App/network.o
+                0x24000da0       0x30 ./X-CUBE-AI/App/network.o
  .data._features_features_2_pointwise_Conv_output_0_layer
-                0x24000df8       0x44 ./X-CUBE-AI/App/network.o
+                0x24000dd0       0x44 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.111
-                0x24000e3c        0x4 ./X-CUBE-AI/App/network.o
+                0x24000e14        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.112
-                0x24000e40        0x4 ./X-CUBE-AI/App/network.o
+                0x24000e18        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.113
-                0x24000e44        0xc ./X-CUBE-AI/App/network.o
+                0x24000e1c        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.115
-                0x24000e50       0x30 ./X-CUBE-AI/App/network.o
+                0x24000e28       0x30 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.116
-                0x24000e80       0x10 ./X-CUBE-AI/App/network.o
+                0x24000e58       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_2_depthwise_Conv_output_0_layer
-                0x24000e90       0x44 ./X-CUBE-AI/App/network.o
+                0x24000e68       0x44 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.117
-                0x24000ed4        0x4 ./X-CUBE-AI/App/network.o
+                0x24000eac        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.118
-                0x24000ed8        0x4 ./X-CUBE-AI/App/network.o
+                0x24000eb0        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.121
-                0x24000edc       0x30 ./X-CUBE-AI/App/network.o
+                0x24000eb4       0x30 ./X-CUBE-AI/App/network.o
  .data._features_features_0_relu_Clip_output_0_layer
-                0x24000f0c       0x20 ./X-CUBE-AI/App/network.o
+                0x24000ee4       0x20 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.122
-                0x24000f2c        0x4 ./X-CUBE-AI/App/network.o
+                0x24000f04        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.123
-                0x24000f30        0x4 ./X-CUBE-AI/App/network.o
+                0x24000f08        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.124
-                0x24000f34        0xc ./X-CUBE-AI/App/network.o
+                0x24000f0c        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.125
-                0x24000f40        0x8 ./X-CUBE-AI/App/network.o
+                0x24000f18        0x8 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.126
-                0x24000f48       0x30 ./X-CUBE-AI/App/network.o
+                0x24000f20       0x30 ./X-CUBE-AI/App/network.o
  .data._features_features_0_pointwise_Conv_output_0_layer
-                0x24000f78       0x44 ./X-CUBE-AI/App/network.o
+                0x24000f50       0x44 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.128
-                0x24000fbc        0x4 ./X-CUBE-AI/App/network.o
+                0x24000f94        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.129
-                0x24000fc0        0x4 ./X-CUBE-AI/App/network.o
+                0x24000f98        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.130
-                0x24000fc4        0xc ./X-CUBE-AI/App/network.o
+                0x24000f9c        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.132
-                0x24000fd0       0x30 ./X-CUBE-AI/App/network.o
+                0x24000fa8       0x30 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.133
-                0x24001000       0x10 ./X-CUBE-AI/App/network.o
+                0x24000fd8       0x10 ./X-CUBE-AI/App/network.o
  .data._features_features_0_depthwise_Conv_output_0_layer
-                0x24001010       0x44 ./X-CUBE-AI/App/network.o
+                0x24000fe8       0x44 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.134
-                0x24001054        0x4 ./X-CUBE-AI/App/network.o
+                0x2400102c        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.135
-                0x24001058        0x4 ./X-CUBE-AI/App/network.o
+                0x24001030        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.138
-                0x2400105c       0x30 ./X-CUBE-AI/App/network.o
+                0x24001034       0x30 ./X-CUBE-AI/App/network.o
  .data._stem_stem_2_Clip_output_0_layer
-                0x2400108c       0x20 ./X-CUBE-AI/App/network.o
+                0x24001064       0x20 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.139
-                0x240010ac        0x4 ./X-CUBE-AI/App/network.o
+                0x24001084        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.140
-                0x240010b0        0x4 ./X-CUBE-AI/App/network.o
+                0x24001088        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.141
-                0x240010b4        0xc ./X-CUBE-AI/App/network.o
+                0x2400108c        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.142
-                0x240010c0        0x8 ./X-CUBE-AI/App/network.o
+                0x24001098        0x8 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.143
-                0x240010c8       0x30 ./X-CUBE-AI/App/network.o
+                0x240010a0       0x30 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.144
-                0x240010f8       0x10 ./X-CUBE-AI/App/network.o
+                0x240010d0       0x10 ./X-CUBE-AI/App/network.o
  .data._stem_stem_0_Conv_output_0_layer
-                0x24001108       0x44 ./X-CUBE-AI/App/network.o
+                0x240010e0       0x44 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.145
-                0x2400114c        0x4 ./X-CUBE-AI/App/network.o
+                0x24001124        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.146
-                0x24001150        0x4 ./X-CUBE-AI/App/network.o
+                0x24001128        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.149
-                0x24001154       0x30 ./X-CUBE-AI/App/network.o
+                0x2400112c       0x30 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.150
-                0x24001184       0x18 ./X-CUBE-AI/App/network.o
+                0x2400115c       0x18 ./X-CUBE-AI/App/network.o
  .data._Reshape_output_0_to_chfirst_layer
-                0x2400119c       0x24 ./X-CUBE-AI/App/network.o
+                0x24001174       0x24 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.151
-                0x240011c0       0x10 ./X-CUBE-AI/App/network.o
+                0x24001198       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.152
-                0x240011d0       0x1c ./X-CUBE-AI/App/network.o
+                0x240011a8       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.153
-                0x240011ec       0x10 ./X-CUBE-AI/App/network.o
+                0x240011c4       0x10 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.154
-                0x240011fc       0x1c ./X-CUBE-AI/App/network.o
+                0x240011d4       0x1c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.155
-                0x24001218        0x4 ./X-CUBE-AI/App/network.o
+                0x240011f0        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.159
-                0x2400121c        0xc ./X-CUBE-AI/App/network.o
+                0x240011f4        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.160
-                0x24001228        0x4 ./X-CUBE-AI/App/network.o
+                0x24001200        0x4 ./X-CUBE-AI/App/network.o
  .data.__compound_literal.164
-                0x2400122c        0xc ./X-CUBE-AI/App/network.o
+                0x24001204        0xc ./X-CUBE-AI/App/network.o
  .data.__compound_literal.165
-                0x24001238       0x18 ./X-CUBE-AI/App/network.o
+                0x24001210       0x18 ./X-CUBE-AI/App/network.o
  .data.g_network
-                0x24001250       0x4c ./X-CUBE-AI/App/network.o
+                0x24001228       0x4c ./X-CUBE-AI/App/network.o
  .data.__compound_literal.0
-                0x2400129c       0x10 ./X-CUBE-AI/App/network_data.o
+                0x24001274       0x10 ./X-CUBE-AI/App/network_data.o
  .data.g_network_data_map_activations
-                0x240012ac       0x1c ./X-CUBE-AI/App/network_data.o
-                0x240012ac                g_network_data_map_activations
+                0x24001284       0x1c ./X-CUBE-AI/App/network_data.o
+                0x24001284                g_network_data_map_activations
  .data.__compound_literal.1
-                0x240012c8       0x10 ./X-CUBE-AI/App/network_data.o
+                0x240012a0       0x10 ./X-CUBE-AI/App/network_data.o
  .data.g_network_data_map_weights
-                0x240012d8       0x1c ./X-CUBE-AI/App/network_data.o
-                0x240012d8                g_network_data_map_weights
- .data.__sglue  0x240012f4        0xc C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o)
-                0x240012f4                __sglue
+                0x240012b0       0x1c ./X-CUBE-AI/App/network_data.o
+                0x240012b0                g_network_data_map_weights
+ .data.__sglue  0x240012cc        0xc C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o)
+                0x240012cc                __sglue
  .data._impure_ptr
-                0x24001300        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-impure.o)
-                0x24001300                _impure_ptr
+                0x240012d8        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-impure.o)
+                0x240012d8                _impure_ptr
  .data._impure_data
-                0x24001304       0x4c C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-impure.o)
-                0x24001304                _impure_data
+                0x240012dc       0x4c C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-impure.o)
+                0x240012dc                _impure_data
  .data.__global_locale
-                0x24001350      0x16c C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-locale.o)
-                0x24001350                __global_locale
+                0x24001328      0x16c C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-locale.o)
+                0x24001328                __global_locale
  *(.RamFunc)
  *(.RamFunc*)
-                0x240014bc                        . = ALIGN (0x4)
-                0x240014bc                        _edata = .
+                0x24001494                        . = ALIGN (0x4)
+                0x24001494                        _edata = .
 
-.igot.plt       0x240014bc        0x0 load address 0x080352a4
- .igot.plt      0x240014bc        0x0 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard/crtbegin.o
-                0x240014bc                        . = ALIGN (0x4)
+.igot.plt       0x24001494        0x0 load address 0x0803527c
+ .igot.plt      0x24001494        0x0 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard/crtbegin.o
+                0x24001494                        . = ALIGN (0x4)
 
-.bss            0x240014c0    0x59c5c load address 0x080352a4
-                0x240014c0                        _sbss = .
-                0x240014c0                        __bss_start__ = _sbss
+.bss            0x240014a0    0x59c3c load address 0x0803527c
+                0x240014a0                        _sbss = .
+                0x240014a0                        __bss_start__ = _sbss
  *(.bss)
- .bss           0x240014c0       0x1c C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard/crtbegin.o
+ .bss           0x240014a0       0x1c C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard/crtbegin.o
  *(.bss*)
  .bss.audio_bufferA
-                0x240014dc      0xb40 ./Core/Src/audio_capture.o
-                0x240014dc                audio_bufferA
+                0x240014bc      0xb40 ./Core/Src/audio_capture.o
+                0x240014bc                audio_bufferA
  .bss.ring_buffer
-                0x2400201c     0x4e20 ./Core/Src/audio_capture.o
-                0x2400201c                ring_buffer
- .bss.rb_write  0x24006e3c        0x4 ./Core/Src/audio_capture.o
-                0x24006e3c                rb_write
- .bss.rb_read   0x24006e40        0x4 ./Core/Src/audio_capture.o
-                0x24006e40                rb_read
- .bss.hi2s1     0x24006e44       0x54 ./Core/Src/main.o
-                0x24006e44                hi2s1
- .bss.hsd1      0x24006e98       0x7c ./Core/Src/main.o
-                0x24006e98                hsd1
- .bss.htim2     0x24006f14       0x4c ./Core/Src/main.o
-                0x24006f14                htim2
+                0x24001ffc     0x4e20 ./Core/Src/audio_capture.o
+                0x24001ffc                ring_buffer
+ .bss.rb_write  0x24006e1c        0x4 ./Core/Src/audio_capture.o
+                0x24006e1c                rb_write
+ .bss.rb_read   0x24006e20        0x4 ./Core/Src/audio_capture.o
+                0x24006e20                rb_read
+ .bss.hi2s1     0x24006e24       0x54 ./Core/Src/main.o
+                0x24006e24                hi2s1
+ .bss.hsd1      0x24006e78       0x7c ./Core/Src/main.o
+                0x24006e78                hsd1
+ .bss.htim2     0x24006ef4       0x4c ./Core/Src/main.o
+                0x24006ef4                htim2
  .bss.frame_accum.0
-                0x24006f60       0x64 ./Core/Src/main.o
- .bss.S_Rfft    0x24006fc4       0x18 ./Core/Src/mfcc_extract.o
-                0x24006fc4                S_Rfft
+                0x24006f40       0x64 ./Core/Src/main.o
+ .bss.S_Rfft    0x24006fa4       0x18 ./Core/Src/mfcc_extract.o
+                0x24006fa4                S_Rfft
  .bss.S_MelFilter
-                0x24006fdc       0x30 ./Core/Src/mfcc_extract.o
-                0x24006fdc                S_MelFilter
- .bss.S_DCT     0x2400700c       0x14 ./Core/Src/mfcc_extract.o
-                0x2400700c                S_DCT
- .bss.S_Spectr  0x24007020       0x1c ./Core/Src/mfcc_extract.o
-                0x24007020                S_Spectr
+                0x24006fbc       0x30 ./Core/Src/mfcc_extract.o
+                0x24006fbc                S_MelFilter
+ .bss.S_DCT     0x24006fec       0x14 ./Core/Src/mfcc_extract.o
+                0x24006fec                S_DCT
+ .bss.S_Spectr  0x24007000       0x1c ./Core/Src/mfcc_extract.o
+                0x24007000                S_Spectr
  .bss.S_MelSpectr
-                0x2400703c        0x8 ./Core/Src/mfcc_extract.o
-                0x2400703c                S_MelSpectr
+                0x2400701c        0x8 ./Core/Src/mfcc_extract.o
+                0x2400701c                S_MelSpectr
  .bss.S_LogMelSpectr
-                0x24007044       0x10 ./Core/Src/mfcc_extract.o
-                0x24007044                S_LogMelSpectr
- .bss.S_Mfcc    0x24007054       0x10 ./Core/Src/mfcc_extract.o
-                0x24007054                S_Mfcc
- .bss.S_Filter  0x24007064        0xc ./Core/Src/mfcc_extract.o
+                0x24007024       0x10 ./Core/Src/mfcc_extract.o
+                0x24007024                S_LogMelSpectr
+ .bss.S_Mfcc    0x24007034       0x10 ./Core/Src/mfcc_extract.o
+                0x24007034                S_Mfcc
+ .bss.S_Filter  0x24007044        0xc ./Core/Src/mfcc_extract.o
  .bss.filter_state
-                0x24007070       0x40 ./Core/Src/mfcc_extract.o
+                0x24007050       0x10 ./Core/Src/mfcc_extract.o
  .bss.NUM_MEL_COEFS
-                0x240070b0        0x4 ./Core/Src/mfcc_extract.o
-                0x240070b0                NUM_MEL_COEFS
- .bss.pInFrame  0x240070b4     0x12c0 ./Core/Src/mfcc_extract.o
+                0x24007060        0x4 ./Core/Src/mfcc_extract.o
+                0x24007060                NUM_MEL_COEFS
+ .bss.pInFrame  0x24007064     0x12c0 ./Core/Src/mfcc_extract.o
  .bss.pOutColBuffer
-                0x24008374       0x34 ./Core/Src/mfcc_extract.o
+                0x24008324       0x34 ./Core/Src/mfcc_extract.o
  .bss.pWindowFuncBuffer
-                0x240083a8     0x12c0 ./Core/Src/mfcc_extract.o
+                0x24008358     0x12c0 ./Core/Src/mfcc_extract.o
  .bss.pSpectrScratchBuffer
-                0x24009668      0x400 ./Core/Src/mfcc_extract.o
+                0x24009618      0x400 ./Core/Src/mfcc_extract.o
  .bss.pDCTCoefsBuffer
-                0x24009a68     0x1a00 ./Core/Src/mfcc_extract.o
+                0x24009a18     0x1a00 ./Core/Src/mfcc_extract.o
  .bss.pMfccScratchBuffer
-                0x2400b468      0x200 ./Core/Src/mfcc_extract.o
+                0x2400b418      0x200 ./Core/Src/mfcc_extract.o
  .bss.pMelFilterCoefs
-                0x2400b668     0x8000 ./Core/Src/mfcc_extract.o
+                0x2400b618     0x8000 ./Core/Src/mfcc_extract.o
  .bss.pMelFilterStartIndices
-                0x24013668      0x200 ./Core/Src/mfcc_extract.o
+                0x24013618      0x200 ./Core/Src/mfcc_extract.o
  .bss.pMelFilterStopIndices
-                0x24013868      0x200 ./Core/Src/mfcc_extract.o
+                0x24013818      0x200 ./Core/Src/mfcc_extract.o
  .bss.mfcc_final_features
-                0x24013a68     0xcaec ./Core/Src/mfcc_extract.o
-                0x24013a68                mfcc_final_features
+                0x24013a18     0xcaec ./Core/Src/mfcc_extract.o
+                0x24013a18                mfcc_final_features
  .bss.mfcc_collected
-                0x24020554        0x4 ./Core/Src/mfcc_extract.o
-                0x24020554                mfcc_collected
+                0x24020504        0x4 ./Core/Src/mfcc_extract.o
+                0x24020504                mfcc_collected
  .bss.mfcc_history
-                0x24020558      0x104 ./Core/Src/mfcc_extract.o
+                0x24020508      0x104 ./Core/Src/mfcc_extract.o
  .bss.delta_history
-                0x2402065c      0x104 ./Core/Src/mfcc_extract.o
+                0x2402060c      0x104 ./Core/Src/mfcc_extract.o
  .bss.history_idx
-                0x24020760        0x4 ./Core/Src/mfcc_extract.o
+                0x24020710        0x4 ./Core/Src/mfcc_extract.o
  .bss.frames_seen
-                0x24020764        0x4 ./Core/Src/mfcc_extract.o
+                0x24020714        0x4 ./Core/Src/mfcc_extract.o
  .bss.__sbrk_heap_end
-                0x24020768        0x4 ./Core/Src/sysmem.o
- .bss.uwTick    0x2402076c        0x4 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
-                0x2402076c                uwTick
- .bss.retSD     0x24020770        0x1 ./FATFS/App/fatfs.o
-                0x24020770                retSD
- *fill*         0x24020771        0x3 
- .bss.SDPath    0x24020774        0x4 ./FATFS/App/fatfs.o
-                0x24020774                SDPath
+                0x24020718        0x4 ./Core/Src/sysmem.o
+ .bss.uwTick    0x2402071c        0x4 ./Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.o
+                0x2402071c                uwTick
+ .bss.retSD     0x24020720        0x1 ./FATFS/App/fatfs.o
+                0x24020720                retSD
+ *fill*         0x24020721        0x3 
+ .bss.SDPath    0x24020724        0x4 ./FATFS/App/fatfs.o
+                0x24020724                SDPath
  .bss.WriteStatus
-                0x24020778        0x4 ./FATFS/Target/sd_diskio.o
+                0x24020728        0x4 ./FATFS/Target/sd_diskio.o
  .bss.ReadStatus
-                0x2402077c        0x4 ./FATFS/Target/sd_diskio.o
- .bss.disk      0x24020780        0xc ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
-                0x24020780                disk
- .bss.data_ins  0x2402078c        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
-                0x2402078c                data_ins
+                0x2402072c        0x4 ./FATFS/Target/sd_diskio.o
+ .bss.disk      0x24020730        0xc ./Middlewares/Third_Party/FatFs/src/ff_gen_drv.o
+                0x24020730                disk
+ .bss.data_ins  0x2402073c        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
+                0x2402073c                data_ins
  .bss.data_outs
-                0x24020790        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
-                0x24020790                data_outs
- *fill*         0x24020794        0xc 
- .bss.pool0     0x240207a0    0x3a730 ./X-CUBE-AI/App/app_x-cube-ai.o
- .bss.network   0x2405aed0        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
- .bss.ai_input  0x2405aed4        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
+                0x24020740        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
+                0x24020740                data_outs
+ *fill*         0x24020744       0x1c 
+ .bss.pool0     0x24020760    0x3a730 ./X-CUBE-AI/App/app_x-cube-ai.o
+ .bss.network   0x2405ae90        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
+ .bss.ai_input  0x2405ae94        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
  .bss.ai_output
-                0x2405aed8        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
+                0x2405ae98        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
  .bss.classification_result
-                0x2405aedc        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
-                0x2405aedc                classification_result
+                0x2405ae9c        0x4 ./X-CUBE-AI/App/app_x-cube-ai.o
+                0x2405ae9c                classification_result
  .bss.g_network_activations_map
-                0x2405aee0        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aea0        0x4 ./X-CUBE-AI/App/network.o
  .bss.g_network_weights_map
-                0x2405aee4        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aea4        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.75
-                0x2405aee8        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aea8        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.79
-                0x2405aeec        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aeac        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.80
-                0x2405aef0        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aeb0        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.82
-                0x2405aef4       0x10 ./X-CUBE-AI/App/network.o
+                0x2405aeb4       0x10 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.85
-                0x2405af04        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aec4        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.86
-                0x2405af08        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aec8        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.93
-                0x2405af0c       0x10 ./X-CUBE-AI/App/network.o
+                0x2405aecc       0x10 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.97
-                0x2405af1c        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aedc        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.102
-                0x2405af20        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aee0        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.103
-                0x2405af24        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aee4        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.110
-                0x2405af28       0x10 ./X-CUBE-AI/App/network.o
+                0x2405aee8       0x10 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.114
-                0x2405af38        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aef8        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.119
-                0x2405af3c        0x4 ./X-CUBE-AI/App/network.o
+                0x2405aefc        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.120
-                0x2405af40        0x4 ./X-CUBE-AI/App/network.o
+                0x2405af00        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.127
-                0x2405af44       0x10 ./X-CUBE-AI/App/network.o
+                0x2405af04       0x10 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.131
-                0x2405af54        0x4 ./X-CUBE-AI/App/network.o
+                0x2405af14        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.136
-                0x2405af58        0x4 ./X-CUBE-AI/App/network.o
+                0x2405af18        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.137
-                0x2405af5c        0x4 ./X-CUBE-AI/App/network.o
+                0x2405af1c        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.147
-                0x2405af60        0x4 ./X-CUBE-AI/App/network.o
+                0x2405af20        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.148
-                0x2405af64        0x4 ./X-CUBE-AI/App/network.o
+                0x2405af24        0x4 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.156
-                0x2405af68       0x1c ./X-CUBE-AI/App/network.o
+                0x2405af28       0x1c ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.157
-                0x2405af84       0x10 ./X-CUBE-AI/App/network.o
+                0x2405af44       0x10 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.158
-                0x2405af94        0x8 ./X-CUBE-AI/App/network.o
+                0x2405af54        0x8 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.161
-                0x2405af9c       0x1c ./X-CUBE-AI/App/network.o
+                0x2405af5c       0x1c ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.162
-                0x2405afb8       0x10 ./X-CUBE-AI/App/network.o
+                0x2405af78       0x10 ./X-CUBE-AI/App/network.o
  .bss.__compound_literal.163
-                0x2405afc8        0x8 ./X-CUBE-AI/App/network.o
+                0x2405af88        0x8 ./X-CUBE-AI/App/network.o
  .bss.__malloc_sbrk_start
-                0x2405afd0        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mallocr.o)
-                0x2405afd0                __malloc_sbrk_start
+                0x2405af90        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mallocr.o)
+                0x2405af90                __malloc_sbrk_start
  .bss.__malloc_free_list
-                0x2405afd4        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mallocr.o)
-                0x2405afd4                __malloc_free_list
- .bss.__sf      0x2405afd8      0x138 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o)
-                0x2405afd8                __sf
+                0x2405af94        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mallocr.o)
+                0x2405af94                __malloc_free_list
+ .bss.__sf      0x2405af98      0x138 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o)
+                0x2405af98                __sf
  .bss.__stdio_exit_handler
-                0x2405b110        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o)
-                0x2405b110                __stdio_exit_handler
- .bss.errno     0x2405b114        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-reent.o)
-                0x2405b114                errno
+                0x2405b0d0        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o)
+                0x2405b0d0                __stdio_exit_handler
+ .bss.errno     0x2405b0d4        0x4 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-reent.o)
+                0x2405b0d4                errno
  .bss.__lock___malloc_recursive_mutex
-                0x2405b118        0x1 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lock.o)
-                0x2405b118                __lock___malloc_recursive_mutex
+                0x2405b0d8        0x1 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lock.o)
+                0x2405b0d8                __lock___malloc_recursive_mutex
  .bss.__lock___sfp_recursive_mutex
-                0x2405b119        0x1 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lock.o)
-                0x2405b119                __lock___sfp_recursive_mutex
+                0x2405b0d9        0x1 C:/ST/STM32CubeIDE_1.17.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.1.0.202410251130/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lock.o)
+                0x2405b0d9                __lock___sfp_recursive_mutex
  *(COMMON)
-                0x2405b11c                        . = ALIGN (0x4)
- *fill*         0x2405b11a        0x2 
-                0x2405b11c                        _ebss = .
-                0x2405b11c                        __bss_end__ = _ebss
+                0x2405b0dc                        . = ALIGN (0x4)
+ *fill*         0x2405b0da        0x2 
+                0x2405b0dc                        _ebss = .
+                0x2405b0dc                        __bss_end__ = _ebss
 
 ._user_heap_stack
                 0x20000000     0x1000
