@@ -59,10 +59,17 @@ extern int16_t           ring_buffer[RING_BUFFER_SIZE];
 extern volatile uint32_t rb_write;
 extern volatile uint32_t rb_read;
 
+
+extern volatile uint32_t dbg_i2s_half_count;
+extern volatile uint32_t dbg_i2s_full_count;
+extern volatile uint32_t dbg_ring_push_count;
+extern volatile uint32_t dbg_ring_overflow_count;
+extern volatile uint32_t dbg_audio_ready_count;
 /* =========================================================================
  * Function prototypes
  * ========================================================================= */
 void StartAudioCapture(void);
 void DisplayAudioIntensity(int16_t* buffer, uint32_t size);
+void Audio_DebugLog_Process(void);
 
 #endif /* INC_AUDIO_CAPTURE_H_ */

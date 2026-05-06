@@ -7,18 +7,36 @@
 C_SRCS += \
 ../X-CUBE-AI/App/app_x-cube-ai.c \
 ../X-CUBE-AI/App/network.c \
+../X-CUBE-AI/App/network_3.c \
+../X-CUBE-AI/App/network_3_data.c \
+../X-CUBE-AI/App/network_3_data_params.c \
+../X-CUBE-AI/App/network_4.c \
+../X-CUBE-AI/App/network_4_data.c \
+../X-CUBE-AI/App/network_4_data_params.c \
 ../X-CUBE-AI/App/network_data.c \
 ../X-CUBE-AI/App/network_data_params.c 
 
 OBJS += \
 ./X-CUBE-AI/App/app_x-cube-ai.o \
 ./X-CUBE-AI/App/network.o \
+./X-CUBE-AI/App/network_3.o \
+./X-CUBE-AI/App/network_3_data.o \
+./X-CUBE-AI/App/network_3_data_params.o \
+./X-CUBE-AI/App/network_4.o \
+./X-CUBE-AI/App/network_4_data.o \
+./X-CUBE-AI/App/network_4_data_params.o \
 ./X-CUBE-AI/App/network_data.o \
 ./X-CUBE-AI/App/network_data_params.o 
 
 C_DEPS += \
 ./X-CUBE-AI/App/app_x-cube-ai.d \
 ./X-CUBE-AI/App/network.d \
+./X-CUBE-AI/App/network_3.d \
+./X-CUBE-AI/App/network_3_data.d \
+./X-CUBE-AI/App/network_3_data_params.d \
+./X-CUBE-AI/App/network_4.d \
+./X-CUBE-AI/App/network_4_data.d \
+./X-CUBE-AI/App/network_4_data_params.d \
 ./X-CUBE-AI/App/network_data.d \
 ./X-CUBE-AI/App/network_data_params.d 
 
@@ -30,7 +48,7 @@ X-CUBE-AI/App/%.o X-CUBE-AI/App/%.su X-CUBE-AI/App/%.cyclo: ../X-CUBE-AI/App/%.c
 clean: clean-X-2d-CUBE-2d-AI-2f-App
 
 clean-X-2d-CUBE-2d-AI-2f-App:
-	-$(RM) ./X-CUBE-AI/App/app_x-cube-ai.cyclo ./X-CUBE-AI/App/app_x-cube-ai.d ./X-CUBE-AI/App/app_x-cube-ai.o ./X-CUBE-AI/App/app_x-cube-ai.su ./X-CUBE-AI/App/network.cyclo ./X-CUBE-AI/App/network.d ./X-CUBE-AI/App/network.o ./X-CUBE-AI/App/network.su ./X-CUBE-AI/App/network_data.cyclo ./X-CUBE-AI/App/network_data.d ./X-CUBE-AI/App/network_data.o ./X-CUBE-AI/App/network_data.su ./X-CUBE-AI/App/network_data_params.cyclo ./X-CUBE-AI/App/network_data_params.d ./X-CUBE-AI/App/network_data_params.o ./X-CUBE-AI/App/network_data_params.su
+	-$(RM) ./X-CUBE-AI/App/app_x-cube-ai.cyclo ./X-CUBE-AI/App/app_x-cube-ai.d ./X-CUBE-AI/App/app_x-cube-ai.o ./X-CUBE-AI/App/app_x-cube-ai.su ./X-CUBE-AI/App/network.cyclo ./X-CUBE-AI/App/network.d ./X-CUBE-AI/App/network.o ./X-CUBE-AI/App/network.su ./X-CUBE-AI/App/network_3.cyclo ./X-CUBE-AI/App/network_3.d ./X-CUBE-AI/App/network_3.o ./X-CUBE-AI/App/network_3.su ./X-CUBE-AI/App/network_3_data.cyclo ./X-CUBE-AI/App/network_3_data.d ./X-CUBE-AI/App/network_3_data.o ./X-CUBE-AI/App/network_3_data.su ./X-CUBE-AI/App/network_3_data_params.cyclo ./X-CUBE-AI/App/network_3_data_params.d ./X-CUBE-AI/App/network_3_data_params.o ./X-CUBE-AI/App/network_3_data_params.su ./X-CUBE-AI/App/network_4.cyclo ./X-CUBE-AI/App/network_4.d ./X-CUBE-AI/App/network_4.o ./X-CUBE-AI/App/network_4.su ./X-CUBE-AI/App/network_4_data.cyclo ./X-CUBE-AI/App/network_4_data.d ./X-CUBE-AI/App/network_4_data.o ./X-CUBE-AI/App/network_4_data.su ./X-CUBE-AI/App/network_4_data_params.cyclo ./X-CUBE-AI/App/network_4_data_params.d ./X-CUBE-AI/App/network_4_data_params.o ./X-CUBE-AI/App/network_4_data_params.su ./X-CUBE-AI/App/network_data.cyclo ./X-CUBE-AI/App/network_data.d ./X-CUBE-AI/App/network_data.o ./X-CUBE-AI/App/network_data.su ./X-CUBE-AI/App/network_data_params.cyclo ./X-CUBE-AI/App/network_data_params.d ./X-CUBE-AI/App/network_data_params.o ./X-CUBE-AI/App/network_data_params.su
 
 .PHONY: clean-X-2d-CUBE-2d-AI-2f-App
 

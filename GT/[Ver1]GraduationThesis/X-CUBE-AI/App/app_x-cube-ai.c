@@ -54,10 +54,9 @@
 #include "app_x-cube-ai.h"
 #include "main.h"
 #include "ai_datatypes_defines.h"
-#include "network.h"
-#include "network_data.h"
+#include "network_4.h"
+#include "network_4_data.h"
 #include "mfcc_extract.h"
-
 /* USER CODE BEGIN includes */
 #define ABNORMAL_LED_GPIO_Port GPIOA
 #define ABNORMAL_LED_Pin GPIO_PIN_1
@@ -65,24 +64,24 @@
 
 /* IO buffers ----------------------------------------------------------------*/
 
-#if !defined(AI_NETWORK_INPUTS_IN_ACTIVATIONS)
-AI_ALIGNED(4) ai_i8 data_in_1[AI_NETWORK_IN_1_SIZE_BYTES];
-ai_i8* data_ins[AI_NETWORK_IN_NUM] = {
+#if !defined(AI_NETWORK_4_INPUTS_IN_ACTIVATIONS)
+AI_ALIGNED(4) ai_i8 data_in_1[AI_NETWORK_4_IN_1_SIZE_BYTES];
+ai_i8* data_ins[AI_NETWORK_4_IN_NUM] = {
 data_in_1
 };
 #else
-ai_i8* data_ins[AI_NETWORK_IN_NUM] = {
+ai_i8* data_ins[AI_NETWORK_4_IN_NUM] = {
 NULL
 };
 #endif
 
-#if !defined(AI_NETWORK_OUTPUTS_IN_ACTIVATIONS)
-AI_ALIGNED(4) ai_i8 data_out_1[AI_NETWORK_OUT_1_SIZE_BYTES];
-ai_i8* data_outs[AI_NETWORK_OUT_NUM] = {
+#if !defined(AI_NETWORK_4_OUTPUTS_IN_ACTIVATIONS)
+AI_ALIGNED(4) ai_i8 data_out_1[AI_NETWORK_4_OUT_1_SIZE_BYTES];
+ai_i8* data_outs[AI_NETWORK_4_OUT_NUM] = {
 data_out_1
 };
 #else
-ai_i8* data_outs[AI_NETWORK_OUT_NUM] = {
+ai_i8* data_outs[AI_NETWORK_4_OUT_NUM] = {
 NULL
 };
 #endif
@@ -90,21 +89,17 @@ NULL
 /* Activations buffers -------------------------------------------------------*/
 
 AI_ALIGNED(32)
-static uint8_t pool0[AI_NETWORK_DATA_ACTIVATION_1_SIZE];
+static uint8_t pool0[AI_NETWORK_4_DATA_ACTIVATION_1_SIZE];
 
 ai_handle data_activations0[] = {pool0};
 
 /* AI objects ----------------------------------------------------------------*/
 
-static ai_handle network = AI_HANDLE_NULL;
+static ai_handle network_4 = AI_HANDLE_NULL;
 
 static ai_buffer* ai_input;
 static ai_buffer* ai_output;
-
-
-int classification_result = 0;
-extern float32_t mfcc_final_features[MFCC_FEATURES][MFCC_TIME_FRAMES];
-
+uint8_t classification_result = 0;
 static void ai_log_err(const ai_error err, const char *fct)
 {
   /* USER CODE BEGIN log */
@@ -121,37 +116,37 @@ static int ai_boostrap(ai_handle *act_addr)
   ai_error err;
 
   /* Create and initialize an instance of the model */
-  err = ai_network_create_and_init(&network, act_addr, NULL);
+  err = ai_network_4_create_and_init(&network_4, act_addr, NULL);
   if (err.type != AI_ERROR_NONE) {
-    ai_log_err(err, "ai_network_create_and_init");
+    ai_log_err(err, "ai_network_4_create_and_init");
     return -1;
   }
 
-  ai_input = ai_network_inputs_get(network, NULL);
-  ai_output = ai_network_outputs_get(network, NULL);
+  ai_input = ai_network_4_inputs_get(network_4, NULL);
+  ai_output = ai_network_4_outputs_get(network_4, NULL);
 
-#if defined(AI_NETWORK_INPUTS_IN_ACTIVATIONS)
+#if defined(AI_NETWORK_4_INPUTS_IN_ACTIVATIONS)
   /*  In the case where "--allocate-inputs" option is used, memory buffer can be
    *  used from the activations buffer. This is not mandatory.
    */
-  for (int idx=0; idx < AI_NETWORK_IN_NUM; idx++) {
+  for (int idx=0; idx < AI_NETWORK_4_IN_NUM; idx++) {
 	data_ins[idx] = ai_input[idx].data;
   }
 #else
-  for (int idx=0; idx < AI_NETWORK_IN_NUM; idx++) {
+  for (int idx=0; idx < AI_NETWORK_4_IN_NUM; idx++) {
 	  ai_input[idx].data = data_ins[idx];
   }
 #endif
 
-#if defined(AI_NETWORK_OUTPUTS_IN_ACTIVATIONS)
+#if defined(AI_NETWORK_4_OUTPUTS_IN_ACTIVATIONS)
   /*  In the case where "--allocate-outputs" option is used, memory buffer can be
    *  used from the activations buffer. This is no mandatory.
    */
-  for (int idx=0; idx < AI_NETWORK_OUT_NUM; idx++) {
+  for (int idx=0; idx < AI_NETWORK_4_OUT_NUM; idx++) {
 	data_outs[idx] = ai_output[idx].data;
   }
 #else
-  for (int idx=0; idx < AI_NETWORK_OUT_NUM; idx++) {
+  for (int idx=0; idx < AI_NETWORK_4_OUT_NUM; idx++) {
 	ai_output[idx].data = data_outs[idx];
   }
 #endif
@@ -163,10 +158,10 @@ static int ai_run(void)
 {
   ai_i32 batch;
 
-  batch = ai_network_run(network, ai_input, ai_output);
+  batch = ai_network_4_run(network_4, ai_input, ai_output);
   if (batch != 1) {
-    ai_log_err(ai_network_get_error(network),
-        "ai_network_run");
+    ai_log_err(ai_network_4_get_error(network_4),
+        "ai_network_4_run");
     return -1;
   }
 
@@ -179,8 +174,8 @@ int acquire_and_process_data(ai_i8* data[])
 	  // Copy float32 → ai_float (model dùng float32)
 	  ai_float* input_ptr = (ai_float*)data[0];  // Vì data_in_1 là ai_i8 nhưng model float32
 
-	  // Kiểm tra kích thước (phải khớp AI_NETWORK_IN_1_SIZE = 39*333*4 bytes)
-	  if (AI_NETWORK_IN_1_SIZE != (MFCC_FEATURES * MFCC_TIME_FRAMES)) {
+	  // Kiểm tra kích thước (phải khớp AI_NETWORK_4_IN_1_SIZE = 39*333*4 bytes)
+	  if (AI_NETWORK_4_IN_1_SIZE != (MFCC_FEATURES * MFCC_TIME_FRAMES)) {
 		printf("Input size mismatch!\r\n");
 		return -1;
 	  }
@@ -239,7 +234,7 @@ void MX_X_CUBE_AI_Process(void)
 
   printf("TEMPLATE - run - main loop\r\n");
 
-  if (network) {
+  if (network_4) {
 
     do {
       res = acquire_and_process_data(data_ins);

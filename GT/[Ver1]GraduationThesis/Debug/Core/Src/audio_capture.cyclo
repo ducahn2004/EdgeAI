@@ -1,5 +1,7 @@
-../Core/Src/audio_capture.c:24:6:StartAudioCapture	1
-../Core/Src/audio_capture.c:38:13:audio_push_to_ring	2
-../Core/Src/audio_capture.c:51:6:DisplayAudioIntensity	3
-../Core/Src/audio_capture.c:67:6:HAL_I2S_RxHalfCpltCallback	1
-../Core/Src/audio_capture.c:74:6:HAL_I2S_RxCpltCallback	1
+../Core/Src/audio_capture.c:47:13:UART_Log	3
+../Core/Src/audio_capture.c:63:17:RingBuffer_Used	2
+../Core/Src/audio_capture.c:71:6:StartAudioCapture	2
+../Core/Src/audio_capture.c:92:13:audio_push_to_ring	3
+../Core/Src/audio_capture.c:116:6:HAL_I2S_RxHalfCpltCallback	2
+../Core/Src/audio_capture.c:135:6:HAL_I2S_RxCpltCallback	2
+../Core/Src/audio_capture.c:157:6:Audio_DebugLog_Process	5

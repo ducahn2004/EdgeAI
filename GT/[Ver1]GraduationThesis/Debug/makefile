@@ -58,6 +58,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 [Ver1]GraduationThesis.list \
 
+OBJCOPY_HEX += \
+[Ver1]GraduationThesis.hex \
+
 OBJCOPY_BIN += \
 [Ver1]GraduationThesis.bin \
 
@@ -84,6 +87,11 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+[Ver1]GraduationThesis.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "[Ver1]GraduationThesis.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 [Ver1]GraduationThesis.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "[Ver1]GraduationThesis.bin"
 	@echo 'Finished building: $@'
@@ -91,10 +99,10 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) [Ver1]GraduationThesis.bin [Ver1]GraduationThesis.elf [Ver1]GraduationThesis.list [Ver1]GraduationThesis.map default.size.stdout
+	-$(RM) [Ver1]GraduationThesis.bin [Ver1]GraduationThesis.elf [Ver1]GraduationThesis.hex [Ver1]GraduationThesis.list [Ver1]GraduationThesis.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

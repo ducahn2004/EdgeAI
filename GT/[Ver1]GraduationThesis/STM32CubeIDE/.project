@@ -37,9 +37,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/%5BVer1%5DGraduationThesis.ioc</locationURI>
 		</link>
 		<link>
-			<name>Doc/network_generate_report.txt</name>
+			<name>Doc/network_4_generate_report.txt</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network_generate_report.txt</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network_4_generate_report.txt</locationURI>
 		</link>
 		<link>
 			<name>Drivers/CMSIS/system_stm32h7xx.c</name>
@@ -157,14 +157,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_sd_ex.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.c</name>
+			<name>Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.c</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.c</name>
+			<name>Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.c</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c</locationURI>
 		</link>
 		<link>
 			<name>Drivers/STM32H7xx_HAL_Driver/stm32h7xx_ll_delayblock.c</name>
@@ -235,6 +235,36 @@
 			<name>Application/User/X-CUBE-AI/App/network.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/X-CUBE-AI/App/network_3.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network_3.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/X-CUBE-AI/App/network_3_data.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network_3_data.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/X-CUBE-AI/App/network_3_data_params.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network_3_data_params.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/X-CUBE-AI/App/network_4.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network_4.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/X-CUBE-AI/App/network_4_data.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network_4_data.c</locationURI>
+		</link>
+		<link>
+			<name>Application/User/X-CUBE-AI/App/network_4_data_params.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/X-CUBE-AI/App/network_4_data_params.c</locationURI>
 		</link>
 		<link>
 			<name>Application/User/X-CUBE-AI/App/network_data.c</name>

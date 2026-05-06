@@ -41,13 +41,13 @@ X-CUBE-AI/App/app_x-cube-ai.o: ../X-CUBE-AI/App/app_x-cube-ai.c \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_sdmmc.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_delayblock.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sd_ex.h \
- ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
- ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../Middlewares/ST/AI/Inc/ai_datatypes_defines.h \
  ../Middlewares/ST/AI/Inc/ai_platform.h \
- ../Middlewares/ST/AI/Inc/core_assert.h ../X-CUBE-AI/App/network.h \
- ../X-CUBE-AI/App/network_config.h ../X-CUBE-AI/App/network_data.h \
- ../X-CUBE-AI/App/network_data_params.h ../Core/Inc/mfcc_extract.h \
+ ../Middlewares/ST/AI/Inc/core_assert.h ../X-CUBE-AI/App/network_4.h \
+ ../X-CUBE-AI/App/network_4_config.h ../X-CUBE-AI/App/network_4_data.h \
+ ../X-CUBE-AI/App/network_4_data_params.h ../Core/Inc/mfcc_extract.h \
  D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/feature_extraction.h
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/feature_extraction.h:
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/DSP/Include/arm_math.h:
@@ -93,14 +93,14 @@ D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/DSP/Include/arm_math.h
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_sdmmc.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_delayblock.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_sd_ex.h:
-../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
-../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../Middlewares/ST/AI/Inc/ai_datatypes_defines.h:
 ../Middlewares/ST/AI/Inc/ai_platform.h:
 ../Middlewares/ST/AI/Inc/core_assert.h:
-../X-CUBE-AI/App/network.h:
-../X-CUBE-AI/App/network_config.h:
-../X-CUBE-AI/App/network_data.h:
-../X-CUBE-AI/App/network_data_params.h:
+../X-CUBE-AI/App/network_4.h:
+../X-CUBE-AI/App/network_4_config.h:
+../X-CUBE-AI/App/network_4_data.h:
+../X-CUBE-AI/App/network_4_data_params.h:
 ../Core/Inc/mfcc_extract.h:
 D:/Code/AI/EdgeAI/GT/[Ver1]GraduationThesis/Drivers/CMSIS/STM32_AI_AudioPreprocessing_Library/Inc/feature_extraction.h:
