@@ -113,8 +113,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
+    /* USER CODE END WHILE */  
+  Audio_DebugLog_Process();
   MX_X_CUBE_AI_Process();
     /* USER CODE BEGIN 3 */
   }
