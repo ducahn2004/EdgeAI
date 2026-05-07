@@ -205,12 +205,8 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
     // Kiểm tra kích thước (phải khớp AI_NETWORK_4_IN_1_SIZE = 39*333*4 bytes)
     if (AI_NETWORK_4_IN_1_SIZE != (MFCC_FEATURES * MFCC_TIME_FRAMES))
     {
-      char msg[] = "[AI_ERR] Input size mismatch!\r\n";
+      UART_Log("[AI_ERR] Input size mismatch!\r\n");
 
-      HAL_UART_Transmit(&huart3,
-                        (uint8_t *)msg,
-                        strlen(msg),
-                        HAL_MAX_DELAY);
       return -1;
     }
 
@@ -239,22 +235,12 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
     if (classification_result == 1)
     {
       HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_SET); // Bật LED abnormal
-      char msg[] = "[AI] Abnormal heart sound detected!\r\n";
-
-      HAL_UART_Transmit(&huart3,
-                        (uint8_t *)msg,
-                        strlen(msg),
-                        HAL_MAX_DELAY);
+      UART_Log("AI Abnormal heart sound detected!\r\n");
     }
     else
     {
       HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_RESET); // Tắt LED
-      char msg[] = "[AI] Normal heart sound\r\n";
-
-      HAL_UART_Transmit(&huart3,
-                        (uint8_t *)msg,
-                        strlen(msg),
-                        HAL_MAX_DELAY);
+      UART_Log("AI Normal heart sound\r\n");
     }
 
     // Có thể gửi qua UART hoặc hiển thị LCD ở đây

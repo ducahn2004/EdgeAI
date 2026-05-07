@@ -41,23 +41,54 @@ volatile uint8_t dbg_full_flag = 0;
 volatile uint8_t dbg_overflow_flag = 0;
 
 static uint32_t dbg_last_log_ms = 0;
-
+static uint32_t boot_tick = 0;
 /* UART log helper */
 static void UART_Log(const char *fmt, ...)
 {
-    char buf[160];
+    char buf[192];
+    char final_buf[220];
+
     va_list args;
 
+    uint32_t now = HAL_GetTick() - boot_tick;
+
     va_start(args, fmt);
-    int len = vsnprintf(buf, sizeof(buf), fmt, args);
+    vsnprintf(buf, sizeof(buf), fmt, args);
     va_end(args);
 
-    if (len <= 0) return;
-    if (len > sizeof(buf)) len = sizeof(buf);
+    snprintf(final_buf,
+             sizeof(final_buf),
+             "[%lu.%03lus] %s",
+             now / 1000,
+             now % 1000,
+             buf);
 
-    HAL_UART_Transmit(&huart3, (uint8_t*)buf, len, HAL_MAX_DELAY);
+    HAL_UART_Transmit(&huart3,
+                      (uint8_t*)final_buf,
+                      strlen(final_buf),
+                      HAL_MAX_DELAY);
+}
+uint32_t RingBuffer_Available(void)
+{
+    if (rb_write >= rb_read)
+        return rb_write - rb_read;
+    else
+        return RING_BUFFER_SIZE - rb_read + rb_write;
 }
 
+uint8_t RingBuffer_Read(int16_t *out, uint32_t len)
+{
+    if (RingBuffer_Available() < len)
+        return 0;
+
+    for (uint32_t i = 0; i < len; i++)
+    {
+        out[i] = ring_buffer[rb_read];
+        rb_read = (rb_read + 1) % RING_BUFFER_SIZE;
+    }
+
+    return 1;
+}
 /* Tính số sample đang có trong ring buffer */
 static uint32_t RingBuffer_Used(void)
 {
@@ -69,6 +100,8 @@ static uint32_t RingBuffer_Used(void)
 
 void StartAudioCapture(void)
 {
+    boot_tick = HAL_GetTick();
+
     UART_Log("\r\n[AUDIO] Start capture\r\n");
 
     HAL_StatusTypeDef st;
@@ -82,7 +115,7 @@ void StartAudioCapture(void)
     else
         UART_Log("[AUDIO_ERR] I2S DMA start failed, status=%d\r\n", st);
 
-    UART_Log("[AUDIO] PWM LEDs started\r\n");
+    UART_Log("[AUDIO] Capture init done\r\n");
 }
 
 /*
@@ -159,18 +192,12 @@ void Audio_DebugLog_Process(void)
 
     if (dbg_half_flag)
     {
-        dbg_half_flag = 0;
-        UART_Log("[I2S] HALF count=%lu time=%lu ms\r\n",
-                 dbg_i2s_half_count,
-                 dbg_last_half_time_ms);
+        dbg_half_flag = 0;      
     }
 
     if (dbg_full_flag)
     {
         dbg_full_flag = 0;
-        UART_Log("[I2S] FULL count=%lu time=%lu ms\r\n",
-                 dbg_i2s_full_count,
-                 dbg_last_full_time_ms);
     }
 
     if (dbg_overflow_flag)
@@ -188,14 +215,8 @@ void Audio_DebugLog_Process(void)
     {
         dbg_last_log_ms = now;
 
-        UART_Log("[AUDIO_STAT] half=%lu full=%lu ready=%lu push=%lu used=%lu overflow=%lu push_t=%lu ms rms_t=%lu ms\r\n",
-                 dbg_i2s_half_count,
-                 dbg_i2s_full_count,
-                 dbg_audio_ready_count,
-                 dbg_ring_push_count,
-                 RingBuffer_Used(),
-                 dbg_ring_overflow_count,
-                 dbg_last_push_time_ms,
-                 dbg_last_rms_time_ms);
+        UART_Log("AUDIO used=%lu overflow=%lu\r\n",
+         RingBuffer_Used(),
+         dbg_ring_overflow_count);
     }
 }

@@ -9,11 +9,12 @@
 #include "main.h"
 #include <string.h>     // cho memmove, memcpy
 #include <math.h>       // cho HUGE_VALF nếu cần
+#include "audio_capture.h"
 #include "arm_math.h"
 
 
 // Cấu hình MFCC (đồng bộ với I2S nếu thay đổi sample rate)
-#define SAMPLE_RATE     48000U   // Hz → NÊN SỬA THÀNH 16000 hoặc 48000 cho âm thanh thực tế
+#define SAMPLE_RATE PROC_SAMPLE_RATE
 #define FRAME_LEN_MS    25      // ms
 #define HOP_LEN_MS      15      // ms
 
