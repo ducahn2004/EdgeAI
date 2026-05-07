@@ -3,7 +3,6 @@
  */
 
 #include "stm32h7xx_hal.h"
-#include "audio_sd.h"
 #include "audio_capture.h"
 #include "app_x-cube-ai.h"
 #include <stdio.h>

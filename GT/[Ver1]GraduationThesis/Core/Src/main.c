@@ -8,7 +8,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "fatfs.h"
 #include "app_x-cube-ai.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -36,8 +35,6 @@
 
 I2S_HandleTypeDef hi2s1;
 
-SD_HandleTypeDef hsd1;
-
 UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
@@ -48,7 +45,6 @@ void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2S1_Init(void);
-static void MX_SDMMC1_SD_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
 /* USER CODE END PFP */
@@ -100,13 +96,11 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_I2S1_Init();
-  MX_SDMMC1_SD_Init();
-  MX_FATFS_Init();
   MX_USART3_UART_Init();
   MX_X_CUBE_AI_Init();
   /* USER CODE BEGIN 2 */
-  Preprocessing_Init();
-  StartAudioCapture();
+  //Preprocessing_Init();
+  //StartAudioCapture();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -114,8 +108,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
-  MX_X_CUBE_AI_Process();
+    char msg[] = "\r\n[UART] USART3 OK\r\n";
+    HAL_UART_Transmit(&huart3, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+    HAL_Delay(1000);
+  //MX_X_CUBE_AI_Process();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -216,33 +212,6 @@ static void MX_I2S1_Init(void)
 }
 
 /**
-  * @brief SDMMC1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SDMMC1_SD_Init(void)
-{
-
-  /* USER CODE BEGIN SDMMC1_Init 0 */
-
-  /* USER CODE END SDMMC1_Init 0 */
-
-  /* USER CODE BEGIN SDMMC1_Init 1 */
-
-  /* USER CODE END SDMMC1_Init 1 */
-  hsd1.Instance = SDMMC1;
-  hsd1.Init.ClockEdge = SDMMC_CLOCK_EDGE_RISING;
-  hsd1.Init.ClockPowerSave = SDMMC_CLOCK_POWER_SAVE_DISABLE;
-  hsd1.Init.BusWide = SDMMC_BUS_WIDE_4B;
-  hsd1.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
-  hsd1.Init.ClockDiv = 4;
-  /* USER CODE BEGIN SDMMC1_Init 2 */
-
-  /* USER CODE END SDMMC1_Init 2 */
-
-}
-
-/**
   * @brief USART3 Initialization Function
   * @param None
   * @retval None
@@ -306,8 +275,6 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);

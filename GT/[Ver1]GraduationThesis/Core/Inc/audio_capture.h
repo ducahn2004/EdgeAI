@@ -69,7 +69,6 @@ extern volatile uint32_t dbg_audio_ready_count;
  * Function prototypes
  * ========================================================================= */
 void StartAudioCapture(void);
-void DisplayAudioIntensity(int16_t* buffer, uint32_t size);
 void Audio_DebugLog_Process(void);
 
 #endif /* INC_AUDIO_CAPTURE_H_ */

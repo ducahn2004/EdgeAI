@@ -1,47 +1,48 @@
 
 /**
-  ******************************************************************************
-  * @file    app_x-cube-ai.c
-  * @author  X-CUBE-AI C code generator
-  * @brief   AI program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    app_x-cube-ai.c
+ * @author  X-CUBE-AI C code generator
+ * @brief   AI program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 
- /*
-  * Description
-  *   v1.0 - Minimum template to show how to use the Embedded Client API
-  *          model. Only one input and one output is supported. All
-  *          memory resources are allocated statically (AI_NETWORK_XX, defines
-  *          are used).
-  *          Re-target of the printf function is out-of-scope.
-  *   v2.0 - add multiple IO and/or multiple heap support
-  *
-  *   For more information, see the embeded documentation:
-  *
-  *       [1] %X_CUBE_AI_DIR%/Documentation/index.html
-  *
-  *   X_CUBE_AI_DIR indicates the location where the X-CUBE-AI pack is installed
-  *   typical : C:\Users\[user_name]\STM32Cube\Repository\STMicroelectronics\X-CUBE-AI\7.1.0
-  */
+/*
+ * Description
+ *   v1.0 - Minimum template to show how to use the Embedded Client API
+ *          model. Only one input and one output is supported. All
+ *          memory resources are allocated statically (AI_NETWORK_XX, defines
+ *          are used).
+ *          Re-target of the printf function is out-of-scope.
+ *   v2.0 - add multiple IO and/or multiple heap support
+ *
+ *   For more information, see the embeded documentation:
+ *
+ *       [1] %X_CUBE_AI_DIR%/Documentation/index.html
+ *
+ *   X_CUBE_AI_DIR indicates the location where the X-CUBE-AI pack is installed
+ *   typical : C:\Users\[user_name]\STM32Cube\Repository\STMicroelectronics\X-CUBE-AI\7.1.0
+ */
 
 #ifdef __cplusplus
- extern "C" {
+extern "C"
+{
 #endif
 
-/* Includes ------------------------------------------------------------------*/
+  /* Includes ------------------------------------------------------------------*/
 
-#if defined ( __ICCARM__ )
-#elif defined ( __CC_ARM ) || ( __GNUC__ )
+#if defined(__ICCARM__)
+#elif defined(__CC_ARM) || (__GNUC__)
 #endif
 
 /* System headers */
@@ -57,198 +58,251 @@
 #include "network_4.h"
 #include "network_4_data.h"
 #include "mfcc_extract.h"
+
+  extern UART_HandleTypeDef huart3;
 /* USER CODE BEGIN includes */
 #define ABNORMAL_LED_GPIO_Port GPIOA
 #define ABNORMAL_LED_Pin GPIO_PIN_1
-/* USER CODE END includes */
+  /* USER CODE END includes */
 
-/* IO buffers ----------------------------------------------------------------*/
+  /* IO buffers ----------------------------------------------------------------*/
 
 #if !defined(AI_NETWORK_4_INPUTS_IN_ACTIVATIONS)
-AI_ALIGNED(4) ai_i8 data_in_1[AI_NETWORK_4_IN_1_SIZE_BYTES];
-ai_i8* data_ins[AI_NETWORK_4_IN_NUM] = {
-data_in_1
-};
+  AI_ALIGNED(4)
+  ai_i8 data_in_1[AI_NETWORK_4_IN_1_SIZE_BYTES];
+  ai_i8 *data_ins[AI_NETWORK_4_IN_NUM] = {
+      data_in_1};
 #else
-ai_i8* data_ins[AI_NETWORK_4_IN_NUM] = {
-NULL
-};
+ai_i8 *data_ins[AI_NETWORK_4_IN_NUM] = {
+    NULL};
 #endif
 
 #if !defined(AI_NETWORK_4_OUTPUTS_IN_ACTIVATIONS)
-AI_ALIGNED(4) ai_i8 data_out_1[AI_NETWORK_4_OUT_1_SIZE_BYTES];
-ai_i8* data_outs[AI_NETWORK_4_OUT_NUM] = {
-data_out_1
-};
+  AI_ALIGNED(4)
+  ai_i8 data_out_1[AI_NETWORK_4_OUT_1_SIZE_BYTES];
+  ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
+      data_out_1};
 #else
-ai_i8* data_outs[AI_NETWORK_4_OUT_NUM] = {
-NULL
-};
+ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
+    NULL};
 #endif
 
-/* Activations buffers -------------------------------------------------------*/
+  /* Activations buffers -------------------------------------------------------*/
 
-AI_ALIGNED(32)
-static uint8_t pool0[AI_NETWORK_4_DATA_ACTIVATION_1_SIZE];
+  AI_ALIGNED(32)
+  static uint8_t pool0[AI_NETWORK_4_DATA_ACTIVATION_1_SIZE];
 
-ai_handle data_activations0[] = {pool0};
+  ai_handle data_activations0[] = {pool0};
 
-/* AI objects ----------------------------------------------------------------*/
+  /* AI objects ----------------------------------------------------------------*/
 
-static ai_handle network_4 = AI_HANDLE_NULL;
+  static ai_handle network_4 = AI_HANDLE_NULL;
 
-static ai_buffer* ai_input;
-static ai_buffer* ai_output;
-uint8_t classification_result = 0;
-static void ai_log_err(const ai_error err, const char *fct)
-{
-  /* USER CODE BEGIN log */
-  if (fct)
-    printf("TEMPLATE - Error (%s) - type=0x%02x code=0x%02x\r\n", fct,
-        err.type, err.code);
-  else
-    printf("TEMPLATE - Error - type=0x%02x code=0x%02x\r\n", err.type, err.code);
-  /* USER CODE END log */
-}
+  static ai_buffer *ai_input;
+  static ai_buffer *ai_output;
+  uint8_t classification_result = 0;
 
-static int ai_boostrap(ai_handle *act_addr)
-{
-  ai_error err;
-
-  /* Create and initialize an instance of the model */
-  err = ai_network_4_create_and_init(&network_4, act_addr, NULL);
-  if (err.type != AI_ERROR_NONE) {
-    ai_log_err(err, "ai_network_4_create_and_init");
-    return -1;
+  static void UART_Log(const char *msg)
+  {
+    HAL_UART_Transmit(&huart3,
+                  (uint8_t *)msg,
+                  strlen(msg),
+                  HAL_MAX_DELAY);
   }
 
-  ai_input = ai_network_4_inputs_get(network_4, NULL);
-  ai_output = ai_network_4_outputs_get(network_4, NULL);
+  static void ai_log_err(const ai_error err, const char *fct)
+  {
+    char msg[128];
+
+    if (fct != NULL)
+    {
+      sprintf(msg,
+              "[AI_ERR] %s type=0x%02x code=0x%02x\r\n",
+              fct,
+              err.type,
+              err.code);
+    }
+    else
+    {
+      sprintf(msg,
+              "[AI_ERR] type=0x%02x code=0x%02x\r\n",
+              err.type,
+              err.code);
+    }
+
+    UART_Log(msg);
+  }
+
+  static int ai_boostrap(ai_handle *act_addr)
+  {
+    ai_error err;
+
+    /* Create and initialize an instance of the model */
+    err = ai_network_4_create_and_init(&network_4, act_addr, NULL);
+    if (err.type != AI_ERROR_NONE)
+    {
+      ai_log_err(err, "ai_network_4_create_and_init");
+      return -1;
+    }
+
+    ai_input = ai_network_4_inputs_get(network_4, NULL);
+    ai_output = ai_network_4_outputs_get(network_4, NULL);
 
 #if defined(AI_NETWORK_4_INPUTS_IN_ACTIVATIONS)
-  /*  In the case where "--allocate-inputs" option is used, memory buffer can be
-   *  used from the activations buffer. This is not mandatory.
-   */
-  for (int idx=0; idx < AI_NETWORK_4_IN_NUM; idx++) {
-	data_ins[idx] = ai_input[idx].data;
-  }
+    /*  In the case where "--allocate-inputs" option is used, memory buffer can be
+     *  used from the activations buffer. This is not mandatory.
+     */
+    for (int idx = 0; idx < AI_NETWORK_4_IN_NUM; idx++)
+    {
+      data_ins[idx] = ai_input[idx].data;
+    }
 #else
-  for (int idx=0; idx < AI_NETWORK_4_IN_NUM; idx++) {
-	  ai_input[idx].data = data_ins[idx];
+  for (int idx = 0; idx < AI_NETWORK_4_IN_NUM; idx++)
+  {
+    ai_input[idx].data = data_ins[idx];
   }
 #endif
 
 #if defined(AI_NETWORK_4_OUTPUTS_IN_ACTIVATIONS)
-  /*  In the case where "--allocate-outputs" option is used, memory buffer can be
-   *  used from the activations buffer. This is no mandatory.
-   */
-  for (int idx=0; idx < AI_NETWORK_4_OUT_NUM; idx++) {
-	data_outs[idx] = ai_output[idx].data;
-  }
+    /*  In the case where "--allocate-outputs" option is used, memory buffer can be
+     *  used from the activations buffer. This is no mandatory.
+     */
+    for (int idx = 0; idx < AI_NETWORK_4_OUT_NUM; idx++)
+    {
+      data_outs[idx] = ai_output[idx].data;
+    }
 #else
-  for (int idx=0; idx < AI_NETWORK_4_OUT_NUM; idx++) {
-	ai_output[idx].data = data_outs[idx];
+  for (int idx = 0; idx < AI_NETWORK_4_OUT_NUM; idx++)
+  {
+    ai_output[idx].data = data_outs[idx];
   }
 #endif
 
-  return 0;
-}
-
-static int ai_run(void)
-{
-  ai_i32 batch;
-
-  batch = ai_network_4_run(network_4, ai_input, ai_output);
-  if (batch != 1) {
-    ai_log_err(ai_network_4_get_error(network_4),
-        "ai_network_4_run");
-    return -1;
+    return 0;
   }
 
-  return 0;
-}
+  static int ai_run(void)
+  {
+    ai_i32 batch;
 
-/* USER CODE BEGIN 2 */
-int acquire_and_process_data(ai_i8* data[])
-{
-	  // Copy float32 → ai_float (model dùng float32)
-	  ai_float* input_ptr = (ai_float*)data[0];  // Vì data_in_1 là ai_i8 nhưng model float32
+    batch = ai_network_4_run(network_4, ai_input, ai_output);
+    if (batch != 1)
+    {
+      ai_log_err(ai_network_4_get_error(network_4),
+                 "ai_network_4_run");
+      return -1;
+    }
 
-	  // Kiểm tra kích thước (phải khớp AI_NETWORK_4_IN_1_SIZE = 39*333*4 bytes)
-	  if (AI_NETWORK_4_IN_1_SIZE != (MFCC_FEATURES * MFCC_TIME_FRAMES)) {
-		printf("Input size mismatch!\r\n");
-		return -1;
-	  }
-
-	  memcpy(input_ptr, &mfcc_final_features[0][0], MFCC_TIME_FRAMES * MFCC_FEATURES * sizeof(ai_float));
-
-	  return 0;
-}
-
-/**
- * @brief  Post-process output và điều khiển LED PA1
- * @param  data[]: buffer output của AI
- * @retval 0
- */
-int post_process(ai_i8* data[])
-{
-  ai_float* output_ptr = (ai_float*)data[0];  // output là float32 [1×2]
-
-  // Lấy 2 giá trị logits
-  float score_normal   = output_ptr[0];
-  float score_abnormal = output_ptr[1];
-
-  // Quyết định class: argmax (hoặc softmax nếu cần probability)
-  classification_result = (score_abnormal > score_normal) ? 1 : 0;
-
-  // Điều khiển LED PA1
-  if (classification_result == 1) {
-    HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_SET);   // Bật LED abnormal
-    printf("Abnormal heart sound detected!\r\n");
-  } else {
-    HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_RESET); // Tắt LED
-    printf("Normal heart sound.\r\n");
+    return 0;
   }
 
-  // Có thể gửi qua UART hoặc hiển thị LCD ở đây
+  /* USER CODE BEGIN 2 */
+  int acquire_and_process_data(ai_i8 *data[])
+  {
+    // Copy float32 → ai_float (model dùng float32)
+    ai_float *input_ptr = (ai_float *)data[0]; // Vì data_in_1 là ai_i8 nhưng model float32
 
-  return 0;
-}
-/* USER CODE END 2 */
+    // Kiểm tra kích thước (phải khớp AI_NETWORK_4_IN_1_SIZE = 39*333*4 bytes)
+    if (AI_NETWORK_4_IN_1_SIZE != (MFCC_FEATURES * MFCC_TIME_FRAMES))
+    {
+      char msg[] = "[AI_ERR] Input size mismatch!\r\n";
 
-/* Entry points --------------------------------------------------------------*/
+      HAL_UART_Transmit(&huart3,
+                        (uint8_t *)msg,
+                        strlen(msg),
+                        HAL_MAX_DELAY);
+      return -1;
+    }
 
-void MX_X_CUBE_AI_Init(void)
-{
+    memcpy(input_ptr, &mfcc_final_features[0][0], MFCC_TIME_FRAMES * MFCC_FEATURES * sizeof(ai_float));
+
+    return 0;
+  }
+
+  /**
+   * @brief  Post-process output và điều khiển LED PA1
+   * @param  data[]: buffer output của AI
+   * @retval 0
+   */
+  int post_process(ai_i8 *data[])
+  {
+    ai_float *output_ptr = (ai_float *)data[0]; // output là float32 [1×2]
+
+    // Lấy 2 giá trị logits
+    float score_normal = output_ptr[0];
+    float score_abnormal = output_ptr[1];
+
+    // Quyết định class: argmax (hoặc softmax nếu cần probability)
+    classification_result = (score_abnormal > score_normal) ? 1 : 0;
+
+    // Điều khiển LED PA1
+    if (classification_result == 1)
+    {
+      HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_SET); // Bật LED abnormal
+      char msg[] = "[AI] Abnormal heart sound detected!\r\n";
+
+      HAL_UART_Transmit(&huart3,
+                        (uint8_t *)msg,
+                        strlen(msg),
+                        HAL_MAX_DELAY);
+    }
+    else
+    {
+      HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_RESET); // Tắt LED
+      char msg[] = "[AI] Normal heart sound\r\n";
+
+      HAL_UART_Transmit(&huart3,
+                        (uint8_t *)msg,
+                        strlen(msg),
+                        HAL_MAX_DELAY);
+    }
+
+    // Có thể gửi qua UART hoặc hiển thị LCD ở đây
+
+    return 0;
+  }
+  /* USER CODE END 2 */
+
+  /* Entry points --------------------------------------------------------------*/
+
+  void MX_X_CUBE_AI_Init(void)
+  {
     /* USER CODE BEGIN 5 */
-  printf("\r\nTEMPLATE - initialization\r\n");
+    char msg[] = "\r\n[AI] Initialization\r\n";
 
-  ai_boostrap(data_activations0);
+    UART_Log(msg);
+
+    ai_boostrap(data_activations0);
     /* USER CODE END 5 */
-}
+  }
 
-void MX_X_CUBE_AI_Process(void)
-{
+  void MX_X_CUBE_AI_Process(void)
+  {
     /* USER CODE BEGIN 6 */
-  int res = -1;
+    int res = -1;
 
-  printf("TEMPLATE - run - main loop\r\n");
+    char msg[] = "[AI] Run inference\r\n";
 
-  if (network_4) {
+    UART_Log(msg);
 
-    do {
+    if (network_4)
+    {
       res = acquire_and_process_data(data_ins);
-      if (res == 0) res = ai_run();
-      if (res == 0) res = post_process(data_outs);
-    } while (res==0);
-  }
 
-  if (res) {
-    ai_error err = {AI_ERROR_INVALID_STATE, AI_ERROR_CODE_NETWORK};
-    ai_log_err(err, "Process has FAILED");
-  }
+      if (res == 0)
+        res = ai_run();
+
+      if (res == 0)
+        res = post_process(data_outs);
+    }
+
+    if (res)
+    {
+      ai_error err = {AI_ERROR_INVALID_STATE, AI_ERROR_CODE_NETWORK};
+      ai_log_err(err, "Process has FAILED");
+    }
     /* USER CODE END 6 */
-}
+  }
 #ifdef __cplusplus
 }
 #endif
