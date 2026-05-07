@@ -14,6 +14,7 @@
 /* USER CODE BEGIN Includes */
 #include "audio_capture.h" // định nghĩa FRAME_LEN, HOP_SAMPLES, RING_BUFFER_SIZE
 #include "mfcc_extract.h"
+#include "debug_uart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -102,8 +103,8 @@ int main(void)
   MX_USART3_UART_Init();
   MX_X_CUBE_AI_Init();
 
-  char msg[] = "Hello STM32H743\r\n";
-  HAL_UART_Transmit(&huart3, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+  DebugUART_InitTime();
+  DebugUART_Log("Hello STM32H743\r\n");
   /* USER CODE BEGIN 2 */
   Preprocessing_Init();
   StartAudioCapture();
@@ -112,32 +113,32 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
+{
     Audio_DebugLog_Process();
 
     while (RingBuffer_Available() >= FRAME_LEN)
     {
-      int16_t audio_frame[FRAME_LEN];
-      float mfcc_frame[MFCC_FEATURES];
+        int16_t audio_frame[FRAME_LEN];
+        float mfcc_frame[MFCC_FEATURES];
 
-      if (RingBuffer_Read(audio_frame, FRAME_LEN))
-      {
-        compute_mfcc_one_frame(audio_frame, mfcc_frame);
-        mfcc_append_frame(mfcc_frame);
-      }
+        if (RingBuffer_Read(audio_frame, FRAME_LEN))
+        {
+            compute_mfcc_one_frame(audio_frame, mfcc_frame);
+            mfcc_append_frame(mfcc_frame);
+        }
     }
 
     if (mfcc_collected >= MFCC_TIME_FRAMES)
     {
-      MX_X_CUBE_AI_Process();
+        MX_X_CUBE_AI_Process();
 
-      /*
-       * Tránh AI chạy lặp lại liên tục trên cùng một cửa sổ MFCC.
-       * Có thể reset hoặc dùng flag.
-       */
-      mfcc_collected = 0;
+        /*
+         * Tránh AI chạy lặp lại liên tục trên cùng một cửa sổ MFCC.
+         * Có thể reset hoặc dùng flag.
+         */
+        mfcc_collected = 0;
     }
-  }
+}
   /* USER CODE END 3 */
 }
 

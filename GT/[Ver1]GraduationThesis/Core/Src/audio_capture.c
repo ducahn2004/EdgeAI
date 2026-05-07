@@ -9,6 +9,8 @@
 #include <string.h>
 #include <math.h>
 #include <stdarg.h>
+#include "debug_uart.h"
+    
 
 extern I2S_HandleTypeDef hi2s1;
 extern UART_HandleTypeDef huart3;
@@ -43,31 +45,7 @@ volatile uint8_t dbg_overflow_flag = 0;
 static uint32_t dbg_last_log_ms = 0;
 static uint32_t boot_tick = 0;
 /* UART log helper */
-static void UART_Log(const char *fmt, ...)
-{
-    char buf[192];
-    char final_buf[220];
 
-    va_list args;
-
-    uint32_t now = HAL_GetTick() - boot_tick;
-
-    va_start(args, fmt);
-    vsnprintf(buf, sizeof(buf), fmt, args);
-    va_end(args);
-
-    snprintf(final_buf,
-             sizeof(final_buf),
-             "[%lu.%03lus] %s",
-             now / 1000,
-             now % 1000,
-             buf);
-
-    HAL_UART_Transmit(&huart3,
-                      (uint8_t*)final_buf,
-                      strlen(final_buf),
-                      HAL_MAX_DELAY);
-}
 uint32_t RingBuffer_Available(void)
 {
     if (rb_write >= rb_read)
@@ -102,7 +80,7 @@ void StartAudioCapture(void)
 {
     boot_tick = HAL_GetTick();
 
-    UART_Log("\r\n[AUDIO] Start capture\r\n");
+    DebugUART_Log("\r\n[AUDIO] Start capture\r\n");
 
     HAL_StatusTypeDef st;
 
@@ -111,11 +89,11 @@ void StartAudioCapture(void)
                              AUDIO_BUFFER_SIZE);
 
     if (st == HAL_OK)
-        UART_Log("[AUDIO] I2S DMA started OK\r\n");
+        DebugUART_Log("[AUDIO] I2S DMA started OK\r\n");
     else
-        UART_Log("[AUDIO_ERR] I2S DMA start failed, status=%d\r\n", st);
+        DebugUART_Log("[AUDIO_ERR] I2S DMA start failed, status=%d\r\n", st);
 
-    UART_Log("[AUDIO] Capture init done\r\n");
+    DebugUART_Log("[AUDIO] Capture init done\r\n");
 }
 
 /*
@@ -203,7 +181,7 @@ void Audio_DebugLog_Process(void)
     if (dbg_overflow_flag)
     {
         dbg_overflow_flag = 0;
-        UART_Log("[RING_ERR] overflow=%lu rb_w=%lu rb_r=%lu used=%lu\r\n",
+        DebugUART_Log("[RING_ERR] overflow=%lu rb_w=%lu rb_r=%lu used=%lu\r\n",
                  dbg_ring_overflow_count,
                  rb_write,
                  rb_read,
@@ -215,8 +193,9 @@ void Audio_DebugLog_Process(void)
     {
         dbg_last_log_ms = now;
 
-        UART_Log("AUDIO used=%lu overflow=%lu\r\n",
-         RingBuffer_Used(),
-         dbg_ring_overflow_count);
+        DebugUART_Log("AUDIO used=%lu samples, %.3f sec pending, overflow=%lu\r\n",
+              RingBuffer_Used(),
+              (float)RingBuffer_Used() / 2000.0f,
+              dbg_ring_overflow_count);
     }
 }

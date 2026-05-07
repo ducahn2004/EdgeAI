@@ -58,6 +58,7 @@ extern "C"
 #include "network_4.h"
 #include "network_4_data.h"
 #include "mfcc_extract.h"
+#include "debug_uart.h"
 
   extern UART_HandleTypeDef huart3;
 /* USER CODE BEGIN includes */
@@ -102,14 +103,6 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
   static ai_buffer *ai_output;
   uint8_t classification_result = 0;
 
-  static void UART_Log(const char *msg)
-  {
-    HAL_UART_Transmit(&huart3,
-                  (uint8_t *)msg,
-                  strlen(msg),
-                  HAL_MAX_DELAY);
-  }
-
   static void ai_log_err(const ai_error err, const char *fct)
   {
     char msg[128];
@@ -130,7 +123,7 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
               err.code);
     }
 
-    UART_Log(msg);
+    DebugUART_Log(msg);
   }
 
   static int ai_boostrap(ai_handle *act_addr)
@@ -205,7 +198,7 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
     // Kiểm tra kích thước (phải khớp AI_NETWORK_4_IN_1_SIZE = 39*333*4 bytes)
     if (AI_NETWORK_4_IN_1_SIZE != (MFCC_FEATURES * MFCC_TIME_FRAMES))
     {
-      UART_Log("[AI_ERR] Input size mismatch!\r\n");
+      DebugUART_Log("[AI_ERR] Input size mismatch!\r\n");
 
       return -1;
     }
@@ -235,12 +228,12 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
     if (classification_result == 1)
     {
       HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_SET); // Bật LED abnormal
-      UART_Log("AI Abnormal heart sound detected!\r\n");
+      DebugUART_Log("AI Abnormal heart sound detected!\r\n");
     }
     else
     {
       HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_RESET); // Tắt LED
-      UART_Log("AI Normal heart sound\r\n");
+      DebugUART_Log("AI Normal heart sound\r\n");
     }
 
     // Có thể gửi qua UART hoặc hiển thị LCD ở đây
@@ -256,7 +249,7 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
     /* USER CODE BEGIN 5 */
     char msg[] = "\r\n[AI] Initialization\r\n";
 
-    UART_Log(msg);
+    DebugUART_Log(msg);
 
     ai_boostrap(data_activations0);
     /* USER CODE END 5 */
@@ -264,30 +257,51 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
 
   void MX_X_CUBE_AI_Process(void)
   {
-    /* USER CODE BEGIN 6 */
     int res = -1;
 
-    char msg[] = "[AI] Run inference\r\n";
+    uint32_t t_all0 = HAL_GetTick();
 
-    UART_Log(msg);
+    DebugUART_Log("AI Run inference\r\n");
 
-    if (network_4)
+    if (network_4 == AI_HANDLE_NULL)
     {
-      res = acquire_and_process_data(data_ins);
-
-      if (res == 0)
-        res = ai_run();
-
-      if (res == 0)
-        res = post_process(data_outs);
+      DebugUART_Log("AI network not initialized\r\n");
+      return;
     }
 
-    if (res)
+    uint32_t t0 = HAL_GetTick();
+
+    res = acquire_and_process_data(data_ins);
+
+    uint32_t t1 = HAL_GetTick();
+
+    if (res == 0)
+    {
+      res = ai_run();
+    }
+
+    uint32_t t2 = HAL_GetTick();
+
+    if (res == 0)
+    {
+      res = post_process(data_outs);
+    }
+
+    uint32_t t3 = HAL_GetTick();
+
+    if (res == 0)
+    {
+      DebugUART_Log("AI time copy=%lu ms, run=%lu ms, post=%lu ms, total=%lu ms\r\n",
+                    t1 - t0,
+                    t2 - t1,
+                    t3 - t2,
+                    t3 - t_all0);
+    }
+    else
     {
       ai_error err = {AI_ERROR_INVALID_STATE, AI_ERROR_CODE_NETWORK};
       ai_log_err(err, "Process has FAILED");
     }
-    /* USER CODE END 6 */
   }
 #ifdef __cplusplus
 }

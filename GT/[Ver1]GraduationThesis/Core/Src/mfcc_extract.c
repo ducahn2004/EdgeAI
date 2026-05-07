@@ -12,15 +12,8 @@
 #include "audio_capture.h"
 #include "arm_math.h"
 
-
-// Cấu hình MFCC (đồng bộ với I2S nếu thay đổi sample rate)
-#define SAMPLE_RATE PROC_SAMPLE_RATE
-#define FRAME_LEN_MS    25      // ms
-#define HOP_LEN_MS      15      // ms
-
-#define FRAME_LEN       ((SAMPLE_RATE * FRAME_LEN_MS) / 1000)   // 50 @ 48kHz
-#define HOP_LEN         ((SAMPLE_RATE * HOP_LEN_MS) / 1000)     // 30 @ 48kHz
-
+#define SAMPLE_RATE     PROC_SAMPLE_RATE
+#define HOP_LEN         HOP_SAMPLES   
 #define FFT_LEN         256U
 #define NUM_MFCC        13U
 #define NUM_MFCC_TOTAL  (NUM_MFCC * 3)  // 39
