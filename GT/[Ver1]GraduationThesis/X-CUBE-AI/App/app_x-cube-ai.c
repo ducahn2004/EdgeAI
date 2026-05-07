@@ -215,28 +215,37 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
    */
   int post_process(ai_i8 *data[])
   {
-    ai_float *output_ptr = (ai_float *)data[0]; // output là float32 [1×2]
+    ai_float *output_ptr = (ai_float *)data[0];
 
-    // Lấy 2 giá trị logits
     float score_normal = output_ptr[0];
     float score_abnormal = output_ptr[1];
 
-    // Quyết định class: argmax (hoặc softmax nếu cần probability)
     classification_result = (score_abnormal > score_normal) ? 1 : 0;
 
-    // Điều khiển LED PA1
     if (classification_result == 1)
     {
-      HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_SET); // Bật LED abnormal
-      DebugUART_Log("AI Abnormal heart sound detected!\r\n");
+      HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port,
+                        ABNORMAL_LED_Pin,
+                        GPIO_PIN_SET);
+
+      DebugUART_Log(
+          "AI result: Abnormal | normal=%.6f abnormal=%.6f class=%d\r\n",
+          score_normal,
+          score_abnormal,
+          classification_result);
     }
     else
     {
-      HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port, ABNORMAL_LED_Pin, GPIO_PIN_RESET); // Tắt LED
-      DebugUART_Log("AI Normal heart sound\r\n");
-    }
+      HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port,
+                        ABNORMAL_LED_Pin,
+                        GPIO_PIN_RESET);
 
-    // Có thể gửi qua UART hoặc hiển thị LCD ở đây
+      DebugUART_Log(
+          "AI result: Normal | normal=%.6f abnormal=%.6f class=%d\r\n",
+          score_normal,
+          score_abnormal,
+          classification_result);
+    }
 
     return 0;
   }

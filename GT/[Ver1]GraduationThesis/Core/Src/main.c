@@ -49,6 +49,7 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_I2S1_Init(void);
 static void MX_USART3_UART_Init(void);
+void MFCC_LogWindowTiming(void);
 /* USER CODE BEGIN PFP */
 /* USER CODE END PFP */
 
@@ -113,35 +114,54 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-{
+  {
     Audio_DebugLog_Process();
 
     while (RingBuffer_Available() >= FRAME_LEN)
     {
-        int16_t audio_frame[FRAME_LEN];
-        float mfcc_frame[MFCC_FEATURES];
+      int16_t audio_frame[FRAME_LEN];
+      float mfcc_frame[MFCC_FEATURES];
 
-        if (RingBuffer_Read(audio_frame, FRAME_LEN))
-        {
-            compute_mfcc_one_frame(audio_frame, mfcc_frame);
-            mfcc_append_frame(mfcc_frame);
-        }
+      if (RingBuffer_Read(audio_frame, FRAME_LEN))
+      {
+        compute_mfcc_one_frame_timed(audio_frame, mfcc_frame); /* ← thay hàm cũ */
+        mfcc_append_frame(mfcc_frame);
+      }
     }
 
     if (mfcc_collected >= MFCC_TIME_FRAMES)
     {
-        MX_X_CUBE_AI_Process();
+      MFCC_DebugLog_Window();
 
-        /*
-         * Tránh AI chạy lặp lại liên tục trên cùng một cửa sổ MFCC.
-         * Có thể reset hoặc dùng flag.
-         */
-        mfcc_collected = 0;
+      MX_X_CUBE_AI_Process();
+
+      mfcc_collected = 0;
+      MFCC_DebugReset_Window();
     }
-}
+  }
   /* USER CODE END 3 */
 }
+void MFCC_LogWindowTiming(void)
+{
+  uint32_t window_elapsed = HAL_GetTick() - mfcc_window_start_ms;
+  uint32_t avg_ms = (mfcc_frame_count > 0)
+                        ? (mfcc_time_total_ms / mfcc_frame_count)
+                        : 0;
 
+  DebugUART_Log(
+      "[MFCC] window=%lu ms | frames=%lu | compute: total=%lu ms avg=%lu ms max=%lu ms\r\n",
+      window_elapsed,
+      mfcc_frame_count,
+      mfcc_time_total_ms,
+      avg_ms,
+      mfcc_time_max_ms);
+
+  /* Reset cho window tiếp theo */
+  mfcc_frame_count = 0;
+  mfcc_time_total_ms = 0;
+  mfcc_time_max_ms = 0;
+  mfcc_window_start_ms = HAL_GetTick();
+}
 /**
  * @brief System Clock Configuration
  * @retval None

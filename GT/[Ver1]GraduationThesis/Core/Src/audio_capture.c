@@ -10,32 +10,31 @@
 #include <math.h>
 #include <stdarg.h>
 #include "debug_uart.h"
-    
 
 extern I2S_HandleTypeDef hi2s1;
 extern UART_HandleTypeDef huart3;
 
 /* Audio buffers */
-int16_t           audio_bufferA[AUDIO_BUFFER_SIZE];
-volatile int16_t* current_buffer = audio_bufferA;
-volatile uint8_t  audio_ready    = 0;
+int16_t audio_bufferA[AUDIO_BUFFER_SIZE];
+volatile int16_t *current_buffer = audio_bufferA;
+volatile uint8_t audio_ready = 0;
 
-int16_t           ring_buffer[RING_BUFFER_SIZE] = {0};
+int16_t ring_buffer[RING_BUFFER_SIZE] = {0};
 volatile uint32_t rb_write = 0;
-volatile uint32_t rb_read  = 0;
+volatile uint32_t rb_read = 0;
 
 /* Debug counters */
-volatile uint32_t dbg_i2s_half_count     = 0;
-volatile uint32_t dbg_i2s_full_count     = 0;
-volatile uint32_t dbg_ring_push_count    = 0;
+volatile uint32_t dbg_i2s_half_count = 0;
+volatile uint32_t dbg_i2s_full_count = 0;
+volatile uint32_t dbg_ring_push_count = 0;
 volatile uint32_t dbg_ring_overflow_count = 0;
-volatile uint32_t dbg_audio_ready_count  = 0;
+volatile uint32_t dbg_audio_ready_count = 0;
 
 /* Debug timing */
 volatile uint32_t dbg_last_half_time_ms = 0;
 volatile uint32_t dbg_last_full_time_ms = 0;
 volatile uint32_t dbg_last_push_time_ms = 0;
-volatile uint32_t dbg_last_rms_time_ms  = 0;
+volatile uint32_t dbg_last_rms_time_ms = 0;
 
 /* Flags để log ngoài interrupt */
 volatile uint8_t dbg_half_flag = 0;
@@ -85,7 +84,7 @@ void StartAudioCapture(void)
     HAL_StatusTypeDef st;
 
     st = HAL_I2S_Receive_DMA(&hi2s1,
-                             (uint16_t*)audio_bufferA,
+                             (uint16_t *)audio_bufferA,
                              AUDIO_BUFFER_SIZE);
 
     if (st == HAL_OK)
@@ -170,7 +169,7 @@ void Audio_DebugLog_Process(void)
 
     if (dbg_half_flag)
     {
-        dbg_half_flag = 0;      
+        dbg_half_flag = 0;
     }
 
     if (dbg_full_flag)
@@ -182,20 +181,23 @@ void Audio_DebugLog_Process(void)
     {
         dbg_overflow_flag = 0;
         DebugUART_Log("[RING_ERR] overflow=%lu rb_w=%lu rb_r=%lu used=%lu\r\n",
-                 dbg_ring_overflow_count,
-                 rb_write,
-                 rb_read,
-                 RingBuffer_Used());
+                      dbg_ring_overflow_count,
+                      rb_write,
+                      rb_read,
+                      RingBuffer_Used());
     }
 
     /* Log tổng mỗi 1 giây */
+    /* Trong Audio_DebugLog_Process(), thay khối log 1 giây thành: */
     if (now - dbg_last_log_ms >= 1000)
     {
         dbg_last_log_ms = now;
 
-        DebugUART_Log("AUDIO used=%lu samples, %.3f sec pending, overflow=%lu\r\n",
-              RingBuffer_Used(),
-              (float)RingBuffer_Used() / 2000.0f,
-              dbg_ring_overflow_count);
+        DebugUART_Log(
+            "[AUDIO] used=%lu smp (%.3f s) | push_time=%lu us | overflow=%lu\r\n",
+            RingBuffer_Used(),
+            (float)RingBuffer_Used() / 2000.0f,
+            dbg_last_push_time_ms * 1000, /* ms → approximate µs nếu cần tick thực */
+            dbg_ring_overflow_count);
     }
 }

@@ -32,15 +32,20 @@ extern float32_t mfcc_final_features[39][333];
 extern uint32_t mfcc_collected;
 extern void compute_mfcc_one_frame(int16_t *frame, float *out_39);
 extern void mfcc_append_frame(float *new_frame);
+extern uint32_t mfcc_frame_count;
+extern uint32_t mfcc_time_total_ms;
+extern uint32_t mfcc_time_max_ms;
+extern uint32_t mfcc_window_start_ms;
 
-
-
+    
 /* =====================================================================
  * Thông số phù hợp với PhysioNet 2016 + model input 1×39×333
  * ===================================================================== */
 
 void Preprocessing_Init(void);
 void AudioPreprocessing_Run(int16_t *pInSignal, float32_t *pOutMfcc, uint32_t signal_len);
-
+void compute_mfcc_one_frame_timed(int16_t *audio_frame, float *mfcc_frame);
+void MFCC_DebugLog_Window(void);
+void MFCC_DebugReset_Window(void);
 
 #endif /* MFCCE_XTRACT_H */

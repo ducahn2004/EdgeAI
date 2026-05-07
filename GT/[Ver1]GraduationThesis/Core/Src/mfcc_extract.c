@@ -11,6 +11,7 @@
 #include <math.h>       // cho HUGE_VALF nếu cần
 #include "audio_capture.h"
 #include "arm_math.h"
+#include "debug_uart.h" 
 
 #define SAMPLE_RATE     PROC_SAMPLE_RATE
 #define HOP_LEN         HOP_SAMPLES   
@@ -71,7 +72,10 @@ static uint32_t  pMelFilterStopIndices[NUM_MELS];
  * ========================================================================= */
 float32_t mfcc_final_features[MFCC_FEATURES][MFCC_TIME_FRAMES] = {0};
 uint32_t  mfcc_collected = 0;
-
+uint32_t mfcc_frame_count = 0;
+uint32_t mfcc_time_total_ms = 0;
+uint32_t mfcc_time_max_ms = 0;
+uint32_t mfcc_window_start_ms = 0;
 // Static state cho delta (per-frame)
 //static float32_t prev_mfcc[NUM_MFCC]   = {0};
 //static float32_t prev_delta[NUM_MFCC]  = {0};
@@ -211,6 +215,14 @@ void Preprocessing_Init(void)
     S_Mfcc.pDCT         = &S_DCT;
     S_Mfcc.NumMfccCoefs = NUM_MFCC;    // 13 static coefficients
     S_Mfcc.pScratch     = pMfccScratchBuffer;
+
+    mfcc_frame_count = 0;
+mfcc_time_total_ms = 0;
+mfcc_time_max_ms = 0;
+mfcc_window_start_ms = HAL_GetTick();
+
+DebugUART_Log("[MFCC] Init done, window timer started\r\n");
+
 }
 
 /* =========================================================================
@@ -314,7 +326,50 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
         pOutMfccFrame[2 * NUM_MFCC + i] = delta_delta[i];    // ΔΔ
     }
 }
+void compute_mfcc_one_frame_timed(int16_t *audio_frame, float *mfcc_frame)
+{
+    uint32_t t0 = HAL_GetTick();
 
+    compute_mfcc_one_frame(audio_frame, mfcc_frame);
+
+    uint32_t dt = HAL_GetTick() - t0;
+
+    mfcc_time_total_ms += dt;
+
+    if (dt > mfcc_time_max_ms)
+    {
+        mfcc_time_max_ms = dt;
+    }
+
+    mfcc_frame_count++;
+}   
+
+
+void MFCC_DebugLog_Window(void)
+{
+    uint32_t window_time = HAL_GetTick() - mfcc_window_start_ms;
+
+    uint32_t avg = 0;
+    if (mfcc_frame_count > 0)
+    {
+        avg = mfcc_time_total_ms / mfcc_frame_count;
+    }
+
+    DebugUART_Log("[MFCC] window=%lu ms, frames=%lu, avg=%lu ms, max=%lu ms\r\n",
+                  window_time,
+                  mfcc_frame_count,
+                  avg,
+                  mfcc_time_max_ms);
+}
+
+
+void MFCC_DebugReset_Window(void)
+{
+    mfcc_frame_count = 0;
+    mfcc_time_total_ms = 0;
+    mfcc_time_max_ms = 0;
+    mfcc_window_start_ms = HAL_GetTick();
+}
 /* =========================================================================
  * mfcc_append_frame
  *
