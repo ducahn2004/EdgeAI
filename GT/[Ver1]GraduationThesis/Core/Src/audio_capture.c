@@ -74,7 +74,10 @@ static uint32_t RingBuffer_Used(void)
     else
         return RING_BUFFER_SIZE - rb_read + rb_write;
 }
-
+void RingBuffer_Flush(void)
+{
+    rb_read = rb_write;
+}
 void StartAudioCapture(void)
 {
     boot_tick = HAL_GetTick();

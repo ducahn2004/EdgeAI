@@ -9,7 +9,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "app_x-cube-ai.h"
-
+#include <string.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "audio_capture.h" // định nghĩa FRAME_LEN, HOP_SAMPLES, RING_BUFFER_SIZE
@@ -38,7 +38,8 @@ I2S_HandleTypeDef hi2s1;
 DMA_HandleTypeDef hdma_spi1_rx;
 
 UART_HandleTypeDef huart3;
-
+static int16_t mfcc_audio_frame[FRAME_LEN];
+static uint8_t mfcc_frame_initialized = 0;
 /* USER CODE BEGIN PV */
 /* USER CODE END PV */
 
@@ -117,26 +118,47 @@ int main(void)
   {
     Audio_DebugLog_Process();
 
-    while (RingBuffer_Available() >= FRAME_LEN)
+    if (!mfcc_frame_initialized)
     {
-      int16_t audio_frame[FRAME_LEN];
-      float mfcc_frame[MFCC_FEATURES];
-
-      if (RingBuffer_Read(audio_frame, FRAME_LEN))
+      if (RingBuffer_Available() >= FRAME_LEN)
       {
-        compute_mfcc_one_frame_timed(audio_frame, mfcc_frame); /* ← thay hàm cũ */
-        mfcc_append_frame(mfcc_frame);
+        RingBuffer_Read(mfcc_audio_frame, FRAME_LEN);
+        mfcc_frame_initialized = 1;
       }
     }
 
-    if (mfcc_collected >= MFCC_TIME_FRAMES)
+    while (mfcc_frame_initialized &&
+           RingBuffer_Available() >= HOP_SAMPLES)
     {
-      MFCC_DebugLog_Window();
+      int16_t hop_buf[HOP_SAMPLES];
+      float mfcc_frame[MFCC_FEATURES];
 
-      MX_X_CUBE_AI_Process();
+      RingBuffer_Read(hop_buf, HOP_SAMPLES);
 
-      mfcc_collected = 0;
-      MFCC_DebugReset_Window();
+      memmove(&mfcc_audio_frame[0],
+              &mfcc_audio_frame[HOP_SAMPLES],
+              (FRAME_LEN - HOP_SAMPLES) * sizeof(int16_t));
+
+      memcpy(&mfcc_audio_frame[FRAME_LEN - HOP_SAMPLES],
+             hop_buf,
+             HOP_SAMPLES * sizeof(int16_t));
+
+      compute_mfcc_one_frame_timed(mfcc_audio_frame, mfcc_frame);
+      mfcc_append_frame(mfcc_frame);
+
+      if (mfcc_collected >= MFCC_TIME_FRAMES)
+      {
+        MFCC_DebugLog_Window();
+
+        MX_X_CUBE_AI_Process();
+
+        RingBuffer_Flush();
+
+        mfcc_collected = 0;
+        MFCC_DebugReset_Window();
+        mfcc_frame_initialized = 0;
+        break;
+      }
     }
   }
   /* USER CODE END 3 */
