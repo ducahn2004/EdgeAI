@@ -113,6 +113,34 @@ static void compute_delta_causal(
     uint32_t frames_available,
     float32_t *out_delta);
 
+static void MFCC_DebugFrame(
+    float32_t energy,
+    float32_t *mfcc_static,
+    float32_t *mfcc_out,
+    uint32_t dt_ms)
+{
+    static uint32_t last_log_ms = 0;
+    uint32_t now = HAL_GetTick();
+
+    if (now - last_log_ms < 500)
+        return;
+
+    last_log_ms = now;
+
+    DebugUART_Log(
+        "[MFCC_FRAME] energy=%.6f dt=%lu ms static=[%.3f %.3f %.3f] feat=[%.3f %.3f %.3f %.3f %.3f]\r\n",
+        energy,
+        dt_ms,
+        mfcc_static[0],
+        mfcc_static[1],
+        mfcc_static[2],
+        mfcc_out[0],
+        mfcc_out[1],
+        mfcc_out[2],
+        mfcc_out[13],
+        mfcc_out[26]);
+}
+
 /* =========================================================================
  * Preprocessing_Init
  * ========================================================================= */
@@ -335,6 +363,7 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
         }
     }
 }
+
 void compute_mfcc_one_frame_timed(int16_t *audio_frame, float *mfcc_frame)
 {
     uint32_t t0 = HAL_GetTick();
@@ -351,6 +380,15 @@ void compute_mfcc_one_frame_timed(int16_t *audio_frame, float *mfcc_frame)
     }
 
     mfcc_frame_count++;
+
+    float32_t energy = 0.0f;
+    for (uint32_t i = 0; i < FRAME_LEN; i++)
+    {
+        float32_t x = (float32_t)audio_frame[i] / 32768.0f;
+        energy += x * x;
+    }
+
+    MFCC_DebugFrame(energy, pOutColBuffer, mfcc_frame, dt);
 }
 
 void MFCC_DebugLog_Window(void)
