@@ -322,10 +322,25 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
     }
 
     // Tạm giữ filter OFF cho tới khi có coeff đúng fs=2000
-    arm_biquad_cascade_df1_f32(&S_Filter, pInFrame, pInFrame, FRAME_LEN);
+    // arm_biquad_cascade_df1_f32(&S_Filter, pInFrame, pInFrame, FRAME_LEN);
 
     MfccColumn(&S_Mfcc, pInFrame, pOutColBuffer);
+    for (uint32_t i = 0; i < NUM_MFCC; i++)
+    {
+        if (!isfinite(pOutColBuffer[i]))
+        {
+            DebugUART_Log(
+                "[MFCC_ERR] NaN after MfccColumn i=%lu energy=%.8f in0=%.6f in1=%.6f in2=%.6f\r\n",
+                i,
+                energy,
+                pInFrame[0],
+                pInFrame[1],
+                pInFrame[2]);
 
+            memset(pOutMfccFrame, 0, MFCC_FEATURES * sizeof(float32_t));
+            return;
+        }
+    }
     /* 4. Cập nhật MFCC history ring buffer */
     history_idx = (history_idx + 1) % (DELTA_N + 1);
     memcpy(mfcc_history[history_idx], pOutColBuffer, NUM_MFCC * sizeof(float32_t));

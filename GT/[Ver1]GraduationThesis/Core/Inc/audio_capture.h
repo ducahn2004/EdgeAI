@@ -68,11 +68,10 @@ extern volatile uint32_t dbg_audio_ready_count;
 /* =========================================================================
  * Function prototypes
  * ========================================================================= */
-static uint32_t RingBuffer_Used(void);
-static void Audio_DebugSamples(int16_t *data, uint32_t len);
 void StartAudioCapture(void);
 void Audio_DebugLog_Process(void);
+
 uint32_t RingBuffer_Available(void);
-uint8_t RingBuffer_Read(int16_t *out, uint32_t len);    
-void RingBuffer_Flush(void);    
+uint8_t  RingBuffer_Read(int16_t *out, uint32_t len);
+void     RingBuffer_Flush(void);  
 #endif /* INC_AUDIO_CAPTURE_H_ */

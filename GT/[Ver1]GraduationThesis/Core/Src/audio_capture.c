@@ -54,8 +54,12 @@ volatile uint8_t dbg_ring_audio_flag = 0;
 int16_t dbg_ring_audio_snapshot[64];
 volatile uint32_t dbg_ring_audio_count = 0;
 
+
+/* Private function prototypes */
 static uint32_t RingBuffer_Used(void);
 static void Audio_DebugSamples(int16_t *data, uint32_t len);
+static void audio_push_to_ring(int16_t *data, uint32_t len);
+
 /* UART log helper */
 static void Audio_DebugSamples(int16_t *data, uint32_t len)
 {
