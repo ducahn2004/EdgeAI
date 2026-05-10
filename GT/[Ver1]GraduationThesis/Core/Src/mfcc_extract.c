@@ -13,16 +13,6 @@
 #include "arm_math.h"
 #include "debug_uart.h"
 
-#define SAMPLE_RATE PROC_SAMPLE_RATE
-#define HOP_LEN HOP_SAMPLES
-#define FFT_LEN 256U
-#define NUM_MFCC 13U
-#define NUM_MFCC_TOTAL (NUM_MFCC * 3) // 39
-#define NUM_MELS 128U
-#define NUM_STAGES 2 // Bậc 4 Butterworth = 2 tầng Biquad
-
-#define MAX_MEL_COEFS 8192U
-
 // Global buffers (khai báo extern trong .h nếu cần share)
 arm_rfft_fast_instance_f32 S_Rfft;
 MelFilterTypeDef S_MelFilter;
@@ -107,6 +97,18 @@ static uint32_t frames_seen = 0;                       // số frame đã xử l
 /* =========================================================================
  * Prototype nội bộ
  * ========================================================================= */
+
+static uint8_t float_array_is_finite(float32_t *x, uint32_t len)
+{
+    for (uint32_t i = 0; i < len; i++)
+    {
+        if (!isfinite(x[i]))
+            return 0;
+    }
+
+    return 1;
+}
+
 static void compute_delta_causal(
     float32_t history[][NUM_MFCC],
     uint32_t current_idx,
@@ -126,6 +128,15 @@ static void MFCC_DebugFrame(
         return;
 
     last_log_ms = now;
+
+    if (!float_array_is_finite(mfcc_static, NUM_MFCC) ||
+        !float_array_is_finite(mfcc_out, MFCC_FEATURES))
+    {
+        DebugUART_Log("[MFCC_FRAME_ERR] invalid values, energy=%.6f dt=%lu ms\r\n",
+                      energy,
+                      dt_ms);
+        return;
+    }
 
     DebugUART_Log(
         "[MFCC_FRAME] energy=%.6f dt=%lu ms static=[%.3f %.3f %.3f] feat=[%.3f %.3f %.3f %.3f %.3f]\r\n",
@@ -157,7 +168,7 @@ void Preprocessing_Init(void)
     frames_seen = 0;
 
     /* --- Window function (Hamming) --- */
-    if (Window_Init(pWindowFuncBuffer, FRAME_LEN, WINDOW_HAMMING) != 0)
+    if (Window_Init(pWindowFuncBuffer, FFT_LEN, WINDOW_HANN) != 0)
     {
         Error_Handler();
     }
@@ -179,12 +190,18 @@ void Preprocessing_Init(void)
     S_MelFilter.FFTLen = FFT_LEN;       // 256
     S_MelFilter.SampRate = SAMPLE_RATE; // 2000
     S_MelFilter.FMin = 0.0f;
-    S_MelFilter.FMax = (float32_t)(SAMPLE_RATE / 2); // 1000.0 Hz
+    S_MelFilter.FMax = (float32_t)SAMPLE_RATE / 2.0f;
+    ; // 2000.0 Hz
     S_MelFilter.Formula = MEL_SLANEY;
     S_MelFilter.Normalize = 1;
     S_MelFilter.Mel2F = 1;
 
     MelFilterbank_Init(&S_MelFilter);
+    DebugUART_Log(
+        "[MEL] coeffs=%lu first=%.6f last=%.6f\r\n",
+        S_MelFilter.CoefficientsLength,
+        pMelFilterCoefs[0],
+        pMelFilterCoefs[S_MelFilter.CoefficientsLength - 1]);
 
     if (S_MelFilter.CoefficientsLength > MAX_MEL_COEFS)
     {
@@ -228,11 +245,10 @@ void Preprocessing_Init(void)
      * EPS = 1e-8 (khớp Python EPS = 1E-8)
      */
     S_LogMelSpectr.MelSpectrogramConf = &S_MelSpectr;
-    S_LogMelSpectr.LogFormula = LOGMELSPECTROGRAM_SCALE_LOG; // natural log
+    S_LogMelSpectr.LogFormula = LOGMELSPECTROGRAM_SCALE_LOG; 
     S_LogMelSpectr.Ref = 1.0f;
-    // S_LogMelSpectr.TopdB = HUGE_VALF; // không clip (Python không clip)
+    S_LogMelSpectr.TopdB = HUGE_VALF; // không clip (Python không clip)
     S_LogMelSpectr.Ref = 1.0f;
-    S_LogMelSpectr.TopdB = 80.0f;
     /* --- MFCC --- */
     S_Mfcc.LogMelConf = &S_LogMelSpectr;
     S_Mfcc.pDCT = &S_DCT;
@@ -307,74 +323,74 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
     if (!pInSignal || !pOutMfccFrame)
         return;
 
-    buf_to_float_normed(pInSignal, pInFrame, FRAME_LEN);
+    memset(pInFrame, 0, sizeof(pInFrame));
 
-    float32_t energy = 0.0f;
-    for (uint32_t i = 0; i < FRAME_LEN; i++)
-    {
-        energy += pInFrame[i] * pInFrame[i];
-    }
-
-    if (energy < 1e-7f)
-    {
-        memset(pOutMfccFrame, 0, MFCC_FEATURES * sizeof(float32_t));
-        return;
-    }
-
-    // Tạm giữ filter OFF cho tới khi có coeff đúng fs=2000
-    // arm_biquad_cascade_df1_f32(&S_Filter, pInFrame, pInFrame, FRAME_LEN);
-
+    buf_to_float_normed(pInSignal,
+                        pInFrame,
+                        FRAME_LEN);
     MfccColumn(&S_Mfcc, pInFrame, pOutColBuffer);
+
     for (uint32_t i = 0; i < NUM_MFCC; i++)
     {
         if (!isfinite(pOutColBuffer[i]))
         {
-            DebugUART_Log(
-                "[MFCC_ERR] NaN after MfccColumn i=%lu energy=%.8f in0=%.6f in1=%.6f in2=%.6f\r\n",
-                i,
-                energy,
-                pInFrame[0],
-                pInFrame[1],
-                pInFrame[2]);
-
+            DebugUART_Log("[MFCC_ERR] static NaN i=%lu\r\n", i);
             memset(pOutMfccFrame, 0, MFCC_FEATURES * sizeof(float32_t));
             return;
         }
     }
-    /* 4. Cập nhật MFCC history ring buffer */
+
+    /*
+     * Update MFCC history để tính delta và delta-delta.
+     */
     history_idx = (history_idx + 1) % (DELTA_N + 1);
-    memcpy(mfcc_history[history_idx], pOutColBuffer, NUM_MFCC * sizeof(float32_t));
+
+    memcpy(mfcc_history[history_idx],
+           pOutColBuffer,
+           NUM_MFCC * sizeof(float32_t));
+
     if (frames_seen < DELTA_N + 1)
     {
         frames_seen++;
     }
 
-    /* 5. Tính delta (Δ) — causal approximation của librosa width=9 */
     float32_t delta[NUM_MFCC];
-    compute_delta_causal(mfcc_history, history_idx, frames_seen, delta);
-
-    /* 6. Cập nhật delta history ring buffer cho ΔΔ */
-    memcpy(delta_history[history_idx], delta, NUM_MFCC * sizeof(float32_t));
-
-    /* 7. Tính delta-delta (ΔΔ) */
     float32_t delta_delta[NUM_MFCC];
-    compute_delta_causal(delta_history, history_idx, frames_seen, delta_delta);
 
-    /* 8. Ghép thành vector 39: [MFCC(13) | Δ(13) | ΔΔ(13)]
-     *    Khớp: np.concatenate((mfcc_static, delta, delta2), axis=0)
+    compute_delta_causal(mfcc_history,
+                         history_idx,
+                         frames_seen,
+                         delta);
+
+    memcpy(delta_history[history_idx],
+           delta,
+           NUM_MFCC * sizeof(float32_t));
+
+    compute_delta_causal(delta_history,
+                         history_idx,
+                         frames_seen,
+                         delta_delta);
+
+    /*
+     * Output shape mỗi frame = 39:
+     * [0..12]   MFCC
+     * [13..25]  delta
+     * [26..38]  delta-delta
      */
     for (uint32_t i = 0; i < NUM_MFCC; i++)
     {
-        pOutMfccFrame[i] = pOutColBuffer[i];              // static
-        pOutMfccFrame[NUM_MFCC + i] = delta[i];           // Δ
-        pOutMfccFrame[2 * NUM_MFCC + i] = delta_delta[i]; // ΔΔ
+        pOutMfccFrame[i] = pOutColBuffer[i];
+        pOutMfccFrame[NUM_MFCC + i] = delta[i];
+        pOutMfccFrame[2 * NUM_MFCC + i] = delta_delta[i];
     }
 
     for (uint32_t i = 0; i < MFCC_FEATURES; i++)
     {
         if (!isfinite(pOutMfccFrame[i]))
         {
-            pOutMfccFrame[i] = 0.0f;
+            DebugUART_Log("[MFCC_ERR] final feature NaN i=%lu\r\n", i);
+            memset(pOutMfccFrame, 0, MFCC_FEATURES * sizeof(float32_t));
+            return;
         }
     }
 }
@@ -396,14 +412,22 @@ void compute_mfcc_one_frame_timed(int16_t *audio_frame, float *mfcc_frame)
 
     mfcc_frame_count++;
 
-    float32_t energy = 0.0f;
-    for (uint32_t i = 0; i < FRAME_LEN; i++)
-    {
-        float32_t x = (float32_t)audio_frame[i] / 32768.0f;
-        energy += x * x;
-    }
+    static uint32_t last_log_ms = 0;
+    uint32_t now = HAL_GetTick();
 
-    MFCC_DebugFrame(energy, pOutColBuffer, mfcc_frame, dt);
+    if (now - last_log_ms >= 500)
+    {
+        last_log_ms = now;
+
+        DebugUART_Log(
+            "[MFCC_FRAME] dt=%lu ms mfcc=[%.3f %.3f %.3f] delta=[%.3f] delta2=[%.3f]\r\n",
+            dt,
+            mfcc_frame[0],
+            mfcc_frame[1],
+            mfcc_frame[2],
+            mfcc_frame[13],
+            mfcc_frame[26]);
+    }
 }
 
 void MFCC_DebugLog_Window(void)

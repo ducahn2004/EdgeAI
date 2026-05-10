@@ -11,8 +11,6 @@
 #include <stdarg.h>
 #include "debug_uart.h"
 
-#define AUDIO_CHANNELS 2
-#define MONO_CHANNEL_INDEX 0
 
 extern I2S_HandleTypeDef hi2s1;
 extern UART_HandleTypeDef huart3;

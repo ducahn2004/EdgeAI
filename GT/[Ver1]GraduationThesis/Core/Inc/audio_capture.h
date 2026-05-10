@@ -18,8 +18,8 @@
  *   Downsample    : 48000 / 2000 = 24
  * ========================================================================= */
 #define I2S_SAMPLE_RATE      48000U
-#define PROC_SAMPLE_RATE     2000U
-#define DOWNSAMPLE_RATIO     (I2S_SAMPLE_RATE / PROC_SAMPLE_RATE)   // = 24
+#define PROC_SAMPLE_RATE     4000U
+#define DOWNSAMPLE_RATIO     (I2S_SAMPLE_RATE / PROC_SAMPLE_RATE)   // = 12
 
 /* =========================================================================
  * Frame / hop — tính tại PROC_SAMPLE_RATE = 2000 Hz
@@ -31,16 +31,18 @@
  * ========================================================================= */
 #define FRAME_LEN_MS         25U
 #define HOP_LEN_MS           15U
-#define FRAME_LEN            ((PROC_SAMPLE_RATE * FRAME_LEN_MS) / 1000U)   // = 50
-#define HOP_SAMPLES          ((PROC_SAMPLE_RATE * HOP_LEN_MS)   / 1000U)   // = 30
+#define FRAME_LEN            ((PROC_SAMPLE_RATE * FRAME_LEN_MS) / 1000U)   // = 1000
+#define HOP_SAMPLES          ((PROC_SAMPLE_RATE * HOP_LEN_MS)   / 1000U)   // = 60
 
 /* =========================================================================
  * DMA audio buffer (raw 48kHz)
  *   Mỗi half-callback nhận 720 raw samples → downsample → 30 samples @2kHz
  *   AUDIO_BUFFER_SIZE = 2 * 720 = 1440  (half + full)
  * ========================================================================= */
-#define AUDIO_HALF_RAW       (HOP_SAMPLES * DOWNSAMPLE_RATIO)              // = 720
-#define AUDIO_BUFFER_SIZE    (AUDIO_HALF_RAW * 2)                          // = 1440
+#define AUDIO_CHANNELS 2
+#define MONO_CHANNEL_INDEX 0
+#define AUDIO_HALF_RAW       (HOP_SAMPLES * DOWNSAMPLE_RATIO * AUDIO_CHANNELS) // = 1440
+#define AUDIO_BUFFER_SIZE    (AUDIO_HALF_RAW * 2)                          // = 2880
 
 /* =========================================================================
  * Ring buffer — lưu dữ liệu đã downsample @2kHz

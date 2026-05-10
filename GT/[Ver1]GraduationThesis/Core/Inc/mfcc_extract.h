@@ -28,6 +28,16 @@
 #define MFCC_TIME_FRAMES    333U
 #define MFCC_TOTAL_SIZE (MFCC_FEATURES * MFCC_TIME_FRAMES)
 
+#define SAMPLE_RATE PROC_SAMPLE_RATE
+#define HOP_LEN HOP_SAMPLES
+#define FFT_LEN 256U
+#define NUM_MFCC 13U
+#define NUM_MFCC_TOTAL (NUM_MFCC * 3) // 39
+#define NUM_MELS 128U
+#define NUM_STAGES 2 // Bậc 4 Butterworth = 2 tầng Biquad
+
+#define MAX_MEL_COEFS 8192U
+
 extern float32_t mfcc_final_features[39][333];
 extern uint32_t mfcc_collected;
 extern void compute_mfcc_one_frame(int16_t *frame, float *out_39);
@@ -37,7 +47,7 @@ extern uint32_t mfcc_time_total_ms;
 extern uint32_t mfcc_time_max_ms;
 extern uint32_t mfcc_window_start_ms;
 
-    
+
 /* =====================================================================
  * Thông số phù hợp với PhysioNet 2016 + model input 1×39×333
  * ===================================================================== */
