@@ -1743,44 +1743,44 @@
   ],
   "environment": {
     "generated_model": {
-      "generated_time": "2026-05-10T21:49:28+0700",
+      "generated_time": "2026-05-11T08:24:39+0700",
       "model_files": [
         {
           "name": "network_4_data_params.h",
-          "signature": "0x9c337ea0b8df46e0ce9f0c8db46f4842"
+          "signature": "0x38c9f5c6edf94f005087aa359cadb3f2"
         },
         {
           "name": "network_4_data_params.c",
-          "signature": "0x4c463a46477803606a73a9869d7990c9"
+          "signature": "0x84cd5a5d72c0baf879883b40e741bdd7"
         },
         {
           "name": "network_4_data.h",
-          "signature": "0x499b9a9bfb3cadca8b8445f823d52058"
+          "signature": "0xc058503d2ae27832ce1c56ebb936dbd0"
         },
         {
           "name": "network_4_data.c",
-          "signature": "0x9a2e4d5d814f22d587e4a1b9391e032a"
+          "signature": "0x04ece8551e1639c2a6ae26df3543c88d"
         },
         {
           "name": "network_4_config.h",
-          "signature": "0x169018ea1cd4d34b890c66e77618e89b"
+          "signature": "0xb9694dd46809d71ab328fb0dc945c86d"
         },
         {
           "name": "network_4.h",
-          "signature": "0xac584957d092d94021d3c74d02c62cd3"
+          "signature": "0xe1ee692f80874998fa15bb515d372c59"
         },
         {
           "name": "network_4.c",
-          "signature": "0x568f57a6447dd6f177e9b7be2f21185b"
+          "signature": "0x16cb9c3b9c5e541a5b6332c3fa378ddf"
         }
       ],
       "name": "network_4"
     },
-    "network_signature": "0x41f20454e06b5f79",
+    "network_signature": "0x66a28e76ab15af15",
     "test_name": "",
     "tools": [
       {
-        "arguments": "generate --target stm32h7 --name network_4 -m D:/ML/light_cnn_0406_003729_final_float32.tflite --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace3475202408805009839323409185806651 --output C:/Users/edoph/.stm32cubemx/network_4_output",
+        "arguments": "generate --target stm32h7 --name network_4 -m D:/ML/light_cnn_0406_003729_final_float32.tflite --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace38566858407830016921272154655523304 --output C:/Users/edoph/.stm32cubemx/network_4_output",
         "environment": [
           "STATS_TYPE=X-CUBE-AI"
         ],

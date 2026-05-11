@@ -48,7 +48,7 @@
  * Ring buffer — lưu dữ liệu đã downsample @2kHz
  *   Cần đủ cho vài giây buffer, 2000 Hz * 5s = 10000 samples
  * ========================================================================= */
-#define RING_BUFFER_SIZE     10000U
+#define RING_BUFFER_SIZE     24000U
 
 /* =========================================================================
  * Exports

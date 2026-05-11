@@ -1,30 +1,30 @@
 ST Edge AI Core v2.2.0-20266 2adc00962
-Created date          : 2026-05-10 21:49:38
-Parameters            : generate --target stm32h7 --name network_4 -m D:/ML/light_cnn_0406_003729_final_float32.tflite --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace3475202408805009839323409185806651 --output C:/Users/edoph/.stm32cubemx/network_4_output
+Created date          : 2026-05-11 08:24:48
+Parameters            : generate --target stm32h7 --name network_4 -m D:/ML/light_cnn_0406_003729_final_float32.tflite --compression none --verbosity 1 --workspace C:/Users/edoph/AppData/Local/Temp/mxAI_workspace38566858407830016921272154655523304 --output C:/Users/edoph/.stm32cubemx/network_4_output
 
 Exec/report summary (generate)
-------------------------------------------------------------------------------------------------------------
-model file         :   D:\ML\light_cnn_0406_003729_final_float32.tflite                                     
-type               :   tflite                                                                               
-c_name             :   network_4                                                                            
-compression        :   none                                                                                 
-options            :   allocate-inputs, allocate-outputs                                                    
-optimization       :   balanced                                                                             
-target/series      :   stm32h7                                                                              
-workspace dir      :   C:\Users\edoph\AppData\Local\Temp\mxAI_workspace3475202408805009839323409185806651   
-output dir         :   C:\Users\edoph\.stm32cubemx\network_4_output                                         
-model_fmt          :   float                                                                                
-model_name         :   light_cnn_0406_003729_final_float32                                                  
-model_hash         :   0xa20f80b0e2da93f9ba19af66fd392edf                                                   
-params #           :   7,754 items (30.29 KiB)                                                              
-------------------------------------------------------------------------------------------------------------
-input 1/1          :   'input', f32(1x333x39), 50.73 KBytes, activations                                    
-output 1/1         :   'gemm_26', f32(1x2), 8 Bytes, activations                                            
-macc               :   1,861,855                                                                            
-weights (ro)       :   31,024 B (30.30 KiB) (1 segment) / +8(+0.0%) vs float model                          
-activations (rw)   :   119,056 B (116.27 KiB) (1 segment) *                                                 
-ram (total)        :   119,056 B (116.27 KiB) = 119,056 + 0 + 0                                             
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+model file         :   D:\ML\light_cnn_0406_003729_final_float32.tflite                                      
+type               :   tflite                                                                                
+c_name             :   network_4                                                                             
+compression        :   none                                                                                  
+options            :   allocate-inputs, allocate-outputs                                                     
+optimization       :   balanced                                                                              
+target/series      :   stm32h7                                                                               
+workspace dir      :   C:\Users\edoph\AppData\Local\Temp\mxAI_workspace38566858407830016921272154655523304   
+output dir         :   C:\Users\edoph\.stm32cubemx\network_4_output                                          
+model_fmt          :   float                                                                                 
+model_name         :   light_cnn_0406_003729_final_float32                                                   
+model_hash         :   0xa20f80b0e2da93f9ba19af66fd392edf                                                    
+params #           :   7,754 items (30.29 KiB)                                                               
+-------------------------------------------------------------------------------------------------------------
+input 1/1          :   'input', f32(1x333x39), 50.73 KBytes, activations                                     
+output 1/1         :   'gemm_26', f32(1x2), 8 Bytes, activations                                             
+macc               :   1,861,855                                                                             
+weights (ro)       :   31,024 B (30.30 KiB) (1 segment) / +8(+0.0%) vs float model                           
+activations (rw)   :   119,056 B (116.27 KiB) (1 segment) *                                                  
+ram (total)        :   119,056 B (116.27 KiB) = 119,056 + 0 + 0                                              
+-------------------------------------------------------------------------------------------------------------
 (*) 'input'/'output' buffers are allocated in the activations buffer
 
 Model name - light_cnn_0406_003729_final_float32

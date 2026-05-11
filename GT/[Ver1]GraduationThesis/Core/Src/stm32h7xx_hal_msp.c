@@ -99,7 +99,7 @@ void HAL_I2S_MspInit(I2S_HandleTypeDef* hi2s)
     PeriphClkInitStruct.PLL2.PLL2M = 5;
     PeriphClkInitStruct.PLL2.PLL2N = 192;
     PeriphClkInitStruct.PLL2.PLL2P = 78;
-    PeriphClkInitStruct.PLL2.PLL2Q = 2;
+    PeriphClkInitStruct.PLL2.PLL2Q = 20;
     PeriphClkInitStruct.PLL2.PLL2R = 20;
     PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_2;
     PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;

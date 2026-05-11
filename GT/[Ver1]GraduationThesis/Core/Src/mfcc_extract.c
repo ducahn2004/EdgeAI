@@ -104,7 +104,6 @@ static void compute_delta_causal(
     uint32_t frames_available,
     float32_t *out_delta);
 
-
 /* =========================================================================
  * Preprocessing_Init
  * ========================================================================= */
@@ -198,7 +197,7 @@ void Preprocessing_Init(void)
      * EPS = 1e-8 (khớp Python EPS = 1E-8)
      */
     S_LogMelSpectr.MelSpectrogramConf = &S_MelSpectr;
-    S_LogMelSpectr.LogFormula = LOGMELSPECTROGRAM_SCALE_LOG; 
+    S_LogMelSpectr.LogFormula = LOGMELSPECTROGRAM_SCALE_LOG;
     S_LogMelSpectr.Ref = 1.0f;
     S_LogMelSpectr.TopdB = HUGE_VALF; // không clip (Python không clip)
     S_LogMelSpectr.Ref = 1.0f;
@@ -287,7 +286,7 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
     {
         if (!isfinite(pOutColBuffer[i]))
         {
-            //DebugUART_Log("[MFCC_ERR] static NaN i=%lu\r\n", i);
+            // DebugUART_Log("[MFCC_ERR] static NaN i=%lu\r\n", i);
             memset(pOutMfccFrame, 0, MFCC_FEATURES * sizeof(float32_t));
             return;
         }
@@ -385,7 +384,7 @@ void compute_mfcc_one_frame_timed(int16_t *audio_frame, float *mfcc_frame)
 
 void MFCC_DebugLog_Window(void)
 {
-    //uint32_t window_time = HAL_GetTick() - mfcc_window_start_ms;
+    // uint32_t window_time = HAL_GetTick() - mfcc_window_start_ms;
 
     uint32_t avg = 0;
     if (mfcc_frame_count > 0)
@@ -393,11 +392,13 @@ void MFCC_DebugLog_Window(void)
         avg = mfcc_time_total_ms / mfcc_frame_count;
     }
 
-    DebugUART_Log("[MFCC] audio_window=%lu ms, frames=%lu, avg=%lu ms, max=%lu ms\r\n",
-                  MFCC_TIME_FRAMES * HOP_LEN_MS,
-                  mfcc_frame_count,
-                  avg,
-                  mfcc_time_max_ms);
+    DebugUART_Log(
+        "[MFCC] audio_window=%lu ms, model_frames=%lu, new_frames=%lu, avg=%lu ms, max=%lu ms\r\n",
+        4995UL,
+        MFCC_TIME_FRAMES,
+        mfcc_frame_count,
+        avg,
+        mfcc_time_max_ms);
 }
 
 void MFCC_DebugReset_Window(void)
@@ -416,17 +417,24 @@ void MFCC_DebugReset_Window(void)
  * ========================================================================= */
 void mfcc_append_frame(float *new_frame)
 {
-    for (int i = 0; i < MFCC_FEATURES; i++)
-    {
-        memmove(&mfcc_final_features[i][0],
-                &mfcc_final_features[i][1],
-                sizeof(float32_t) * (MFCC_TIME_FRAMES - 1));
-
-        mfcc_final_features[i][MFCC_TIME_FRAMES - 1] = new_frame[i];
-    }
-
     if (mfcc_collected < MFCC_TIME_FRAMES)
     {
+        for (uint32_t i = 0; i < MFCC_FEATURES; i++)
+        {
+            mfcc_final_features[i][mfcc_collected] = new_frame[i];
+        }
+
         mfcc_collected++;
+    }
+    else
+    {
+        for (uint32_t i = 0; i < MFCC_FEATURES; i++)
+        {
+            memmove(&mfcc_final_features[i][0],
+                    &mfcc_final_features[i][1],
+                    (MFCC_TIME_FRAMES - 1) * sizeof(float));
+
+            mfcc_final_features[i][MFCC_TIME_FRAMES - 1] = new_frame[i];
+        }
     }
 }

@@ -16,6 +16,7 @@ extern I2S_HandleTypeDef hi2s1;
 extern UART_HandleTypeDef huart3;
 
 /* Audio buffers */
+__attribute__((aligned(32)))
 int16_t audio_bufferA[AUDIO_BUFFER_SIZE];
 volatile int16_t *current_buffer = audio_bufferA;
 volatile uint8_t audio_ready = 0;
@@ -56,7 +57,16 @@ volatile uint32_t dbg_ring_audio_count = 0;
 /* Private function prototypes */
 //static uint32_t RingBuffer_Used(void);
 static void audio_push_to_ring(int16_t *data, uint32_t len);
+static void Audio_InvalidateDCache(void *addr, uint32_t size_bytes)
+{
+    uint32_t start = (uint32_t)addr;
+    uint32_t end   = start + size_bytes;
 
+    start &= ~31U;
+    end = (end + 31U) & ~31U;
+
+    SCB_InvalidateDCache_by_Addr((uint32_t *)start, end - start);
+}
 /*
  * Gọi hàm này trong while(1)
  */
@@ -210,6 +220,11 @@ void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s)
     {
         dbg_i2s_half_count++;
 
+        Audio_InvalidateDCache(
+            audio_bufferA,
+            (AUDIO_BUFFER_SIZE / 2) * sizeof(int16_t)
+        );
+
         audio_push_to_ring(audio_bufferA, AUDIO_BUFFER_SIZE / 2);
 
         audio_ready = 1;
@@ -228,6 +243,11 @@ void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s)
     if (hi2s->Instance == SPI1)
     {
         dbg_i2s_full_count++;
+
+        Audio_InvalidateDCache(
+            &audio_bufferA[AUDIO_BUFFER_SIZE / 2],
+            (AUDIO_BUFFER_SIZE / 2) * sizeof(int16_t)
+        );
 
         audio_push_to_ring(&audio_bufferA[AUDIO_BUFFER_SIZE / 2],
                            AUDIO_BUFFER_SIZE / 2);
