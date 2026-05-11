@@ -98,59 +98,12 @@ static uint32_t frames_seen = 0;                       // số frame đã xử l
  * Prototype nội bộ
  * ========================================================================= */
 
-static uint8_t float_array_is_finite(float32_t *x, uint32_t len)
-{
-    for (uint32_t i = 0; i < len; i++)
-    {
-        if (!isfinite(x[i]))
-            return 0;
-    }
-
-    return 1;
-}
-
 static void compute_delta_causal(
     float32_t history[][NUM_MFCC],
     uint32_t current_idx,
     uint32_t frames_available,
     float32_t *out_delta);
 
-static void MFCC_DebugFrame(
-    float32_t energy,
-    float32_t *mfcc_static,
-    float32_t *mfcc_out,
-    uint32_t dt_ms)
-{
-    static uint32_t last_log_ms = 0;
-    uint32_t now = HAL_GetTick();
-
-    if (now - last_log_ms < 500)
-        return;
-
-    last_log_ms = now;
-
-    if (!float_array_is_finite(mfcc_static, NUM_MFCC) ||
-        !float_array_is_finite(mfcc_out, MFCC_FEATURES))
-    {
-        DebugUART_Log("[MFCC_FRAME_ERR] invalid values, energy=%.6f dt=%lu ms\r\n",
-                      energy,
-                      dt_ms);
-        return;
-    }
-
-    DebugUART_Log(
-        "[MFCC_FRAME] energy=%.6f dt=%lu ms static=[%.3f %.3f %.3f] feat=[%.3f %.3f %.3f %.3f %.3f]\r\n",
-        energy,
-        dt_ms,
-        mfcc_static[0],
-        mfcc_static[1],
-        mfcc_static[2],
-        mfcc_out[0],
-        mfcc_out[1],
-        mfcc_out[2],
-        mfcc_out[13],
-        mfcc_out[26]);
-}
 
 /* =========================================================================
  * Preprocessing_Init
@@ -334,7 +287,7 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
     {
         if (!isfinite(pOutColBuffer[i]))
         {
-            DebugUART_Log("[MFCC_ERR] static NaN i=%lu\r\n", i);
+            //DebugUART_Log("[MFCC_ERR] static NaN i=%lu\r\n", i);
             memset(pOutMfccFrame, 0, MFCC_FEATURES * sizeof(float32_t));
             return;
         }
@@ -388,7 +341,7 @@ void compute_mfcc_one_frame(int16_t *pInSignal, float *pOutMfccFrame)
     {
         if (!isfinite(pOutMfccFrame[i]))
         {
-            DebugUART_Log("[MFCC_ERR] final feature NaN i=%lu\r\n", i);
+            // DebugUART_Log("[MFCC_ERR] final feature NaN i=%lu\r\n", i);
             memset(pOutMfccFrame, 0, MFCC_FEATURES * sizeof(float32_t));
             return;
         }
@@ -419,20 +372,20 @@ void compute_mfcc_one_frame_timed(int16_t *audio_frame, float *mfcc_frame)
     {
         last_log_ms = now;
 
-        DebugUART_Log(
-            "[MFCC_FRAME] dt=%lu ms mfcc=[%.3f %.3f %.3f] delta=[%.3f] delta2=[%.3f]\r\n",
-            dt,
-            mfcc_frame[0],
-            mfcc_frame[1],
-            mfcc_frame[2],
-            mfcc_frame[13],
-            mfcc_frame[26]);
+        // DebugUART_Log(
+        //     "[MFCC_FRAME] dt=%lu ms mfcc=[%.3f %.3f %.3f] delta=[%.3f] delta2=[%.3f]\r\n",
+        //     dt,
+        //     mfcc_frame[0],
+        //     mfcc_frame[1],
+        //     mfcc_frame[2],
+        //     mfcc_frame[13],
+        //     mfcc_frame[26]);
     }
 }
 
 void MFCC_DebugLog_Window(void)
 {
-    uint32_t window_time = HAL_GetTick() - mfcc_window_start_ms;
+    //uint32_t window_time = HAL_GetTick() - mfcc_window_start_ms;
 
     uint32_t avg = 0;
     if (mfcc_frame_count > 0)
@@ -440,9 +393,8 @@ void MFCC_DebugLog_Window(void)
         avg = mfcc_time_total_ms / mfcc_frame_count;
     }
 
-    DebugUART_Log("[MFCC] audio_window=%lu ms, cpu_window=%lu ms, frames=%lu, avg=%lu ms, max=%lu ms\r\n",
+    DebugUART_Log("[MFCC] audio_window=%lu ms, frames=%lu, avg=%lu ms, max=%lu ms\r\n",
                   MFCC_TIME_FRAMES * HOP_LEN_MS,
-                  window_time,
                   mfcc_frame_count,
                   avg,
                   mfcc_time_max_ms);

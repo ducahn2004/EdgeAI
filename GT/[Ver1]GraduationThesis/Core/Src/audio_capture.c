@@ -54,42 +54,8 @@ volatile uint32_t dbg_ring_audio_count = 0;
 
 
 /* Private function prototypes */
-static uint32_t RingBuffer_Used(void);
-static void Audio_DebugSamples(int16_t *data, uint32_t len);
+//static uint32_t RingBuffer_Used(void);
 static void audio_push_to_ring(int16_t *data, uint32_t len);
-
-/* UART log helper */
-static void Audio_DebugSamples(int16_t *data, uint32_t len)
-{
-    int16_t min = 32767;
-    int16_t max = -32768;
-
-    int64_t sum_sq = 0;
-
-    for (uint32_t i = 0; i < len; i++)
-    {
-        if (data[i] < min)
-            min = data[i];
-
-        if (data[i] > max)
-            max = data[i];
-
-        sum_sq += (int32_t)data[i] * (int32_t)data[i];
-    }
-
-    float rms = sqrtf((float)sum_sq / len);
-
-    DebugUART_Log(
-        "[MFCC_IN] min=%d max=%d rms=%.1f first=[%d %d %d %d %d]\r\n",
-        min,
-        max,
-        rms,
-        data[0],
-        data[1],
-        data[2],
-        data[3],
-        data[4]);
-}
 
 /*
  * Gọi hàm này trong while(1)
@@ -111,11 +77,11 @@ void Audio_DebugLog_Process(void)
     if (dbg_overflow_flag)
     {
         dbg_overflow_flag = 0;
-        DebugUART_Log("[RING_ERR] overflow=%lu rb_w=%lu rb_r=%lu used=%lu\r\n",
-                      dbg_ring_overflow_count,
-                      rb_write,
-                      rb_read,
-                      RingBuffer_Used());
+        // DebugUART_Log("[RING_ERR] overflow=%lu rb_w=%lu rb_r=%lu used=%lu\r\n",
+        //               dbg_ring_overflow_count,
+        //               rb_write,
+        //               rb_read,
+        //               RingBuffer_Used());
     }
 
     /* Log tổng mỗi 1 giây */
@@ -124,12 +90,12 @@ void Audio_DebugLog_Process(void)
     {
         dbg_last_log_ms = now;
 
-        DebugUART_Log(
-            "[AUDIO] used=%lu smp (%.3f s) | push_time=%lu us | overflow=%lu\r\n",
-            RingBuffer_Used(),
-            (float)RingBuffer_Used() / 2000.0f,
-            dbg_last_push_time_ms * 1000, /* ms → approximate µs nếu cần tick thực */
-            dbg_ring_overflow_count);
+        // DebugUART_Log(
+        //     "[AUDIO] used=%lu smp (%.3f s) | push_time=%lu us | overflow=%lu\r\n",
+        //     RingBuffer_Used(),
+        //     (float)RingBuffer_Used() / 2000.0f,
+        //     dbg_last_push_time_ms * 1000, /* ms → approximate µs nếu cần tick thực */
+        //     dbg_ring_overflow_count);
     }
 
     static uint32_t dbg_last_ring_audio_log_ms = 0;
@@ -139,7 +105,7 @@ void Audio_DebugLog_Process(void)
         dbg_ring_audio_flag = 0;
         dbg_last_ring_audio_log_ms = now;
 
-        Audio_DebugSamples(dbg_ring_audio_snapshot, dbg_ring_audio_count);
+        //Audio_DebugSamples(dbg_ring_audio_snapshot, dbg_ring_audio_count);
     }
 }
 
@@ -165,13 +131,13 @@ uint8_t RingBuffer_Read(int16_t *out, uint32_t len)
     return 1;
 }
 /* Tính số sample đang có trong ring buffer */
-static uint32_t RingBuffer_Used(void)
-{
-    if (rb_write >= rb_read)
-        return rb_write - rb_read;
-    else
-        return RING_BUFFER_SIZE - rb_read + rb_write;
-}
+// static uint32_t RingBuffer_Used(void)
+// {
+//     if (rb_write >= rb_read)
+//         return rb_write - rb_read;
+//     else
+//         return RING_BUFFER_SIZE - rb_read + rb_write;
+// }
 void RingBuffer_Flush(void)
 {
     rb_read = rb_write;

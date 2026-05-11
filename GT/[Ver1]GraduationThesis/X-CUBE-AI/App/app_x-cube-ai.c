@@ -221,7 +221,7 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
     float score_abnormal = output_ptr[1];
 
     classification_result = (score_abnormal > score_normal) ? 1 : 0;
-
+    
     if (classification_result == 1)
     {
       HAL_GPIO_WritePin(ABNORMAL_LED_GPIO_Port,
@@ -229,7 +229,7 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
                         GPIO_PIN_SET);
 
       DebugUART_Log(
-          "AI result: Abnormal | normal=%.6f abnormal=%.6f class=%d\r\n",
+          "[AI] AI result: Abnormal | normal=%.6f abnormal=%.6f class=%d\r\n",
           score_normal,
           score_abnormal,
           classification_result);

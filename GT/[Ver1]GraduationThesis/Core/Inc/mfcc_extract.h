@@ -33,7 +33,7 @@
 #define FFT_LEN 256U
 #define NUM_MFCC 13U
 #define NUM_MFCC_TOTAL (NUM_MFCC * 3) // 39
-#define NUM_MELS 128U
+#define NUM_MELS 64U
 #define NUM_STAGES 2 // Bậc 4 Butterworth = 2 tầng Biquad
 
 #define MAX_MEL_COEFS 8192U

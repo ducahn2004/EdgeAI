@@ -14,20 +14,20 @@
 /* =========================================================================
  * Sample rate config
  *   I2S hardware  : 48000 Hz
- *   Processing fs : 2000 Hz  (khớp physionet dataset + Python training)
- *   Downsample    : 48000 / 2000 = 24
+ *   Processing fs : 4000 Hz  (khớp physionet dataset + Python training)
+ *   Downsample    : 48000 / 4000 = 12
  * ========================================================================= */
 #define I2S_SAMPLE_RATE      48000U
 #define PROC_SAMPLE_RATE     4000U
 #define DOWNSAMPLE_RATIO     (I2S_SAMPLE_RATE / PROC_SAMPLE_RATE)   // = 12
 
 /* =========================================================================
- * Frame / hop — tính tại PROC_SAMPLE_RATE = 2000 Hz
- *   FRAME_LEN_MS = 25 ms → 25 * 2000 / 1000 = 50 samples
- *   HOP_LEN_MS   = 15 ms → 15 * 2000 / 1000 = 30 samples
+ * Frame / hop — tính tại PROC_SAMPLE_RATE = 4000 Hz
+ *   FRAME_LEN_MS = 25 ms → 25 * 4000 / 1000 = 100 samples
+ *   HOP_LEN_MS   = 15 ms → 15 * 4000 / 1000 = 60 samples
  *
- * Trong ring buffer (đã downsample), mỗi hop = 30 samples @2kHz.
- * Từ I2S (48kHz) mỗi hop tương ứng = 30 * 24 = 720 raw samples.
+ * Trong ring buffer (đã downsample), mỗi hop = 60 samples @4kHz.
+ * Từ I2S (48kHz) mỗi hop tương ứng = 60 * 12 = 720 raw samples.
  * ========================================================================= */
 #define FRAME_LEN_MS         25U
 #define HOP_LEN_MS           15U
