@@ -228,11 +228,7 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
                         ABNORMAL_LED_Pin,
                         GPIO_PIN_SET);
 
-      DebugUART_Log(
-          "[AI] AI result: Abnormal | normal=%.6f abnormal=%.6f class=%d\r\n",
-          score_normal,
-          score_abnormal,
-          classification_result);
+      DebugUART_Log("AI result: Abnormal\r\n");
     }
     else
     {
@@ -240,11 +236,7 @@ ai_i8 *data_outs[AI_NETWORK_4_OUT_NUM] = {
                         ABNORMAL_LED_Pin,
                         GPIO_PIN_RESET);
 
-      DebugUART_Log(
-          "AI result: Normal | normal=%.6f abnormal=%.6f class=%d\r\n",
-          score_normal,
-          score_abnormal,
-          classification_result);
+      DebugUART_Log("AI result: Normal\r\n");
     }
 
     return 0;
